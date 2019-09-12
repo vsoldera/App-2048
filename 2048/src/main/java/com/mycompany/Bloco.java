@@ -21,7 +21,7 @@ public class Bloco {
          if(ValorRand == 2 || ValorRand == 4) {
              return ValorRand;
                }
-         return 0;
+         return 2;
     }
     
     //Getters
