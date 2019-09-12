@@ -17,7 +17,11 @@ public class Main {
     public static void main(String[] args) {
         Bloco Bloco = new Bloco();
         System.out.println(Bloco.GeraValor(2, 4));
+
+        Tabuleiro Janela = new Tabuleiro();
+        Janela.setTitle("2048");
         
+        Janela.setVisible(true);
     }
     
 }
