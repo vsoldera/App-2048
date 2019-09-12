@@ -20,7 +20,7 @@ public class Bloco {
          int ValorRand = (int) ((Math.random()*((max-min)+1))+min);
          if(ValorRand == 2 || ValorRand == 4) {
              return ValorRand;
-               }
+         }
          return 2;
     }
     
