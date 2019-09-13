@@ -19,9 +19,10 @@ public class Main {
         System.out.println(Bloco.GeraValor(2, 4));
 
         Tabuleiro Janela = new Tabuleiro();
-        Janela.setTitle("2048");
         
+        Janela.setTitle("2048");   
         Janela.setVisible(true);
+        Janela.setResizable(false);
     }
     
 }

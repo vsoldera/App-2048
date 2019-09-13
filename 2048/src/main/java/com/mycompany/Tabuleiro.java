@@ -47,7 +47,7 @@ public class Tabuleiro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(425, 440));
 
-        pos1.setBackground(new java.awt.Color(255, 0, 0));
+        pos1.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos1Layout = new javax.swing.GroupLayout(pos1);
         pos1.setLayout(pos1Layout);
@@ -60,7 +60,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pos2.setBackground(new java.awt.Color(255, 51, 51));
+        pos2.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos2Layout = new javax.swing.GroupLayout(pos2);
         pos2.setLayout(pos2Layout);
@@ -73,7 +73,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pos3.setBackground(new java.awt.Color(255, 0, 0));
+        pos3.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos3Layout = new javax.swing.GroupLayout(pos3);
         pos3.setLayout(pos3Layout);
@@ -86,7 +86,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pos4.setBackground(new java.awt.Color(255, 0, 0));
+        pos4.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos4Layout = new javax.swing.GroupLayout(pos4);
         pos4.setLayout(pos4Layout);
@@ -99,7 +99,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 80, Short.MAX_VALUE)
         );
 
-        pos5.setBackground(new java.awt.Color(255, 0, 0));
+        pos5.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos5Layout = new javax.swing.GroupLayout(pos5);
         pos5.setLayout(pos5Layout);
@@ -112,7 +112,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 80, Short.MAX_VALUE)
         );
 
-        pos6.setBackground(new java.awt.Color(255, 0, 0));
+        pos6.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos6Layout = new javax.swing.GroupLayout(pos6);
         pos6.setLayout(pos6Layout);
@@ -125,7 +125,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pos7.setBackground(new java.awt.Color(255, 0, 0));
+        pos7.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos7Layout = new javax.swing.GroupLayout(pos7);
         pos7.setLayout(pos7Layout);
@@ -138,7 +138,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pos8.setBackground(new java.awt.Color(255, 0, 0));
+        pos8.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos8Layout = new javax.swing.GroupLayout(pos8);
         pos8.setLayout(pos8Layout);
@@ -151,7 +151,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pos9.setBackground(new java.awt.Color(255, 0, 0));
+        pos9.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos9Layout = new javax.swing.GroupLayout(pos9);
         pos9.setLayout(pos9Layout);
@@ -164,7 +164,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 80, Short.MAX_VALUE)
         );
 
-        pos10.setBackground(new java.awt.Color(255, 0, 0));
+        pos10.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos10Layout = new javax.swing.GroupLayout(pos10);
         pos10.setLayout(pos10Layout);
@@ -177,7 +177,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pos11.setBackground(new java.awt.Color(255, 0, 0));
+        pos11.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos11Layout = new javax.swing.GroupLayout(pos11);
         pos11.setLayout(pos11Layout);
@@ -190,7 +190,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pos12.setBackground(new java.awt.Color(255, 0, 0));
+        pos12.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos12Layout = new javax.swing.GroupLayout(pos12);
         pos12.setLayout(pos12Layout);
@@ -203,7 +203,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pos13.setBackground(new java.awt.Color(255, 0, 0));
+        pos13.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos13Layout = new javax.swing.GroupLayout(pos13);
         pos13.setLayout(pos13Layout);
@@ -216,7 +216,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 80, Short.MAX_VALUE)
         );
 
-        pos14.setBackground(new java.awt.Color(255, 0, 0));
+        pos14.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos14Layout = new javax.swing.GroupLayout(pos14);
         pos14.setLayout(pos14Layout);
@@ -229,7 +229,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pos15.setBackground(new java.awt.Color(255, 0, 0));
+        pos15.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos15Layout = new javax.swing.GroupLayout(pos15);
         pos15.setLayout(pos15Layout);
@@ -242,7 +242,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        pos16.setBackground(new java.awt.Color(255, 0, 0));
+        pos16.setBackground(new java.awt.Color(238, 228, 218));
 
         javax.swing.GroupLayout pos16Layout = new javax.swing.GroupLayout(pos16);
         pos16.setLayout(pos16Layout);

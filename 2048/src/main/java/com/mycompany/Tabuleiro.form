@@ -99,7 +99,7 @@
     <Container class="javax.swing.JPanel" name="pos1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -119,7 +119,7 @@
     <Container class="javax.swing.JPanel" name="pos2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="33" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -139,7 +139,7 @@
     <Container class="javax.swing.JPanel" name="pos3">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -159,7 +159,7 @@
     <Container class="javax.swing.JPanel" name="pos4">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -179,7 +179,7 @@
     <Container class="javax.swing.JPanel" name="pos5">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -199,7 +199,7 @@
     <Container class="javax.swing.JPanel" name="pos6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -219,7 +219,7 @@
     <Container class="javax.swing.JPanel" name="pos7">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -239,7 +239,7 @@
     <Container class="javax.swing.JPanel" name="pos8">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -259,7 +259,7 @@
     <Container class="javax.swing.JPanel" name="pos9">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -279,7 +279,7 @@
     <Container class="javax.swing.JPanel" name="pos10">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -299,7 +299,7 @@
     <Container class="javax.swing.JPanel" name="pos11">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -319,7 +319,7 @@
     <Container class="javax.swing.JPanel" name="pos12">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -339,7 +339,7 @@
     <Container class="javax.swing.JPanel" name="pos13">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -359,7 +359,7 @@
     <Container class="javax.swing.JPanel" name="pos14">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -379,7 +379,7 @@
     <Container class="javax.swing.JPanel" name="pos15">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
@@ -399,7 +399,7 @@
     <Container class="javax.swing.JPanel" name="pos16">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="da" green="e4" red="ee" type="rgb"/>
         </Property>
       </Properties>
 
