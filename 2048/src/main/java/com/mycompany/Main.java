@@ -5,6 +5,9 @@
  */
 package com.mycompany;
 
+import java.awt.Color;
+
+
 /**
  *
  * @author luizviniciusruoso  
@@ -15,14 +18,29 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         Bloco Bloco = new Bloco();
         System.out.println(Bloco.GeraValor(2, 4));
 
         Tabuleiro Janela = new Tabuleiro();
         
         Janela.setTitle("2048");   
+        Janela.setBackground(Color.blue);
         Janela.setVisible(true);
         Janela.setResizable(false);
+       
+
+        
     }
     
+  
+    
+    
+
+    
+    
+
 }
+
+
+

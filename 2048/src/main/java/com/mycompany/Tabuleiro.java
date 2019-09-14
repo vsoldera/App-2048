@@ -5,6 +5,8 @@
  */
 package com.mycompany;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author luizviniciusruoso
@@ -45,7 +47,9 @@ public class Tabuleiro extends javax.swing.JFrame {
         pos16 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(142, 176, 230));
+        setForeground(new java.awt.Color(175, 195, 226));
         setPreferredSize(new java.awt.Dimension(425, 440));
 
         pos1.setBackground(new java.awt.Color(175, 195, 226));
@@ -285,12 +289,12 @@ public class Tabuleiro extends javax.swing.JFrame {
                     .addComponent(pos8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pos12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pos16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pos4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -349,12 +353,24 @@ public class Tabuleiro extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Tabuleiro().setVisible(true);
             }
         });
     }
+    
+    
+    public void keyPressed(KeyEvent e) {
 
+    int key = e.getKeyCode();
+
+
+
+    if (key == KeyEvent.VK_DOWN) {
+        System.out.println("Baixo");
+    }
+}
       
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -376,3 +392,4 @@ public class Tabuleiro extends javax.swing.JFrame {
     private javax.swing.JPanel pos9;
     // End of variables declaration//GEN-END:variables
 }
+

@@ -9,9 +9,10 @@ import java.lang.Math;
  *
  * @author luizviniciusruoso
  */
-public class Bloco {
+
+//Heranca
+public class Bloco extends Animacao{
     String Cor;
-    int Posicao;
     int Situacao;
     int Valor;
     
@@ -28,10 +29,7 @@ public class Bloco {
     public String getCor() {
         return Cor;
     }
-
-    public int getPosicao() {
-        return Posicao;
-    }
+    
 
     public int getSituacao() {
         return Situacao;
@@ -47,10 +45,6 @@ public class Bloco {
         this.Cor = Cor;
     }
 
-    public void setPosicao(int Posicao) {
-        this.Posicao = Posicao;
-    }
-
     public void setSituacao(int Situacao) {
         this.Situacao = Situacao;
     }
@@ -58,6 +52,13 @@ public class Bloco {
     public void setValor(int Valor) {
         this.Valor = Valor;
     }
+    
+    
+
+    
+    
+    
+    
     
     
     
