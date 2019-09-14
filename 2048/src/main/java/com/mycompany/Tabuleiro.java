@@ -642,17 +642,6 @@ public class Tabuleiro extends javax.swing.JFrame {
         });
     }
     
-    
-    public void keyPressed(KeyEvent e) {
-
-    int key = e.getKeyCode();
-
-
-
-    if (key == KeyEvent.VK_DOWN) {
-        System.out.println("Baixo");
-    }
-}
       
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

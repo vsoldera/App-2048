@@ -5,10 +5,19 @@
  */
 package com.mycompany;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author CarryBit
  */
+
+
+
+
+
+
+
 
 //Caso de Herança
 public class Movimentacao extends Bloco{
@@ -16,7 +25,7 @@ public class Movimentacao extends Bloco{
     public boolean livreDireita;
     public boolean livreEsquerda;
     public boolean livreBaixo;
-
+    
     /**
      *
      * @return
@@ -88,6 +97,54 @@ public class Movimentacao extends Bloco{
         this.Valor = Valor;
     }
     
+
+
+ 
+        
+    public int keyPressed(KeyEvent e) {
+     
+        int key = e.getKeyCode();
+        
     
-}
+            if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) {
+                return 1; //Pressionada pra baixo(S)  
+            }
+        
+            if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) {
+                return 2; //Pressionado para a direita(D)
+            }
+        
+            if(key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) {
+                return 3; //Pressionado para a esquerda(A)
+            }
+        
+            if(key == KeyEvent.VK_UP|| key == KeyEvent.VK_W) {
+                return 4; //Pressionado para cima (W)
+            }
+
+           return -1; //Default
+    }
+
+    //Luiz escreve "Meche"
+    public int mexeBloco(KeyEvent e) {
+
+        int x = keyPressed(e); 
+     
+        if(x == 1) {
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+ }
+
+
+
+    
+
 
