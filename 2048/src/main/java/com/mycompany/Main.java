@@ -6,8 +6,9 @@
 package com.mycompany;
 
 import java.awt.Color;
-import static java.awt.Color.red;
-import static javafx.scene.paint.Color.color;
+
+
+
 
 
 /**
@@ -58,11 +59,11 @@ public class Main {
         
         bloco = getRandomicoBloco();
         bloco.Posicao.setBackground(Color.red);
+        bloco.campoTexto.setText((String.valueOf(bloco.GeraValor())) );
         bloco = getRandomicoBloco();
         bloco.Posicao.setBackground(Color.red);
-        bloco.Posicao.
-        
-        
+        bloco.campoTexto.setText((String.valueOf(bloco.GeraValor())) );
+   
         
         
         

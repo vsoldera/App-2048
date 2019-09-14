@@ -1,6 +1,6 @@
-com/mycompany/Tabuleiro$1.class
-com/mycompany/Bloco.class
-com/mycompany/Movimentacao.class
-com/mycompany/Main.class
-com/mycompany/Tabuleiro.class
-com/mycompany/Animacao.class
+com\mycompany\Main.class
+com\mycompany\Movimentacao.class
+com\mycompany\Tabuleiro.class
+com\mycompany\Bloco.class
+com\mycompany\Tabuleiro$1.class
+com\mycompany\Animacao.class
