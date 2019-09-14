@@ -30,6 +30,7 @@ public class Tabuleiro extends javax.swing.JFrame {
     private void initComponents() {
 
         pos1 = new javax.swing.JPanel();
+        label1 = new javax.swing.JLabel();
         pos2 = new javax.swing.JPanel();
         pos3 = new javax.swing.JPanel();
         pos4 = new javax.swing.JPanel();
@@ -53,16 +54,25 @@ public class Tabuleiro extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(425, 440));
 
         pos1.setBackground(new java.awt.Color(175, 195, 226));
+        pos1.setToolTipText("");
+
+        label1.setText("jLabel1");
 
         javax.swing.GroupLayout pos1Layout = new javax.swing.GroupLayout(pos1);
         pos1.setLayout(pos1Layout);
         pos1Layout.setHorizontalGroup(
             pos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pos1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(label1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pos1Layout.setVerticalGroup(
             pos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pos1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(label1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pos2.setBackground(new java.awt.Color(175, 195, 226));
@@ -374,22 +384,32 @@ public class Tabuleiro extends javax.swing.JFrame {
       
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel pos1;
-    private javax.swing.JPanel pos10;
-    private javax.swing.JPanel pos11;
-    private javax.swing.JPanel pos12;
-    private javax.swing.JPanel pos13;
-    private javax.swing.JPanel pos14;
-    private javax.swing.JPanel pos15;
-    private javax.swing.JPanel pos16;
-    private javax.swing.JPanel pos2;
-    private javax.swing.JPanel pos3;
-    private javax.swing.JPanel pos4;
-    private javax.swing.JPanel pos5;
-    private javax.swing.JPanel pos6;
-    private javax.swing.JPanel pos7;
-    private javax.swing.JPanel pos8;
-    private javax.swing.JPanel pos9;
+    public javax.swing.JLabel label1;
+    public javax.swing.JPanel pos1;
+    public javax.swing.JPanel pos10;
+    public javax.swing.JPanel pos11;
+    public javax.swing.JPanel pos12;
+    public javax.swing.JPanel pos13;
+    public javax.swing.JPanel pos14;
+    public javax.swing.JPanel pos15;
+    public javax.swing.JPanel pos16;
+    public javax.swing.JPanel pos2;
+    public javax.swing.JPanel pos3;
+    public javax.swing.JPanel pos4;
+    public javax.swing.JPanel pos5;
+    public javax.swing.JPanel pos6;
+    public javax.swing.JPanel pos7;
+    public javax.swing.JPanel pos8;
+    public javax.swing.JPanel pos9;
     // End of variables declaration//GEN-END:variables
+
+
+public void pegaExibeBloco(Bloco bloco){
+    
+    
+    
+}
+
+
 }
 

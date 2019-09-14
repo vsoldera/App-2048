@@ -5,6 +5,8 @@
  */
 package com.mycompany;
 import java.lang.Math; 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 /**
  *
  * @author luizviniciusruoso
@@ -15,14 +17,31 @@ public class Bloco extends Animacao{
     String Cor;
     int Situacao;
     int Valor;
+    JPanel Posicao;
+    JLabel campoTexto;
+    
+    public void GeraBloco(int posicao){
+        
+        this.Valor = GeraValor();
+        this.Situacao = 1;
+        
+        if(this.Valor == 2) this.Cor = "#eee4da";
+        else this.Cor = "#EDE0C8";
+        
+        
+        
+    }
+    
     
     //Funcao GeraValor = Gera Valor Inicial de Blocos (2 ou 4)
-    public int GeraValor(int min, int max) { 
+    public int GeraValor() { 
+         int min = 1;
+         int max = 4;
          int ValorRand = (int) ((Math.random()*((max-min)+1))+min);
-         if(ValorRand == 2 || ValorRand == 4) {
+         if(ValorRand == 4) {
              return ValorRand;
-         }
-         return 2;
+         }else
+            return 2;
     }
     
     //Getters
@@ -52,8 +71,24 @@ public class Bloco extends Animacao{
     public void setValor(int Valor) {
         this.Valor = Valor;
     }
-    
-    
+
+    public JPanel getPosicao() {
+        return Posicao;
+    }
+
+    public void setPosicao(JPanel posicao) {
+        this.Posicao = posicao;
+    }
+
+    public JLabel getCampoTexto() {
+        return campoTexto;
+    }
+
+    public void setCampoTexto(JLabel campoTexto) {
+        this.campoTexto = campoTexto;
+    }
+
+  
 
     
     
