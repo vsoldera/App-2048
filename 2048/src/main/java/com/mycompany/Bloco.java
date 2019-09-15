@@ -15,10 +15,10 @@ import javax.swing.JPanel;
 //Heranca
 public class Bloco extends Animacao{
     String Cor;
-    int Situacao;
     int Valor;
     JPanel Posicao;
     JLabel campoTexto;
+    int Situacao;
     
     public void GeraBloco(int posicao){
         
