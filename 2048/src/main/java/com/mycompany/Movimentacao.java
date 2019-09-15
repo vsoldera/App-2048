@@ -99,18 +99,7 @@ public class Movimentacao extends Bloco{
     
     //Detecta Posicao do quadrado
    
-    
-
-  
-
-    //Luiz escreve "Meche"
-    public int mexeBloco(KeyEvent e) {
-
-        int x = keyPressed(e); 
-        if(x == 1) {
-            
-        }
-    }
+ 
     
     
        
