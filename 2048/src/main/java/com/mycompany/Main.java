@@ -24,7 +24,7 @@ public class Main {
        Jogo jogo = new Jogo();
        
        jogo.iniciaJogo();
-        new KeyListener2048("Key Listener");
+       new KeyListener2048("KeyListener");
    
     }
 

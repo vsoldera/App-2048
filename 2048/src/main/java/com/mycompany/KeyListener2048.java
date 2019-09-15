@@ -5,6 +5,7 @@
  */
 package com.mycompany;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
@@ -17,17 +18,16 @@ import javax.swing.JPanel;
  */
 public class KeyListener2048 extends JFrame implements KeyListener {
 
-    JLabel label;
 
-    public KeyListener2048(String s) {
-        super(s);
-        JPanel p = new JPanel();
-        label = new JLabel("Key Listener!");
-        p.add(label);
-        add(p);
+
+    public KeyListener2048(String Listen) {
+        super(Listen);
+        Tabuleiro ListenGUI = new Tabuleiro();
+
         addKeyListener(this);
-        setSize(200, 100);
         setVisible(true);
+       
+        
 
     }
 
@@ -60,8 +60,8 @@ public class KeyListener2048 extends JFrame implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_D  ) {
             System.out.println("Botao 'D' Pressionado");
         }
-        if (e.getKeyCode() == KeyEvent.VK_E  ) {
-            System.out.println("Botao 'E' Pressionado");
+        if (e.getKeyCode() == KeyEvent.VK_A  ) {
+            System.out.println("Botao 'A' Pressionado");
         }
         
 
@@ -90,8 +90,8 @@ public class KeyListener2048 extends JFrame implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_D  ) {
             System.out.println("Botao 'D' solto");
         }
-        if (e.getKeyCode() == KeyEvent.VK_E  ) {
-            System.out.println("Botao 'E' solto");
+        if (e.getKeyCode() == KeyEvent.VK_A  ) {
+            System.out.println("Botao 'A' solto");
         }
 
         

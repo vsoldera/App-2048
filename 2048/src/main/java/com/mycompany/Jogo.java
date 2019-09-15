@@ -54,61 +54,7 @@ public class Jogo {
         bloco.Posicao.setBackground(Color.red);
         bloco.campoTexto.setText((String.valueOf(bloco.GeraValor())) );
         
-        KeyListener listener = new KeyListener(){
-     
-            public void keyTyped(KeyEvent e) {
-                boolean tecla[] = new boolean[3];
-                int key = e.getKeyCode();
 
-                    if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) {
-                        tecla[0] = true; //Pressionada pra baixo(S)
-                        System.out.println("fooooi!");
-                    }
-
-                    if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) {
-                       tecla[1] = true; //Pressionado para a direita(D)
-                    }
-
-                    if(key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) {
-                        tecla[2] = true; //Pressionado para a esquerda(A)
-                    }
-
-                    if(key == KeyEvent.VK_UP|| key == KeyEvent.VK_W) {
-                        tecla[3] = true; //Pressionado para cima (W)
-                    }
-            }
-
-            public void keyPressed(KeyEvent e) {
-                boolean tecla[] = new boolean[3];
-                int key = e.getKeyCode();
-
-                    if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) {
-                        tecla[0] = true; //Pressionada pra baixo(S)
-                        System.out.println("fooooi!");
-                    }
-
-                    if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) {
-                       tecla[1] = true; //Pressionado para a direita(D)
-                    }
-
-                    if(key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) {
-                        tecla[2] = true; //Pressionado para a esquerda(A)
-                    }
-
-                    if(key == KeyEvent.VK_UP|| key == KeyEvent.VK_W) {
-                        tecla[3] = true; //Pressionado para cima (W)
-                    }
-
-
-            }
-            
-            public void keyReleased(KeyEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        
-        };
-        
-        AWTEventMonitor.addKeyListener(listener);
                 
      }
     
