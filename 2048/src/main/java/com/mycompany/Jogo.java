@@ -5,9 +5,6 @@
  */
 package com.mycompany;
 
-import static com.sun.glass.ui.Cursor.setVisible;
-import com.sun.java.accessibility.util.AWTEventMonitor;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -234,7 +231,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
         }
         else
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            setValor = 4; //Bloco vai para baixo
+ 
             System.out.println("Seta Baixo Pressionada");
         }
         else
@@ -316,13 +313,14 @@ public class Jogo extends Tabuleiro implements KeyListener {
             System.out.println(bloco[i].getSituacao());
             if(bloco[i].getSituacao() == 1) {
                bloco[i].setSituacao(0);
-               bloco[i].setPosicao(getJanela(i-4), Color.decode("#afc3e2"));
-               bloco[i-4].setPosicao(getJanela(i-4), Color.decode("#eee4da"));
+               bloco[i].setPosicao(getJanela(i-3), Color.decode("#afc3e2"));
+               bloco[i-3].setPosicao(getJanela(i-3), Color.decode("#eee4da"));
                bloco[i-4].setSituacao(1);
            }
         }
  }
     
+
      
     
     
