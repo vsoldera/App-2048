@@ -67,7 +67,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
         
         
             getRandomicoBloco();
-        
+            getRandomicoBloco();
         
         
                 
@@ -222,30 +222,37 @@ public class Jogo extends Tabuleiro implements KeyListener {
             toRight();
             System.out.println("Seta Direita Pressionada");
         }
+        else
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             setValor = 2; //Bloco vai para a esquerda
             System.out.println("Seta Esquerda Pressionada");
         }
+        else
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            setValor = 3; //Bloco vai para cima
+            toUp();
             System.out.println("Seta Cima Pressionada");
         }
+        else
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             setValor = 4; //Bloco vai para baixo
             System.out.println("Seta Baixo Pressionada");
         }
+        else
         if (e.getKeyCode() == KeyEvent.VK_W  ) {
             setValor = 3; //Bloco vai para cima
             System.out.println("Botao 'W' Pressionado");
         }
+        else
         if (e.getKeyCode() == KeyEvent.VK_S  ) {
             setValor = 4; //Bloco vai para baixo
             System.out.println("Botao 'S' Pressionado");
         }
+        else
         if (e.getKeyCode() == KeyEvent.VK_D  ) {
             setValor = 1; // Bloco vai para a direita
             System.out.println("Botao 'D' Pressionado");
         }
+        else
         if (e.getKeyCode() == KeyEvent.VK_A  ) {
             setValor = 2; //Bloco vai para a esquerda
             System.out.println("Botao 'A' Pressionado");
@@ -294,18 +301,31 @@ public class Jogo extends Tabuleiro implements KeyListener {
       
         for(int i=0; i <16; i++){
             System.out.println(bloco[i].getSituacao());
-            if(bloco[i].getSituacao() == 1){ 
-                bloco[i].setSituacao(0);
+            if(bloco[i].getSituacao() == 1){ //Se o bloco estiver ativado
+               bloco[i].setSituacao(0); //Bloco desativado
                bloco[i].setPosicao(getJanela(i), Color.decode("#afc3e2"));
-                bloco[i++].setPosicao(getJanela(i), Color.decode("#eee4da"));
-                
-                bloco[i++].setSituacao(1);
-            
-            
+               bloco[i++].setPosicao(getJanela(i), Color.decode("#eee4da"));
+               bloco[i++].setSituacao(1);
             }
         }
      
     }
+    public void toUp() {
+   
+        for(int i = 0; i < 16; i++) {
+            System.out.println(bloco[i].getSituacao());
+            if(bloco[i].getSituacao() == 1) {
+               bloco[i].setSituacao(0);
+               bloco[i].setPosicao(getJanela(i-4), Color.decode("#afc3e2"));
+               bloco[i-4].setPosicao(getJanela(i-4), Color.decode("#eee4da"));
+               bloco[i-4].setSituacao(1);
+           }
+        }
+ }
+    
+     
+    
+    
     public JPanel getJanela(int i){
         JPanel janela  = new JPanel();
         switch(i){
