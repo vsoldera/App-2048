@@ -18,15 +18,16 @@ public class Main {
         
     public static void main(String[] args) {
         /* tabuleiro speccs*/
-         
-        
-       
+          
        Jogo jogo = new Jogo();
        
        jogo.iniciaJogo();
-       new KeyListener2048("KeyListener");
+      
+       
    
+      
     }
+    
 
    
  

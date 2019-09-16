@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany;
+import java.awt.Color;
 import java.lang.Math; 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,6 +20,13 @@ public class Bloco extends Animacao{
     JPanel Posicao;
     JLabel campoTexto;
     int Situacao;
+    
+    public void Bloco(){
+      
+        
+        return;
+    }
+    
     
     public void GeraBloco(int posicao){
         
@@ -75,9 +83,10 @@ public class Bloco extends Animacao{
     public JPanel getPosicao() {
         return Posicao;
     }
-
-    public void setPosicao(JPanel posicao) {
+    
+    public void setPosicao(JPanel posicao, Color cor) {
         this.Posicao = posicao;
+        this.Posicao.setBackground(cor);
     }
 
     public JLabel getCampoTexto() {

@@ -26,13 +26,16 @@ public class Movimentacao extends Bloco{
     public boolean livreEsquerda;
     public boolean livreBaixo;
     
+    
+    
     /**
      *
      * @return
      */
-    public boolean isLivreCima() {
+    public boolean isLivreCima(Bloco bloco2) {
+
+            return livreCima;
         
-        return livreCima;
     }
 
     public void setLivreCima(boolean livreCima) {
