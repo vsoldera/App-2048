@@ -55,17 +55,18 @@ public class Jogo extends Tabuleiro implements KeyListener {
         bloco[14] = new Bloco();
         bloco[15] = new Bloco();
   
-        
-        
+       // bloco[2].setSituacao(1);
+          bloco[0].setSituacao(1);
+        bloco[0].setPosicao(getJanela(0), Color.decode("#ffffff"));
         
         int NumRandBloco;
-        Bloco bloco = new Bloco();
+        //Bloco bloco = new Bloco();
         
         
-        
+       
+          
             getRandomicoBloco();
             getRandomicoBloco();
-        
         
                 
      }
@@ -289,22 +290,38 @@ public class Jogo extends Tabuleiro implements KeyListener {
     }
     
     public void toRight(){
-        
+        int moveAte = 0;
         //if(bloco[3].getSituacao() == 1 && bloco[2].getSituacao() == 1 &&
           //      bloco[1].getSituacao() == 1 && bloco[0].getSituacao() == 1) { //verificando se a linha esta 
             
             
         //}
+        //1-2
+           for(int i=0; i< 4 ; i++){
+                System.out.println(bloco[i].getSituacao());
+               if(bloco[i].getSituacao() == 1){
+                for(int j= i;j<=3; j++){
+                    if(bloco[j].getSituacao() == 0){
+                        bloco[i].setSituacao(0);//desativei o bloco antigo
+                        bloco[i].setPosicao(getJanela(i), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
+                        bloco[j].setSituacao(1);//ativei o novo
+                        
+                        bloco[j].setPosicao(getJanela(j), Color.decode("#ffffff")); //alterei a cor do novo
+                        
+
+                    }
+
+
+                }
+               }
+               
+               
+           }
+           System.out.println("posicoes");
+           for(int i=0; i< 4 ; i++)  System.out.println(bloco[i].getSituacao());
+           
+           
       
-        for(int i=0; i <16; i++){
-            System.out.println(bloco[i].getSituacao());
-            if(bloco[i].getSituacao() == 1){ //Se o bloco estiver ativado
-               bloco[i].setSituacao(0); //Bloco desativado
-               bloco[i].setPosicao(getJanela(i), Color.decode("#afc3e2"));
-               bloco[i++].setPosicao(getJanela(i), Color.decode("#eee4da"));
-               bloco[i++].setSituacao(1);
-            }
-        }
      
     }
     public void toUp() {
@@ -327,60 +344,60 @@ public class Jogo extends Tabuleiro implements KeyListener {
     public JPanel getJanela(int i){
         JPanel janela  = new JPanel();
         switch(i){
-            case 1:
+            case 0:
                 janela = Janela.pos1;
                 break;
-            case 2:
+            case 1:
                 janela = Janela.pos2;
                 break;
-            case 3:
+            case 2:
                 janela = Janela.pos3;
                 break;   
-            case 4:
+            case 3:
                 janela = Janela.pos4;
                 break;   
-            case 5:
+            case 4:
                 janela = Janela.pos5;
                 break;
-            case 6:
+            case 5:
                 janela = Janela.pos6;
                 break;    
-            case 7:
+            case 6:
                 janela = Janela.pos7;
                 break;   
-             case 8:
+             case 7:
                 janela = Janela.pos8;
                 break;   
                 
-             case 9:
+             case 8:
                 janela = Janela.pos9;
                 break;   
                 
-             case 10:
+             case 9:
                 janela = Janela.pos10;
                 break;
                 
-             case 11:
+             case 10:
                 janela = Janela.pos11;
                 break;
                 
-             case 12:
+             case 11:
                 janela = Janela.pos12;
                 break;
                 
                 
-             case 13:
+             case 12:
                 janela = Janela.pos13;
                 break;
                 
-             case 14:
+             case 13:
                 janela = Janela.pos14;
                 break;
                 
-            case 15:
+            case 14:
                 janela = Janela.pos15;
                 break; 
-            case 16:
+            case 15:
                 janela = Janela.pos16;
                 break;
                 
