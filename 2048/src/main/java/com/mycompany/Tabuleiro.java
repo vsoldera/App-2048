@@ -181,6 +181,7 @@ public class Tabuleiro extends javax.swing.JFrame {
         pos4.setBackground(new java.awt.Color(175, 195, 226));
 
         label4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        label4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label4.setText(" ");
 
         label19.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N

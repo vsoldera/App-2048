@@ -58,6 +58,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
        // bloco[2].setSituacao(1);
           bloco[0].setSituacao(1);
         bloco[0].setPosicao(getJanela(0), Color.decode("#ffffff"));
+
         
         int NumRandBloco;
         //Bloco bloco = new Bloco();
@@ -232,7 +233,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
         }
         else
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
- 
+            toDown();
             System.out.println("Seta Baixo Pressionada");
         }
         else
@@ -304,6 +305,39 @@ public class Jogo extends Tabuleiro implements KeyListener {
                     if(bloco[j].getSituacao() == 0){
                         bloco[i].setSituacao(0);//desativei o bloco antigo
                         bloco[i].setPosicao(getJanela(i), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
+                        bloco[j-1].setSituacao(1);//ativei o novo
+                        
+                        bloco[j].setPosicao(getJanela(j), Color.decode("#ffffff")); //alterei a cor do novo
+                        
+
+                    }
+
+
+                }
+               }
+               
+               
+           }
+           System.out.println("posicoes");
+           for(int i=0; i< 4 ; i++)  System.out.println(bloco[i].getSituacao());
+           
+           
+      
+     
+    }
+    
+    //Up nao funfando uhdahuduha
+    public void toUp() {
+ 
+        int moveAte = 0;
+
+           for(int i=0; i< 4 ; i++){
+                System.out.println(bloco[i].getSituacao());
+               if(bloco[i].getSituacao() == 1){
+                for(int j= i;j<=3; j++){
+                    if(bloco[j].getSituacao() == 0){
+                        bloco[i].setSituacao(0);//desativei o bloco antigo
+                        bloco[i].setPosicao(getJanela(i), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
                         bloco[j].setSituacao(1);//ativei o novo
                         
                         bloco[j].setPosicao(getJanela(j), Color.decode("#ffffff")); //alterei a cor do novo
@@ -324,18 +358,38 @@ public class Jogo extends Tabuleiro implements KeyListener {
       
      
     }
-    public void toUp() {
    
-        for(int i = 0; i < 16; i++) {
-            System.out.println(bloco[i].getSituacao());
-            if(bloco[i].getSituacao() == 1) {
-               bloco[i].setSituacao(0);
-               bloco[i].setPosicao(getJanela(i-3), Color.decode("#afc3e2"));
-               bloco[i-3].setPosicao(getJanela(i-3), Color.decode("#eee4da"));
-               bloco[i-4].setSituacao(1);
+        public void toDown() {
+ 
+        int moveAte = 0;
+
+           for(int i=0; i < 4 ; i++){
+                System.out.println(bloco[i].getSituacao());
+               if(bloco[i].getSituacao() == 1){
+                for(int j=i ;j <= 3; j++){
+                    if(bloco[j].getSituacao() == 0){
+                        bloco[i].setSituacao(0);//desativei o bloco antigo
+                        bloco[i+4].setPosicao(getJanela(i+3), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
+                        bloco[j].setSituacao(1);//ativei o novo        
+                        bloco[j].setPosicao(getJanela(j+3), Color.decode("#ffffff")); //alterei a cor do novo
+                        
+
+                    }
+
+
+                }
+               }
+               
+               
            }
-        }
- }
+           System.out.println("posicoes");
+           for(int i=0; i< 4 ; i++)  System.out.println(bloco[i].getSituacao());
+           
+           
+      
+     
+    }
+ 
     
 
      
