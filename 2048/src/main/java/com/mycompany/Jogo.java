@@ -120,10 +120,12 @@ public class Jogo extends Tabuleiro implements KeyListener {
         Color corBloco;
         int NumRandBloco = (int) ((Math.random()*((max-min)+1))+min);
         int aux = NumRandBloco; 
+        System.out.println("1o: " + NumRandBloco);
         int NumRandBloco2 = (int) ((Math.random()*((max-min)+1))+min);
         
         while(NumRandBloco2 == aux) {
             NumRandBloco2 = (int) ((Math.random()*((max-min)+1))+min);
+            System.out.println("Gerados: " + NumRandBloco2);
         }
         
         
@@ -232,10 +234,11 @@ public class Jogo extends Tabuleiro implements KeyListener {
         }
         if(bloco1.GeraValor() == 2) {
            bloco1.setValor(2);
-           bloco1.setPosicao(janela, Color.decode("#eee4da"));
+           bloco1.setPosicao(janela, Color.decode(bloco1.CorRetorno(2))); //alterei a cor do novo
+           
         }else{
            bloco1.setValor(4);
-           bloco1.setPosicao(janela, Color.decode("#ede0c8"));
+            bloco1.setPosicao(janela, Color.decode(bloco1.CorRetorno(4))); //alterei a cor do novo
             
         }
             NumRandBloco = NumRandBloco2;
@@ -445,10 +448,10 @@ public void geraExibeBloco() {
        
         if(bloco1.GeraValor() == 2) {
            bloco1.setValor(2);
-           bloco1.setPosicao(janela, Color.decode("#eee4da"));
+            bloco1.setPosicao(janela, Color.decode(bloco1.CorRetorno(2))); //alterei a cor do novo
         }else{
            bloco1.setValor(4);
-           bloco1.setPosicao(janela, Color.decode("#ede0c8"));
+           bloco1.setPosicao(janela, Color.decode(bloco1.CorRetorno(4))); //alterei a cor do novo
             
         }
             
@@ -461,10 +464,12 @@ public void geraExibeBloco() {
      switch (Direcao){
          case 1:
         for(int i=Inicio; i>=Final ; i = i-Razao){
-                  //System.out.println("for 1"+bloco[i].getSituacao());
+                  //System.out.println("for 1"+bloco[i].getSituacao());,
+
                   if(bloco[i].getSituacao() == 1){
                       for(int j= i-Razao; j>=Final; j= j-Razao){
                      // System.out.println("for 2"+bloco[j].getSituacao());
+                     
                       if(bloco[j].getSituacao() == 0){
                           
                           bloco[j+Razao].setSituacao(0);//desativei o bloco antigo
@@ -473,19 +478,20 @@ public void geraExibeBloco() {
                           bloco[j+Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
                           bloco[j].setPosicao(getJanela(j),Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
-                          
-                          
+                          System.out.println("IF");
+                          break;
                                                  
                          
                       }
                      else
                         if(bloco[j+Razao].getValor() == bloco[j].getValor()) {
                             bloco[j].setValor(bloco[j].getValor()*2);
-                            
+                            bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                             bloco[j+Razao].setValor(0);
                             bloco[j+Razao].setSituacao(0); //Desativando logicamente
-                            bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode(bloco[j+Razao].CorRetorno(bloco[j].getValor()*2))); //alterei a cor do novo
-                          
+                            bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
+                            System.out.println("ELSE");
+                           break;
                             
                         }  
                     }
@@ -493,28 +499,38 @@ public void geraExibeBloco() {
         }
         break;
          case 2:
+            
              for(int i=Inicio; i<=Final ; i = i+Razao){
                   //System.out.println("for 1"+bloco[i].getSituacao());
+               
                   if(bloco[i].getSituacao() == 1){
                       for(int j= i+Razao; j<=Final; j= j+Razao){
+                          
                      // System.out.println("for 2"+bloco[j].getSituacao());
                       if(bloco[j].getSituacao() == 0){
+                          
                           bloco[j-Razao].setSituacao(0);//desativei o bloco antigo
                           bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
                           bloco[j].setValor(bloco[j-Razao].getValor()); // passo o valor do antigo para o novo
                           bloco[j-Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
-                         bloco[j].setPosicao(getJanela(j),Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
+                          bloco[j].setPosicao(getJanela(j),Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
+                          System.out.println("IF2");
+                          break;
                           
-
-                         
+ 
                       }
                       else
-                        if(bloco[j-Razao].getValor() == bloco[j].getValor()) {
+                       
+                        if(bloco[j-Razao].getValor() == bloco[j].getValor() ) {
                             bloco[j].setValor(bloco[j].getValor()*2);
+                            bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                             bloco[j-Razao].setValor(0);
                             bloco[j-Razao].setSituacao(0); //Desativando logicamente
-                            bloco[j-Razao].setPosicao(getJanela(j-Razao),Color.decode(bloco[j-Razao].CorRetorno(bloco[j].getValor()*2)));
+                            bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#afc3e2"));
+                            System.out.println("ELSE2");
+                            break;
+                            
                             
                         }  
                     }
