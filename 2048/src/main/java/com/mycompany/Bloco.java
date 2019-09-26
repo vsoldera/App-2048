@@ -109,7 +109,54 @@ public class Bloco extends Animacao{
         this.campoTexto = campoTexto;
     }
    
-
+public String CorRetorno(int Valor){
+    String Cor = null;
+    
+    switch(Valor){
+          case 2:
+              Cor = "#eee4da";
+              break;
+          case 4:
+              Cor = "#ede0c8";
+              break;
+          case 8:
+              Cor = "#f2b179";
+              break;
+         case 16:
+              Cor = "#f59563";
+              break;
+         case 32:
+             Cor = "#f67c5f";  
+             break;
+         case 64:
+             Cor = "#f65e3b";
+             break;
+        
+         case 128:
+             Cor = "#edcf72";
+             break;
+        
+         case 256:
+             Cor = "#edcc61";
+             break;
+             
+         case 512:
+             Cor = "#edc850";
+             break;
+         
+         case 1024:
+             Cor = "#edc53f";
+             break;
+             
+         case 2048:
+             Cor = "#edc22e";
+             break;
+         
+    }
+    
+    
+    return Cor;
+}
   
 
     

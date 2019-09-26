@@ -472,7 +472,7 @@ public void geraExibeBloco() {
                           bloco[j].setValor(bloco[j+Razao].getValor()); // passo o valor do antigo para o novo
                           bloco[j+Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
-                          bloco[j].setPosicao(getJanela(j), Color.decode("#eee4da")); //alterei a cor do novo
+                          bloco[j].setPosicao(getJanela(j),Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                           
                           
                                                  
@@ -481,9 +481,11 @@ public void geraExibeBloco() {
                      else
                         if(bloco[j+Razao].getValor() == bloco[j].getValor()) {
                             bloco[j].setValor(bloco[j].getValor()*2);
+                            
                             bloco[j+Razao].setValor(0);
                             bloco[j+Razao].setSituacao(0); //Desativando logicamente
-                            bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode("#8EB0E6"));
+                            bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode(bloco[j+Razao].CorRetorno(bloco[j].getValor()*2))); //alterei a cor do novo
+                          
                             
                         }  
                     }
@@ -502,7 +504,7 @@ public void geraExibeBloco() {
                           bloco[j].setValor(bloco[j-Razao].getValor()); // passo o valor do antigo para o novo
                           bloco[j-Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
-                          bloco[j].setPosicao(getJanela(j), Color.decode("#eee4da")); //alterei a cor do novo
+                         bloco[j].setPosicao(getJanela(j),Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                           
 
                          
@@ -512,7 +514,7 @@ public void geraExibeBloco() {
                             bloco[j].setValor(bloco[j].getValor()*2);
                             bloco[j-Razao].setValor(0);
                             bloco[j-Razao].setSituacao(0); //Desativando logicamente
-                            bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#8EB0E6"));
+                            bloco[j-Razao].setPosicao(getJanela(j-Razao),Color.decode(bloco[j-Razao].CorRetorno(bloco[j].getValor()*2)));
                             
                         }  
                     }
