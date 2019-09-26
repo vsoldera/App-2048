@@ -1,3 +1,17 @@
+/* 
+#eee4da  == bloco2
+#ede0c8 == bloco4
+#f2b179 == bloco8
+#f59563 == bloco16
+#f67c5f == bloco32
+#f65e3b == bloco64
+#edcf72 == bloco128
+#edcc61 == bloco256 
+
+
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -62,8 +76,10 @@ public class Jogo extends Tabuleiro implements KeyListener {
         
        
             
-            getRandomicoBloco();
-            getRandomicoBloco();
+            getRandomicoBlocoInicial();
+            
+            
+            
         
                 
      }
@@ -91,116 +107,128 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
        }
    }
+ 
     
     
-    
- public void getRandomicoBloco(){
+ public void getRandomicoBlocoInicial(){
         
         int min = 1;
         int max = 16;
         JPanel janela = new JPanel();
+
+
         Color corBloco;
         int NumRandBloco = (int) ((Math.random()*((max-min)+1))+min);
+        int aux = NumRandBloco; 
+        int NumRandBloco2 = (int) ((Math.random()*((max-min)+1))+min);
+        
+        while(NumRandBloco2 == aux) {
+            NumRandBloco2 = (int) ((Math.random()*((max-min)+1))+min);
+        }
+        
+        
         Bloco bloco1 = new Bloco();
+       
         System.out.println(NumRandBloco);
-        switch (NumRandBloco){
-            case 1:
-                bloco1 = bloco[0];
-                janela = Janela.pos1;
-                bloco1.setCampoTexto(Janela.label1);
-                bloco1.setSituacao(1); //Bloco gerado, entao sua posicao esta ocupada
-            break;
-            case 2:
-                bloco1 = bloco[1];
-                janela = Janela.pos2;
-                bloco1.setCampoTexto(Janela.label2);
-                bloco1.setSituacao(1);
-            break;
-            case 3:
-                bloco1 = bloco[2];
-                janela = Janela.pos3;
-                bloco1.setCampoTexto(Janela.label3);
-                bloco1.setSituacao(1);
-            break;
-            case 4:
-                bloco1 = bloco[3];
-                janela = Janela.pos4;
-                bloco1.setCampoTexto(Janela.label4);
-                bloco1.setSituacao(1);
-                
-            break;
-            case 5:
-                bloco1 = bloco[4];
-                janela = Janela.pos5;
-                bloco1.setCampoTexto(Janela.label5);
-                bloco1.setSituacao(1);
-            break;
-            case 6:
-                bloco1 = bloco[5];
-                janela = Janela.pos6;
-                bloco1.setCampoTexto(Janela.label6);
-                bloco1.setSituacao(1);
-            break;
-            case 7:
-                bloco1 = bloco[6];
-                janela = Janela.pos7;
-                bloco1.setCampoTexto(Janela.label7);
-                bloco1.setSituacao(1);
-            break;
-            case 8:
-                bloco1 = bloco[7];
-                janela = Janela.pos8;
-                bloco1.setCampoTexto(Janela.label8);
-                bloco1.setSituacao(1);
-            break;
-            case 9:
-                bloco1 = bloco[8];
-                janela = Janela.pos9;
-                bloco1.setCampoTexto(Janela.label9);
-                bloco1.setSituacao(1);
-            break;
-            case 10:
-                bloco1 = bloco[9];
-                janela = Janela.pos10;
-                bloco1.setCampoTexto(Janela.label10);
-                bloco1.setSituacao(1);
-            break;
-            case 11:
-                bloco1 = bloco[10];
-                janela = Janela.pos11;
-                bloco1.setCampoTexto(Janela.label11);
-                bloco1.setSituacao(1);
-            break;
-            case 12:
-                bloco1 = bloco[11];
-                janela = Janela.pos12;
-                bloco1.setCampoTexto(Janela.label12);
-                bloco1.setSituacao(1);
-            break;
-            case 13:
-                bloco1 = bloco[12];
-                janela = Janela.pos13;
-                bloco1.setCampoTexto(Janela.label13);
-                bloco1.setSituacao(1);
-            break;
-            case 14:
-                bloco1 = bloco[13];
-                janela = Janela.pos14;
-                bloco1.setCampoTexto(Janela.label14);
-                bloco1.setSituacao(1);
-                break;
-            case 15:
-                bloco1 = bloco[14];
-                janela = Janela.pos15;
-                bloco1.setCampoTexto(Janela.label15);
-                bloco1.setSituacao(1);
-            break;
-            case 16:
-                bloco1 = bloco[15];
-                janela = Janela.pos15;
-                bloco1.setCampoTexto(Janela.label16);
-                bloco1.setSituacao(1);
-            break;
+        for(int k = 0; k < 2; k++)
+        {
+            switch (NumRandBloco){
+                case 1:
+                    bloco1 = bloco[0];
+                    janela = Janela.pos1;
+                    bloco1.setCampoTexto(Janela.label1);
+                    bloco1.setSituacao(1); //Bloco gerado, entao sua posicao esta ocupada
+                    break;
+                case 2:
+                    bloco1 = bloco[1];
+                    janela = Janela.pos2;
+                    bloco1.setCampoTexto(Janela.label2);
+                    bloco1.setSituacao(1);
+                    break;
+                case 3:
+                    bloco1 = bloco[2];
+                    janela = Janela.pos3;
+                    bloco1.setCampoTexto(Janela.label3);
+                    bloco1.setSituacao(1);
+                    break;
+                case 4:
+                    bloco1 = bloco[3];
+                    janela = Janela.pos4;
+                    bloco1.setCampoTexto(Janela.label4);
+                    bloco1.setSituacao(1);
+                    break;
+                case 5:
+                    bloco1 = bloco[4];
+                    janela = Janela.pos5;
+                    bloco1.setCampoTexto(Janela.label5);
+                    bloco1.setSituacao(1);
+                    break;
+                case 6:
+                    bloco1 = bloco[5];
+                    janela = Janela.pos6;
+                    bloco1.setCampoTexto(Janela.label6);
+                    bloco1.setSituacao(1);
+                    break;
+                case 7:
+                    bloco1 = bloco[6];
+                    janela = Janela.pos7;
+                    bloco1.setCampoTexto(Janela.label7);
+                    bloco1.setSituacao(1);
+                    break;
+                case 8:
+                    bloco1 = bloco[7];
+                    janela = Janela.pos8;
+                    bloco1.setCampoTexto(Janela.label8);
+                    bloco1.setSituacao(1);
+                    break;
+                case 9:
+                    bloco1 = bloco[8];
+                    janela = Janela.pos9;
+                    bloco1.setCampoTexto(Janela.label9);
+                    bloco1.setSituacao(1);
+                    break;
+                case 10:
+                    bloco1 = bloco[9];
+                    janela = Janela.pos10;
+                    bloco1.setCampoTexto(Janela.label10);
+                    bloco1.setSituacao(1);
+                    break;
+                case 11:
+                    bloco1 = bloco[10];
+                    janela = Janela.pos11;
+                    bloco1.setCampoTexto(Janela.label11);
+                    bloco1.setSituacao(1);
+                    break;
+                case 12:
+                    bloco1 = bloco[11];
+                    janela = Janela.pos12;
+                    bloco1.setCampoTexto(Janela.label12);
+                    bloco1.setSituacao(1);
+                    break;
+                case 13:
+                    bloco1 = bloco[12];
+                    janela = Janela.pos13;
+                    bloco1.setCampoTexto(Janela.label13);
+                    bloco1.setSituacao(1);
+                    break;
+                case 14:
+                    bloco1 = bloco[13];
+                    janela = Janela.pos14;
+                    bloco1.setCampoTexto(Janela.label14);
+                    bloco1.setSituacao(1);
+                    break;
+                case 15:
+                    bloco1 = bloco[14];
+                    janela = Janela.pos15;
+                    bloco1.setCampoTexto(Janela.label15);
+                    bloco1.setSituacao(1);
+                    break;
+                case 16:
+                    bloco1 = bloco[15];
+                    janela = Janela.pos16;
+                    bloco1.setCampoTexto(Janela.label16);
+                    bloco1.setSituacao(1);
+                    break;
         }
         if(bloco1.GeraValor() == 2) {
            bloco1.setValor(2);
@@ -209,6 +237,8 @@ public class Jogo extends Tabuleiro implements KeyListener {
            bloco1.setValor(4);
            bloco1.setPosicao(janela, Color.decode("#ede0c8"));
             
+        }
+            NumRandBloco = NumRandBloco2;
         }
         
 
@@ -223,8 +253,10 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
 
     }
+    
     @Override
     public void keyPressed(KeyEvent e) {
+       
         if (e.getKeyCode() == KeyEvent.VK_RIGHT  ) {
             toRight();
             System.out.println("Seta Direita Pressionada");
@@ -267,7 +299,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
             System.out.println("Botao 'A' Pressionado");
         }
         
-        
+         geraExibeBloco();
     }
 
     @Override
@@ -299,8 +331,129 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
         
     }
+
+public void geraExibeBloco() {
+    int min = 0;
+    int max = 15;
     
-  
+       int NumRandBlocoJogo = (int) ((Math.random()*((max-min)+1))+min);
+       while(bloco[NumRandBlocoJogo].getSituacao() == 1 ) 
+            NumRandBlocoJogo = (int) ((Math.random()*((max-min)+1))+min);
+       
+       System.out.println("NumRand: " + NumRandBlocoJogo);
+       JPanel janela = new JPanel();
+       Bloco bloco1 = new Bloco();
+      
+       switch (NumRandBlocoJogo){
+                case 0:
+                    bloco1 = bloco[0];
+                    janela = Janela.pos1;
+                    bloco1.setCampoTexto(Janela.label1);
+                    bloco1.setSituacao(1); //Bloco gerado, entao sua posicao esta ocupada
+                    break;
+                case 1:
+                    bloco1 = bloco[1];
+                    janela = Janela.pos2;
+                    bloco1.setCampoTexto(Janela.label2);
+                    bloco1.setSituacao(1);
+                    break;
+                case 2:
+                    bloco1 = bloco[2];
+                    janela = Janela.pos3;
+                    bloco1.setCampoTexto(Janela.label3);
+                    bloco1.setSituacao(1);
+                    break;
+                case 3:
+                    bloco1 = bloco[3];
+                    janela = Janela.pos4;
+                    bloco1.setCampoTexto(Janela.label4);
+                    bloco1.setSituacao(1);
+                    break;
+                case 4:
+                    bloco1 = bloco[4];
+                    janela = Janela.pos5;
+                    bloco1.setCampoTexto(Janela.label5);
+                    bloco1.setSituacao(1);
+                    break;
+                case 5:
+                    bloco1 = bloco[5];
+                    janela = Janela.pos6;
+                    bloco1.setCampoTexto(Janela.label6);
+                    bloco1.setSituacao(1);
+                    break;
+                case 6:
+                    bloco1 = bloco[6];
+                    janela = Janela.pos7;
+                    bloco1.setCampoTexto(Janela.label7);
+                    bloco1.setSituacao(1);
+                    break;
+                case 7:
+                    bloco1 = bloco[7];
+                    janela = Janela.pos8;
+                    bloco1.setCampoTexto(Janela.label8);
+                    bloco1.setSituacao(1);
+                    break;
+                case 8:
+                    bloco1 = bloco[8];
+                    janela = Janela.pos9;
+                    bloco1.setCampoTexto(Janela.label9);
+                    bloco1.setSituacao(1);
+                    break;
+                case 9:
+                    bloco1 = bloco[9];
+                    janela = Janela.pos10;
+                    bloco1.setCampoTexto(Janela.label10);
+                    bloco1.setSituacao(1);
+                    break;
+                case 10:
+                    bloco1 = bloco[10];
+                    janela = Janela.pos11;
+                    bloco1.setCampoTexto(Janela.label11);
+                    bloco1.setSituacao(1);
+                    break;
+                case 11:
+                    bloco1 = bloco[11];
+                    janela = Janela.pos12;
+                    bloco1.setCampoTexto(Janela.label12);
+                    bloco1.setSituacao(1);
+                    break;
+                case 12:
+                    bloco1 = bloco[12];
+                    janela = Janela.pos13;
+                    bloco1.setCampoTexto(Janela.label13);
+                    bloco1.setSituacao(1);
+                    break;
+                case 13:
+                    bloco1 = bloco[13];
+                    janela = Janela.pos14;
+                    bloco1.setCampoTexto(Janela.label14);
+                    bloco1.setSituacao(1);
+                    break;
+                case 14:
+                    bloco1 = bloco[14];
+                    janela = Janela.pos15;
+                    bloco1.setCampoTexto(Janela.label15);
+                    bloco1.setSituacao(1);
+                    break;
+                case 15:
+                    bloco1 = bloco[15];
+                    janela = Janela.pos16;
+                    bloco1.setCampoTexto(Janela.label16);
+                    bloco1.setSituacao(1);
+                    break;
+       }
+       
+        if(bloco1.GeraValor() == 2) {
+           bloco1.setValor(2);
+           bloco1.setPosicao(janela, Color.decode("#eee4da"));
+        }else{
+           bloco1.setValor(4);
+           bloco1.setPosicao(janela, Color.decode("#ede0c8"));
+            
+        }
+            
+}
+ 
     
  public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
      
@@ -313,16 +466,26 @@ public class Jogo extends Tabuleiro implements KeyListener {
                       for(int j= i-Razao; j>=Final; j= j-Razao){
                      // System.out.println("for 2"+bloco[j].getSituacao());
                       if(bloco[j].getSituacao() == 0){
+                          
                           bloco[j+Razao].setSituacao(0);//desativei o bloco antigo
                           bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
-                           bloco[j].setValor(bloco[j+Razao].getValor()); // passo o valor do antigo para o novo
+                          bloco[j].setValor(bloco[j+Razao].getValor()); // passo o valor do antigo para o novo
                           bloco[j+Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
-                          bloco[j].setPosicao(getJanela(j), Color.decode("#ffffff")); //alterei a cor do novo
+                          bloco[j].setPosicao(getJanela(j), Color.decode("#eee4da")); //alterei a cor do novo
                           
-                       
+                          
+                                                 
                          
                       }
+                     else
+                        if(bloco[j+Razao].getValor() == bloco[j].getValor()) {
+                            bloco[j].setValor(bloco[j].getValor()*2);
+                            bloco[j+Razao].setValor(0);
+                            bloco[j+Razao].setSituacao(0); //Desativando logicamente
+                            bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode("#8EB0E6"));
+                            
+                        }  
                     }
             }
         }
@@ -339,11 +502,23 @@ public class Jogo extends Tabuleiro implements KeyListener {
                           bloco[j].setValor(bloco[j-Razao].getValor()); // passo o valor do antigo para o novo
                           bloco[j-Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
-                          bloco[j].setPosicao(getJanela(j), Color.decode("#ffffff")); //alterei a cor do novo
+                          bloco[j].setPosicao(getJanela(j), Color.decode("#eee4da")); //alterei a cor do novo
+                          
+
                          
                       }
+                      else
+                        if(bloco[j-Razao].getValor() == bloco[j].getValor()) {
+                            bloco[j].setValor(bloco[j].getValor()*2);
+                            bloco[j-Razao].setValor(0);
+                            bloco[j-Razao].setSituacao(0); //Desativando logicamente
+                            bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#8EB0E6"));
+                            
+                        }  
                     }
             }
+
+                     
         }
              break;
              

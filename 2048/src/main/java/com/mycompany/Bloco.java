@@ -82,6 +82,7 @@ public class Bloco extends Animacao{
 
     public void setSituacao(int Situacao) {
         this.Situacao = Situacao;
+        
     }
 
     public void setValor(int Valor) {
