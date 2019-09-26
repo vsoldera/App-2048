@@ -21,10 +21,18 @@ public class Bloco extends Animacao{
     JLabel campoTexto;
     int Situacao;
     
-    public void Bloco(){
+    public Bloco(){
       
         
         return;
+    }
+
+    public Bloco(String Cor, int Valor, JPanel Posicao, JLabel campoTexto, int Situacao) {
+        this.Cor = Cor;
+        this.Valor = Valor;
+        this.Posicao = Posicao;
+        this.campoTexto = campoTexto;
+        this.Situacao = Situacao;
     }
     
     
@@ -78,6 +86,9 @@ public class Bloco extends Animacao{
 
     public void setValor(int Valor) {
         this.Valor = Valor;
+        if(Valor == 0) this.campoTexto.setText("");
+        else this.campoTexto.setText(String.valueOf(Valor));
+        
     }
 
     public JPanel getPosicao() {
@@ -96,9 +107,7 @@ public class Bloco extends Animacao{
     public void setCampoTexto(JLabel campoTexto) {
         this.campoTexto = campoTexto;
     }
-    public void setValorTexto(String valor){
-        this.campoTexto.setText(valor);
-    }
+   
 
   
 

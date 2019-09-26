@@ -38,29 +38,24 @@ public class Jogo extends Tabuleiro implements KeyListener {
         
         KeyListener2048();
         
-        bloco[0] = new Bloco();
-        bloco[1] = new Bloco();
-        bloco[2] = new Bloco();
-        bloco[3] = new Bloco();
-        bloco[4] = new Bloco();
-        bloco[5] = new Bloco();
-        bloco[6] = new Bloco();
-        bloco[7] = new Bloco();
-        bloco[8] = new Bloco();
-        bloco[9] = new Bloco();
-        bloco[10] = new Bloco();
-        bloco[11] = new Bloco();
-        bloco[12] = new Bloco();
-        bloco[13] = new Bloco();
-        bloco[14] = new Bloco();
-        bloco[15] = new Bloco();
+        bloco[0] = new Bloco("#afc3e2", 0, Janela.pos1, Janela.label1, 0 );
+        bloco[1] = new Bloco("#afc3e2", 0, Janela.pos2, Janela.label2, 0 );
+        bloco[2] = new Bloco("#afc3e2", 0, Janela.pos3, Janela.label3, 0 );
+        bloco[3] = new Bloco("#afc3e2", 0, Janela.pos4, Janela.label4, 0 );
+        bloco[4] = new Bloco("#afc3e2", 0, Janela.pos5, Janela.label5, 0 );
+        bloco[5] = new Bloco("#afc3e2", 0, Janela.pos6, Janela.label6, 0 );
+        bloco[6] = new Bloco("#afc3e2", 0, Janela.pos7, Janela.label7, 0 );
+        bloco[7] = new Bloco("#afc3e2", 0, Janela.pos8, Janela.label8, 0 );
+        bloco[8] = new Bloco("#afc3e2", 0, Janela.pos9, Janela.label9, 0 );
+        bloco[9] = new Bloco("#afc3e2", 0, Janela.pos10, Janela.label10, 0 );
+        bloco[10] = new Bloco("#afc3e2", 0, Janela.pos11, Janela.label11, 0 );
+        bloco[11] = new Bloco("#afc3e2", 0, Janela.pos12, Janela.label12, 0 );
+        bloco[12] = new Bloco("#afc3e2", 0, Janela.pos13, Janela.label13, 0 );
+        bloco[13] = new Bloco("#afc3e2", 0, Janela.pos14, Janela.label14, 0 );
+        bloco[14] = new Bloco("#afc3e2", 0, Janela.pos15, Janela.label15, 0 );
+        bloco[15] = new Bloco("#afc3e2", 0, Janela.pos16, Janela.label16, 0 );
   
-       // bloco[2].setSituacao(1);
-          bloco[12].setSituacao(1);
-        bloco[12].setPosicao(getJanela(12), Color.decode("#ffffff"));
-bloco[8].setSituacao(1);
-        bloco[8].setPosicao(getJanela(8), Color.decode("#ffffff"));
-        
+ 
         int NumRandBloco;
         //Bloco bloco = new Bloco();
         
@@ -208,10 +203,10 @@ bloco[8].setSituacao(1);
             break;
         }
         if(bloco1.GeraValor() == 2) {
-           bloco1.campoTexto.setText((String.valueOf(2)) );
+           bloco1.setValor(2);
            bloco1.setPosicao(janela, Color.decode("#eee4da"));
         }else{
-           bloco1.campoTexto.setText((String.valueOf(4)) );
+           bloco1.setValor(4);
            bloco1.setPosicao(janela, Color.decode("#ede0c8"));
             
         }
@@ -222,19 +217,7 @@ bloco[8].setSituacao(1);
            
      
      
-    public void checaArredores(){
-        //Se o bloco existir
-            for(int i = 0; i < 3; i++) {
-                if(bloco[i].getSituacao() == 1) {
-                    if(bloco[0] == true) {
-                        
-                    }
-                }
-            }
-        
-          return -1;  
-    }
-    
+
      @Override
     public void keyTyped(KeyEvent e) {
 
@@ -332,10 +315,13 @@ bloco[8].setSituacao(1);
                       if(bloco[j].getSituacao() == 0){
                           bloco[j+Razao].setSituacao(0);//desativei o bloco antigo
                           bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
+                           bloco[j].setValor(bloco[j+Razao].getValor()); // passo o valor do antigo para o novo
+                          bloco[j+Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
                           bloco[j].setPosicao(getJanela(j), Color.decode("#ffffff")); //alterei a cor do novo
-
-                          bloco[j].campoTexto.setText((String.valueOf(2)) );
+                          
+                       
+                         
                       }
                     }
             }
@@ -350,8 +336,11 @@ bloco[8].setSituacao(1);
                       if(bloco[j].getSituacao() == 0){
                           bloco[j-Razao].setSituacao(0);//desativei o bloco antigo
                           bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
+                          bloco[j].setValor(bloco[j-Razao].getValor()); // passo o valor do antigo para o novo
+                          bloco[j-Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
                           bloco[j].setPosicao(getJanela(j), Color.decode("#ffffff")); //alterei a cor do novo
+                         
                       }
                     }
             }
