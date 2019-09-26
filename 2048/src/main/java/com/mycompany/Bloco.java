@@ -96,6 +96,9 @@ public class Bloco extends Animacao{
     public void setCampoTexto(JLabel campoTexto) {
         this.campoTexto = campoTexto;
     }
+    public void setValorTexto(String valor){
+        this.campoTexto.setText(valor);
+    }
 
   
 
