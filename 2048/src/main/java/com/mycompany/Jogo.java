@@ -45,7 +45,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
 }
 
 
-    public void iniciaJogo(){
+public void iniciaJogo(){
         
         KeyListener2048();
         
@@ -70,10 +70,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
         int NumRandBloco;
         //Bloco bloco = new Bloco();
         
-        
-       
-            
-            getRandomicoBlocoInicial();
+        getRandomicoBlocoInicial();
             
             
             
@@ -81,7 +78,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
                 
      }
     
-   public void printaMatriz(){
+public void printaMatriz(){
        
        for(int i=0; i<4; i++){
            System.out.print(bloco[i].getSituacao());
@@ -104,10 +101,8 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
        }
    }
- 
-    
-    
- public void getRandomicoBlocoInicial(){
+   
+public void getRandomicoBlocoInicial(){
         
         int min = 1;
         int max = 16;
@@ -244,18 +239,13 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
         
     }
-           
-     
-     
-
-     @Override
-    public void keyTyped(KeyEvent e) {
+@Override
+public void keyTyped(KeyEvent e) {
 
 
     }
-    
-    @Override
-    public void keyPressed(KeyEvent e) {
+@Override
+public void keyPressed(KeyEvent e) {
        
         if (e.getKeyCode() == KeyEvent.VK_RIGHT  ) {
             toRight();
@@ -301,9 +291,8 @@ public class Jogo extends Tabuleiro implements KeyListener {
         
          geraExibeBloco();
     }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
+@Override
+public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             System.out.println("Seta direita solta");
         }
@@ -331,7 +320,6 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
         
     }
-
 public void geraExibeBloco() {
     int min = 0;
     int max = 15;
@@ -452,10 +440,8 @@ public void geraExibeBloco() {
             
         }
             
-}
- 
-    
- public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
+}   
+public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
      int ctrl=0;
     
      switch (Direcao){
@@ -475,7 +461,7 @@ public void geraExibeBloco() {
                           bloco[j+Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
                           bloco[j].setPosicao(getJanela(j),Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
-                          System.out.println("IF");
+                          //System.out.println("IF");
                           
                                                  
                          
@@ -487,7 +473,7 @@ public void geraExibeBloco() {
                             bloco[j+Razao].setValor(0);
                             bloco[j+Razao].setSituacao(0); //Desativando logicamente
                             bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
-                            System.out.println("ELSE");
+                            //System.out.println("ELSE");
                             ctrl = 1;
                             
                         }  
@@ -512,7 +498,7 @@ public void geraExibeBloco() {
                           bloco[j-Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
                           bloco[j].setPosicao(getJanela(j),Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
-                          System.out.println("IF2");
+                          //System.out.println("IF2");
                           
                           
  
@@ -525,8 +511,8 @@ public void geraExibeBloco() {
                             bloco[j-Razao].setValor(0);
                             bloco[j-Razao].setSituacao(0); //Desativando logicamente
                             bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#afc3e2"));
-                            System.out.println("ELSE2");
-                           ctrl = 1;
+                            //System.out.println("ELSE2");
+                            ctrl = 1;
                             
                             
                         }
@@ -548,69 +534,51 @@ public void toLeft(){
         int moveAte = 0;
         int atual=0, proximo =0, k=0;
            
-        // while( k != 4){
+
              movBloco(3, 0, 1, 1);
              movBloco(7, 4, 1, 1);
              movBloco(11, 8, 1,1);
              movBloco(15,12, 1,1);
-         //    k++;
-         //}   
-      
+
      
  }  
 public void toRight(){
         int moveAte = 0;
         int atual=0, proximo =0, k=0;
            
-        // while( k != 4){
+
              movBloco(0, 3, 1, 2);
              movBloco(4, 7, 1, 2);
              movBloco(8, 11, 1,2);
              movBloco(12, 15, 1,2);
-          //   k++;
-         //}   
+
       
      
- } 
-  
-    
- public void toDown() {
+ }   
+public void toDown() {
         int moveAte = 0;
         int i, k=0;
         int atual=0, proximo = 0;
         
-        //while( k != 4){
+
            movBloco(0, 12, 4, 2);
            movBloco(1, 13, 4, 2);
            movBloco(2, 14, 4, 2);
            movBloco(3, 15, 4, 2);
-          // k++;
-    //}  
+
            
  }
-  public void toUp() {
+public void toUp() {
         int moveAte = 0;
         int i, k=0;
         int atual=0, proximo = 0;
         
-       // while( k != 4){
            movBloco(12, 0, 4, 1);
            movBloco(13, 1, 4, 1);
            movBloco(14, 2, 4, 1);
-           movBloco(15, 3, 4, 1);
-      //     k++;
-    //}  
-           
+           movBloco(15, 3, 4, 1);           
  }
-   
-       
- 
-    
-
-     
-    
-    
-    public JPanel getJanela(int i){
+public JPanel getJanela(int i){
         JPanel janela  = new JPanel();
         switch(i){
             case 0:
