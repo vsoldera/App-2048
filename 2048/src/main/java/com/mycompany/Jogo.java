@@ -44,10 +44,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
        
 }
 
-    
-    
-    
-    
+
     public void iniciaJogo(){
         
         KeyListener2048();
@@ -532,7 +529,13 @@ public void geraExibeBloco() {
                             break;
                             
                             
-                        }  
+                        }
+                      
+                      
+                      
+                      
+                      
+                      
                     }
             }
 
@@ -548,10 +551,10 @@ public void toRight(){
         int atual=0, proximo =0, k=0;
            
          while( k != 4){
-             movBloco(0, 3, 1, 2);
-             movBloco(4, 7, 1, 2);
-             movBloco(8, 11, 1, 2);
-             movBloco(12,15, 1, 2);
+             movBloco(3, 0, 1, 2);
+             movBloco(7, 4, 1, 2);
+             movBloco(11, 8, 1, 2);
+             movBloco(15,12, 1, 2);
              k++;
          }   
       
@@ -562,10 +565,10 @@ public void toLeft(){
         int atual=0, proximo =0, k=0;
            
          while( k != 4){
-             movBloco(3, 0, 1, 1);
-             movBloco(7, 4, 1, 1);
-             movBloco(11, 8, 1, 1);
-             movBloco(15,12, 1, 1);
+             movBloco(0, 3, 1, 1);
+             movBloco(4, 7, 1, 1);
+             movBloco(8, 11, 1, 1);
+             movBloco(12, 15, 1, 1);
              k++;
          }   
       
@@ -579,10 +582,10 @@ public void toLeft(){
         int atual=0, proximo = 0;
         
         while( k != 4){
-           movBloco(12, 0, 4, 1);
-           movBloco(13, 1, 4, 1);
-           movBloco(14, 2, 4, 1);
-           movBloco(15, 3, 4, 1);
+           movBloco(0, 12, 4, 2);
+           movBloco(1, 13, 4, 2);
+           movBloco(2, 14, 4, 2);
+           movBloco(3, 15, 4, 2);
            k++;
     }  
            
@@ -593,10 +596,10 @@ public void toLeft(){
         int atual=0, proximo = 0;
         
         while( k != 4){
-           movBloco(0, 12, 4, 2);
-           movBloco(1, 13, 4, 2);
-           movBloco(2, 14, 4, 2);
-           movBloco(3, 15, 4, 2);
+           movBloco(12, 0, 4, 1);
+           movBloco(13, 1, 4, 1);
+           movBloco(14, 2, 4, 1);
+           movBloco(15, 3, 4, 1);
            k++;
     }  
            
