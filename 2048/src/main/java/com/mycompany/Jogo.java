@@ -456,11 +456,11 @@ public void geraExibeBloco() {
  
     
  public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
-     
+     int ctrl=0;
     
      switch (Direcao){
          case 1:
-        for(int i=Inicio; i>=Final ; i = i-Razao){
+        for(int i=Inicio; i>=Final; i = i-Razao){
                   //System.out.println("for 1"+bloco[i].getSituacao());,
 
                   if(bloco[i].getSituacao() == 1){
@@ -476,19 +476,19 @@ public void geraExibeBloco() {
                           bloco[j].setSituacao(1);//ativei o novo
                           bloco[j].setPosicao(getJanela(j),Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                           System.out.println("IF");
-                          break;
+                          
                                                  
                          
                       }
                      else
-                        if(bloco[j+Razao].getValor() == bloco[j].getValor()) {
+                        if(bloco[j+Razao].getValor() == bloco[j].getValor() && ctrl != 1 ) {
                             bloco[j].setValor(bloco[j].getValor()*2);
                             bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                             bloco[j+Razao].setValor(0);
                             bloco[j+Razao].setSituacao(0); //Desativando logicamente
                             bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
                             System.out.println("ELSE");
-                           break;
+                            ctrl = 1;
                             
                         }  
                     }
@@ -497,7 +497,7 @@ public void geraExibeBloco() {
         break;
          case 2:
             
-             for(int i=Inicio; i<=Final ; i = i+Razao){
+             for(int i=Inicio; i<=Final; i = i+Razao){
                   //System.out.println("for 1"+bloco[i].getSituacao());
                
                   if(bloco[i].getSituacao() == 1){
@@ -519,14 +519,14 @@ public void geraExibeBloco() {
                       }
                       else
                        
-                        if(bloco[j-Razao].getValor() == bloco[j].getValor() ) {
+                        if(bloco[j-Razao].getValor() == bloco[j].getValor() && ctrl != 1 ) {
                             bloco[j].setValor(bloco[j].getValor()*2);
                             bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                             bloco[j-Razao].setValor(0);
                             bloco[j-Razao].setSituacao(0); //Desativando logicamente
                             bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#afc3e2"));
                             System.out.println("ELSE2");
-                           
+                           ctrl = 1;
                             
                             
                         }
@@ -548,13 +548,13 @@ public void toLeft(){
         int moveAte = 0;
         int atual=0, proximo =0, k=0;
            
-         while( k != 4){
+        // while( k != 4){
              movBloco(3, 0, 1, 1);
              movBloco(7, 4, 1, 1);
-             movBloco(11, 8, 1, 1);
-             movBloco(15,12, 1, 1);
-             k++;
-         }   
+             movBloco(11, 8, 1,1);
+             movBloco(15,12, 1,1);
+         //    k++;
+         //}   
       
      
  }  
@@ -562,13 +562,13 @@ public void toRight(){
         int moveAte = 0;
         int atual=0, proximo =0, k=0;
            
-         while( k != 4){
+        // while( k != 4){
              movBloco(0, 3, 1, 2);
              movBloco(4, 7, 1, 2);
              movBloco(8, 11, 1,2);
-             movBloco(12, 15, 1, 2);
-             k++;
-         }   
+             movBloco(12, 15, 1,2);
+          //   k++;
+         //}   
       
      
  } 
@@ -579,13 +579,13 @@ public void toRight(){
         int i, k=0;
         int atual=0, proximo = 0;
         
-        while( k != 4){
+        //while( k != 4){
            movBloco(0, 12, 4, 2);
            movBloco(1, 13, 4, 2);
            movBloco(2, 14, 4, 2);
            movBloco(3, 15, 4, 2);
-           k++;
-    }  
+          // k++;
+    //}  
            
  }
   public void toUp() {
@@ -593,13 +593,13 @@ public void toRight(){
         int i, k=0;
         int atual=0, proximo = 0;
         
-        while( k != 4){
+       // while( k != 4){
            movBloco(12, 0, 4, 1);
            movBloco(13, 1, 4, 1);
            movBloco(14, 2, 4, 1);
            movBloco(15, 3, 4, 1);
-           k++;
-    }  
+      //     k++;
+    //}  
            
  }
    
