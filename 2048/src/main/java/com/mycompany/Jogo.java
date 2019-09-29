@@ -22,7 +22,9 @@ package com.mycompany;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -30,8 +32,16 @@ import javax.swing.JPanel;
  */
 public class Jogo extends Tabuleiro implements KeyListener {
     int setValor;
+    int Pontuacao;
+    int x;
+    int y;
     Bloco[] bloco = new Bloco[16];
     Tabuleiro Janela = new Tabuleiro();
+    
+    
+    
+    
+    
     public void KeyListener2048(){
       
         
@@ -98,7 +108,33 @@ public void printaMatriz(){
        System.out.print("\n");
        for(int i=12; i<16; i++){
            System.out.print(bloco[i].getSituacao());
-
+           
+           
+       }
+       
+       for(int i = 0; i < 16; i++) {
+           //Ganhar
+           if(bloco[0].getValor() == 2048 || bloco[1].getValor() == 2048 || bloco[2].getValor() == 2048 || bloco[3].getValor() == 2048 || bloco[4].getValor() == 2048 || bloco[5].getValor() == 2048 || bloco[6].getValor() == 2048 || bloco[7].getValor() == 2048 || bloco[8].getValor() == 2048 || bloco[9].getValor() == 2048 || bloco[10].getValor() == 2048 || bloco[11].getValor() == 2048 || bloco[12].getValor() == 2048 || bloco[13].getValor() == 2048 || bloco[14].getValor() == 2048 || bloco[15].getValor() == 2048 ) {
+               System.out.println("Voce Ganhou!");
+           }
+           //Perder
+           if(bloco[0].getSituacao() == 1 && bloco[1].getSituacao() == 1 && bloco[2].getSituacao() == 1 && bloco[3].getSituacao() == 1 && bloco[4].getSituacao() == 1 && bloco[5].getSituacao() == 1 && bloco[6].getSituacao() == 1 && bloco[7].getSituacao() == 1&& bloco[8].getSituacao() == 1&& bloco[9].getSituacao() == 1&& bloco[10].getSituacao() == 1&& bloco[11].getSituacao() == 1 && bloco[12].getSituacao() == 1&& bloco[13].getSituacao() == 1&& bloco[14].getSituacao() == 1&& bloco[15].getSituacao() == 1 ){
+                System.out.print("Voce perdeu!");
+           }
+            
+       }
+       
+       
+   }
+   
+   public void autoWin() {
+       for(int i=12; i<16; i++){
+           
+           bloco[14].setSituacao(1);
+           bloco[15].setSituacao(1);
+           bloco[14].setValor(1024);
+           bloco[15].setValor(1024);
+           
        }
    }
    
@@ -250,12 +286,14 @@ public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT  ) {
             toRight();
             System.out.println("Seta Direita Pressionada");
+            printaMatriz();
         }
         else
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             setValor = 2; //Bloco vai para a esquerda
             System.out.println("Seta Esquerda Pressionada");
             toLeft();
+            printaMatriz();
         }
         else
         if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -267,29 +305,42 @@ public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             toDown();
             System.out.println("Seta Baixo Pressionada");
+            printaMatriz();
         }
         else
         if (e.getKeyCode() == KeyEvent.VK_W  ) {
+            toUp();
             setValor = 3; //Bloco vai para cima
             System.out.println("Botao 'W' Pressionado");
+            printaMatriz();
         }
         else
         if (e.getKeyCode() == KeyEvent.VK_S  ) {
+            toDown();
             setValor = 4; //Bloco vai para baixo
             System.out.println("Botao 'S' Pressionado");
+            printaMatriz();
         }
         else
         if (e.getKeyCode() == KeyEvent.VK_D  ) {
+            toRight();
             setValor = 1; // Bloco vai para a direita
             System.out.println("Botao 'D' Pressionado");
+            printaMatriz();
         }
         else
         if (e.getKeyCode() == KeyEvent.VK_A  ) {
+            toLeft();
             setValor = 2; //Bloco vai para a esquerda
             System.out.println("Botao 'A' Pressionado");
+            printaMatriz();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_K  ) {
+            autoWin();
+            System.out.println("Botao 'K' Pressionado");
         }
         
-         geraExibeBloco();
+            geraExibeBloco();
     }
 @Override
 public void keyReleased(KeyEvent e) {
@@ -317,6 +368,10 @@ public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_A  ) {
             System.out.println("Botao 'A' solto");
         }
+        if (e.getKeyCode() == KeyEvent.VK_K  ) {
+            System.out.println("Botao 'K' solto");
+        }
+        
 
         
     }
@@ -443,6 +498,8 @@ public void geraExibeBloco() {
 }   
 public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
      int ctrl=0;
+     
+
     
      switch (Direcao){
          case 1:
@@ -461,7 +518,7 @@ public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(
                           bloco[j+Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
                           bloco[j].setPosicao(getJanela(j),Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
-                          //System.out.println("IF");
+                          
                           
                                                  
                          
@@ -476,8 +533,16 @@ public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(
                             //System.out.println("ELSE");
                             ctrl = 1;
                             
+                            
+                            y +=  bloco[j].getValor();
+                            System.out.println("VALOR DE Y: " +y);
+                            
+
+                            
                         }  
                     }
+                      
+                     
             }
         }
         break;
@@ -498,7 +563,7 @@ public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(
                           bloco[j-Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
                           bloco[j].setPosicao(getJanela(j),Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
-                          //System.out.println("IF2");
+                          
                           
                           
  
@@ -512,6 +577,12 @@ public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(
                             bloco[j-Razao].setSituacao(0); //Desativando logicamente
                             bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#afc3e2"));
                             //System.out.println("ELSE2");
+                            
+                            x +=  bloco[j].getValor();
+                            
+                            
+                            System.out.println("VALOR DE X: "+x);
+                            
                             ctrl = 1;
                             
                             
@@ -523,12 +594,18 @@ public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(
                       
                       
                     }
-            }
+  
+            }    
+   
+                  
     }
-             break;
-             
+  
 }
-    
+  
+  Pontuacao = x + y;
+  System.out.println("PONTUACAO: " + Pontuacao);
+  atualizarPontuacao(Pontuacao);
+  
 }
 public void toLeft(){
         int moveAte = 0;
@@ -644,5 +721,12 @@ public JPanel getJanela(int i){
         
     }
    
+    public void atualizarPontuacao(int Pontuacao){
+
+        pont.setText(Integer.toString(Pontuacao));
+      
+    }
 
 }
+
+
