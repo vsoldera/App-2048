@@ -42,7 +42,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
     
     
     
-    public void KeyListener2048(){
+public void KeyListener2048(){
       
         
         Janela.setTitle("2048");   
@@ -721,12 +721,11 @@ public JPanel getJanela(int i){
         
     }
    
-    public void atualizarPontuacao(int Pontuacao){
-
-        pont.setText(Integer.toString(Pontuacao));
-      
-    }
+public void atualizarPontuacao(int Pontuacao){
+        Janela.pont.setText(String.valueOf(Pontuacao));   
+        
 
 }
 
+}
 
