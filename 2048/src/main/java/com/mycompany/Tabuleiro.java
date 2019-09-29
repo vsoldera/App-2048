@@ -84,7 +84,7 @@ public class Tabuleiro extends javax.swing.JFrame {
             pos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pos1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pos1Layout.setVerticalGroup(
@@ -680,11 +680,6 @@ public class Tabuleiro extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 
-public void pegaExibeBloco(Bloco bloco){
-    
-    
-    
-}
 
 
 }

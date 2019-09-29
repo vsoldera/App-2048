@@ -9,7 +9,7 @@ package com.mycompany;
  *
  * @author CarryBit
  */
-public class Erros  extends Movimentacao{
+public class Erros{
     public int erroCaractere() {
         return -1;
     }
