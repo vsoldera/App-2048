@@ -22,6 +22,8 @@ package com.mycompany;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -135,6 +137,7 @@ public void printaMatriz(){
            bloco[15].setSituacao(1);
            bloco[14].setValor(1024);
            bloco[15].setValor(1024);
+          
            
        }
    }
@@ -186,6 +189,8 @@ public void getRandomicoBlocoInicial(){
                     bloco1 = bloco[3];
                     janela = Janela.pos4;
                     bloco1.setCampoTexto(Janela.label4);
+                    pos4.setAlignmentX((float) 1.5);
+                    pos4.setAlignmentY((float) 1.5);
                     bloco1.setSituacao(1);
                     break;
                 case 5:
