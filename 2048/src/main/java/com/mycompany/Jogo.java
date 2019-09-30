@@ -50,7 +50,8 @@ public void KeyListener2048(){
         Janela.setVisible(true);
         Janela.setResizable(false);
         Janela.addKeyListener(this);
-        
+        Janela.getContentPane().setBackground( Color.decode("#baac9f") ) ;
+        Janela.jButton1.setBackground(Color.decode("#baac9f"));
        
 }
 
@@ -513,7 +514,7 @@ public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(
                       if(bloco[j].getSituacao() == 0){
                           
                           bloco[j+Razao].setSituacao(0);//desativei o bloco antigo
-                          bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
+                          bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode("#CBBFB2")); //alterei a cor do antigo para a padrao
                           bloco[j].setValor(bloco[j+Razao].getValor()); // passo o valor do antigo para o novo
                           bloco[j+Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
@@ -529,7 +530,7 @@ public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(
                             bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                             bloco[j+Razao].setValor(0);
                             bloco[j+Razao].setSituacao(0); //Desativando logicamente
-                            bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
+                            bloco[j+Razao].setPosicao(getJanela(j+Razao), Color.decode("#CBBFB2")); //alterei a cor do antigo para a padrao
                             //System.out.println("ELSE");
                             ctrl = 1;
                             
@@ -558,7 +559,7 @@ public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(
                       if(bloco[j].getSituacao() == 0){
                           
                           bloco[j-Razao].setSituacao(0);//desativei o bloco antigo
-                          bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#afc3e2")); //alterei a cor do antigo para a padrao
+                          bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#CBBFB2")); //alterei a cor do antigo para a padrao
                           bloco[j].setValor(bloco[j-Razao].getValor()); // passo o valor do antigo para o novo
                           bloco[j-Razao].setValor(0);// zero o antigo
                           bloco[j].setSituacao(1);//ativei o novo
@@ -575,7 +576,7 @@ public void movBloco(int Inicio, int Final , int Razao, int Direcao){ //1 subir(
                             bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                             bloco[j-Razao].setValor(0);
                             bloco[j-Razao].setSituacao(0); //Desativando logicamente
-                            bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#afc3e2"));
+                            bloco[j-Razao].setPosicao(getJanela(j-Razao), Color.decode("#CBBFB2"));
                             //System.out.println("ELSE2");
                             
                             x +=  bloco[j].getValor();
