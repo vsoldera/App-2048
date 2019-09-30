@@ -18,6 +18,8 @@ public class Tabuleiro extends javax.swing.JFrame {
 
     JLabel c = new JLabel();
     ImageIcon a = new ImageIcon("gif.gif");
+   public JLabel f = new JLabel();
+    public ImageIcon d = new ImageIcon("derrota.gif");
 
     /**
      * Creates new form Tabuleiro
@@ -93,9 +95,9 @@ public class Tabuleiro extends javax.swing.JFrame {
         pos1.setLayout(pos1Layout);
         pos1Layout.setHorizontalGroup(
             pos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pos1Layout.createSequentialGroup()
-                .addGap(466, 466, 466)
-                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pos1Layout.setVerticalGroup(

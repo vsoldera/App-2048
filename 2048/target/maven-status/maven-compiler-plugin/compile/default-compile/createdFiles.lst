@@ -1,4 +1,4 @@
-com\mycompany\Graficos.class
+com\mycompany\Jogo$1.class
 com\mycompany\Tabuleiro.class
 com\mycompany\Bloco.class
 com\mycompany\Tabuleiro$1.class
@@ -6,6 +6,5 @@ com\mycompany\Animacao.class
 com\mycompany\Erros.class
 com\mycompany\Tabuleiro$3.class
 com\mycompany\Main.class
-com\mycompany\Movimentacao.class
 com\mycompany\Jogo.class
 com\mycompany\Tabuleiro$2.class

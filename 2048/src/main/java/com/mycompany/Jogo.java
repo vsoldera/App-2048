@@ -19,7 +19,10 @@
  */
 package com.mycompany;
 
+import java.awt.AWTException;
 import java.awt.Color;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.logging.Level;
@@ -42,9 +45,17 @@ public class Jogo extends Tabuleiro implements KeyListener {
     int x;
     int y;
     Bloco[] bloco = new Bloco[16];
+    
     Tabuleiro Janela = new Tabuleiro();
+    
     JLabel c = new JLabel();
     ImageIcon a = new ImageIcon("gif.gif");
+    
+    JLabel f = new JLabel();
+    
+    ImageIcon d = new ImageIcon("derrota.gif");
+
+    
 
     public Jogo() {
 
@@ -113,7 +124,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
         }
 
-        for (int i = 0; i < 16; i++) {
+        
             //Ganhar
             if (bloco[0].getValor() == 2048 || bloco[1].getValor() == 2048 || bloco[2].getValor() == 2048 || bloco[3].getValor() == 2048 || bloco[4].getValor() == 2048 || bloco[5].getValor() == 2048 || bloco[6].getValor() == 2048 || bloco[7].getValor() == 2048 || bloco[8].getValor() == 2048 || bloco[9].getValor() == 2048 || bloco[10].getValor() == 2048 || bloco[11].getValor() == 2048 || bloco[12].getValor() == 2048 || bloco[13].getValor() == 2048 || bloco[14].getValor() == 2048 || bloco[15].getValor() == 2048) {
                 System.out.println("Voce Ganhou!");
@@ -122,22 +133,56 @@ public class Jogo extends Tabuleiro implements KeyListener {
             //Perder
             if (bloco[0].getSituacao() == 1 && bloco[1].getSituacao() == 1 && bloco[2].getSituacao() == 1 && bloco[3].getSituacao() == 1 && bloco[4].getSituacao() == 1 && bloco[5].getSituacao() == 1 && bloco[6].getSituacao() == 1 && bloco[7].getSituacao() == 1 && bloco[8].getSituacao() == 1 && bloco[9].getSituacao() == 1 && bloco[10].getSituacao() == 1 && bloco[11].getSituacao() == 1 && bloco[12].getSituacao() == 1 && bloco[13].getSituacao() == 1 && bloco[14].getSituacao() == 1 && bloco[15].getSituacao() == 1) {
                 System.out.print("Voce perdeu!");
+                try {
+                    Robot robot = new Robot();
 
-            }
+                robot.keyPress(KeyEvent.VK_V);
+                robot.keyRelease(KeyEvent.VK_V);
+
+            } catch (AWTException e) {
+                    e.printStackTrace();
+        }
+
+            
 
         }
 
     }
+    
+    public void derrota() {
+            JFrame frame2 = new JFrame();
+            frame2.setSize(456, 196);
+            frame2.setLayout(null);
+            frame2.setVisible(true);
+            frame2.setLocationRelativeTo(null);
+            frame2.setUndecorated(true);
+            f = new JLabel(new ImageIcon("derrota.gif"));
+            f.setBounds(0, 0, 456, 196);
+            frame2.add(f);
+            frame2.toFront();
+
+            new Thread() {
+                public void run() {
+                    try {
+                        Thread.sleep(3000);
+                        frame2.dispose();
+                        Janela.setVisible(true);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }.start();
+    }
 
     public void autoWin() {
-        for (int i = 12; i < 16; i++) {
+       
 
             bloco[14].setSituacao(1);
             bloco[15].setSituacao(1);
             bloco[14].setValor(1024);
             bloco[15].setValor(1024);
 
-        }
+        
     }
 
     public void getRandomicoBlocoInicial() {
@@ -184,8 +229,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
                     bloco1 = bloco[3];
                     janela = Janela.pos4;
                     bloco1.setCampoTexto(Janela.label4);
-                    pos4.setAlignmentX((float) 1.5);
-                    pos4.setAlignmentY((float) 1.5);
+
                     bloco1.setSituacao(1);
                     break;
                 case 5:
@@ -321,6 +365,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
             System.out.println("Botao 'A' Pressionado");
             printaMatriz();
         }
+        if (e.getKeyCode() == KeyEvent.VK_V) derrota();
         if (e.getKeyCode() == KeyEvent.VK_K) {
             autoWin();
             JFrame frame = new JFrame();
