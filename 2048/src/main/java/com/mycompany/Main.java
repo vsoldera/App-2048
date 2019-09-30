@@ -7,12 +7,15 @@ package com.mycompany;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
  * @author luizviniciusruoso  
  */
-public class Main {
+public class Main extends Jogo{
     /* funcao para inciar o jogo e deixar ele tôp*/
      
         
@@ -22,8 +25,7 @@ public class Main {
        Jogo jogo = new Jogo();
        
        jogo.iniciaJogo();
-      
-       
+
    
       
     }

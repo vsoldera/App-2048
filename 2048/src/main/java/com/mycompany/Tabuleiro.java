@@ -16,19 +16,16 @@ import javax.swing.JLabel;
  */
 public class Tabuleiro extends javax.swing.JFrame {
 
+    JLabel c = new JLabel();
+    ImageIcon a = new ImageIcon("gif.gif");
+
     /**
      * Creates new form Tabuleiro
      */
-    JLabel c = new JLabel();
-           Icon a = new ImageIcon("gif.gif");
-    
+
     public Tabuleiro() {
         initComponents();
-         
-           
-            c.setIcon(a);
-        c.setSize(500,500);
-        add(c);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -97,8 +94,8 @@ public class Tabuleiro extends javax.swing.JFrame {
         pos1Layout.setHorizontalGroup(
             pos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pos1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addGap(466, 466, 466)
+                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pos1Layout.setVerticalGroup(
@@ -669,20 +666,17 @@ public class Tabuleiro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Jogo jogo = new Jogo();
-       jogo.iniciaJogo(); 
-       
-       //Fecha janela anterior
-       dispose();
+        Jogo jogo = new Jogo();
+        jogo.iniciaJogo();
+
+        //Fecha janela anterior
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
     }//GEN-LAST:event_jButton1MouseClicked
-    
-    
 
-      
     /**
      * @param args the command line arguments
      */
@@ -715,13 +709,11 @@ public class Tabuleiro extends javax.swing.JFrame {
             @Override
             public void run() {
                 new Tabuleiro().setVisible(true);
-               
+
             }
         });
     }
-    
-      
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -763,8 +755,4 @@ public class Tabuleiro extends javax.swing.JFrame {
     public javax.swing.JPanel pos9;
     // End of variables declaration//GEN-END:variables
 
-
-
-
 }
-
