@@ -172,6 +172,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
                     }
                 }
             }.start();
+            
     }
 
     public void autoWin() {
@@ -181,6 +182,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
             bloco[15].setSituacao(1);
             bloco[14].setValor(1024);
             bloco[15].setValor(1024);
+            
 
         
     }
@@ -554,7 +556,8 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
     }
 
-    public void movBloco(int Inicio, int Final, int Razao, int Direcao) { //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
+    public void
+         movBloco(int Inicio, int Final, int Razao, int Direcao) { //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
         int ctrl = 0;
 
         switch (Direcao) {
@@ -583,9 +586,10 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 bloco[j + Razao].setPosicao(getJanela(j + Razao), Color.decode("#CBBFB2")); //alterei a cor do antigo para a padrao
                                 //System.out.println("ELSE");
                                 ctrl = 1;
-
+                                
                                 y += bloco[j].getValor();
                                 System.out.println("VALOR DE Y: " + y);
+                                
 
                             }
                         }
