@@ -28,6 +28,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -49,17 +50,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
     Bloco[] bloco = new Bloco[16];
     
     Tabuleiro Janela = new Tabuleiro();
-    
     JLabel c = new JLabel();
-    ImageIcon a = new ImageIcon("gif.gif");
-    
-    JLabel f = new JLabel();
-    
-    JLabel xis = new JLabel();
-    
-    
-    JLabel r = new JLabel();
-    ImageIcon d = new ImageIcon("derrota.gif");
     
     
     static void displayMenu()
@@ -84,7 +75,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
         // set up the jframe, then display it
             frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            frame6.setPreferredSize(new Dimension(300, 200));
+            frame6.setPreferredSize(new Dimension(500, 500));
             frame6.pack();
             frame6.setLocationRelativeTo(null);
             frame6.setVisible(true);
@@ -247,7 +238,14 @@ public class Jogo extends Tabuleiro implements KeyListener {
         bloco[13] = new Bloco("#afc3e2", 0, Janela.pos14, Janela.label14, 0);
         bloco[14] = new Bloco("#afc3e2", 0, Janela.pos15, Janela.label15, 0);
         bloco[15] = new Bloco("#afc3e2", 0, Janela.pos16, Janela.label16, 0);
-
+        
+            
+         Janela.direita.setIcon(new ImageIcon(Janela.criaIcones("/img/getirghtrue.png")));
+         Janela.esquerda.setIcon(new ImageIcon(Janela.criaIcones("/img/getleft.png")));
+         Janela.baixo.setIcon(new ImageIcon(Janela.criaIcones("/img/getright.png")));
+         Janela.cima.setIcon(new ImageIcon(Janela.criaIcones("/img/getup.png")));
+         
+        
         int NumRandBloco;
         //Bloco bloco = new Bloco();
 
@@ -258,43 +256,27 @@ public class Jogo extends Tabuleiro implements KeyListener {
     public void printaMatriz() {
 
         for (int i = 0; i < 4; i++) {
-            System.out.print(bloco[i].getSituacao());
+            System.out.print(bloco[i].getValor());
 
         }
         System.out.print("\n");
         for (int i = 4; i < 8; i++) {
 
-            System.out.print(bloco[i].getSituacao());
+            System.out.print(bloco[i].getValor());
 
         }
         System.out.print("\n");
         for (int i = 8; i < 12; i++) {
-            System.out.print(bloco[i].getSituacao());
+            System.out.print(bloco[i].getValor());
 
         }
         System.out.print("\n");
         for (int i = 12; i < 16; i++) {
-            System.out.print(bloco[i].getSituacao());
+            System.out.print(bloco[i].getValor());
 
         }
 
         
-            //Ganhar
-            if (bloco[0].getValor() == 2048 || bloco[1].getValor() == 2048 || bloco[2].getValor() == 2048 || bloco[3].getValor() == 2048 || bloco[4].getValor() == 2048 || bloco[5].getValor() == 2048 || bloco[6].getValor() == 2048 || bloco[7].getValor() == 2048 || bloco[8].getValor() == 2048 || bloco[9].getValor() == 2048 || bloco[10].getValor() == 2048 || bloco[11].getValor() == 2048 || bloco[12].getValor() == 2048 || bloco[13].getValor() == 2048 || bloco[14].getValor() == 2048 || bloco[15].getValor() == 2048) {
-                
-                System.out.println("Voce Ganhou!");
-                Janela.setVisible(false);
-                displayVitoria();
-
-            }
-            //Perder
-            if (conte!= 1 && bloco[0].getSituacao() == 1 && bloco[1].getSituacao() == 1 && bloco[2].getSituacao() == 1 && bloco[3].getSituacao() == 1 && bloco[4].getSituacao() == 1 && bloco[5].getSituacao() == 1 && bloco[6].getSituacao() == 1 && bloco[7].getSituacao() == 1 && bloco[8].getSituacao() == 1 && bloco[9].getSituacao() == 1 && bloco[10].getSituacao() == 1 && bloco[11].getSituacao() == 1 && bloco[12].getSituacao() == 1 && bloco[13].getSituacao() == 1 && bloco[14].getSituacao() == 1 && bloco[15].getSituacao() == 1) {
-                System.out.print("Voce perdeu!");
-                
-                
-                //displayDerrota();
-  
-            }
 
             
 
@@ -586,7 +568,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
             frame.setLayout(null);
             frame.setLocationRelativeTo(null);
             frame.setUndecorated(true);
-            c = new JLabel(new ImageIcon("gif.gif"));
+            c = new JLabel(new ImageIcon(Janela.criaIcones("/img/gif.gif")));
             c.setBounds(0, 0, 480, 360);
             frame.add(c);
             frame.toFront();
@@ -647,12 +629,21 @@ public class Jogo extends Tabuleiro implements KeyListener {
     public void geraExibeBloco() {
         int min = 0;
         int max = 15;
+        int contador = 0;
 
         int NumRandBlocoJogo = (int) ((Math.random() * ((max - min) + 1)) + min);
-        while (bloco[NumRandBlocoJogo].getSituacao() == 1) {
-            NumRandBlocoJogo = (int) ((Math.random() * ((max - min) + 1)) + min);
-        }
-
+  
+           while (bloco[NumRandBlocoJogo].getSituacao() == 1 ) {
+                NumRandBlocoJogo = (int) ((Math.random() * ((max - min) + 1)) + min);
+                contador++;
+                System.out.println("contador: "+contador);
+                if(contador == 50) break;
+            }
+       
+        if(contador != 50){// condicao para derrota, isso quer dizer 
+            //que o while nao conseguiu encontar uma posicao vazia, logo o usuario perdeu, 
+            //ja que em cada movimentacao do bloco, libera um e outro é logo preenchido por um randimico
+            
         System.out.println("NumRand: " + NumRandBlocoJogo);
         JPanel janela = new JPanel();
         Bloco bloco1 = new Bloco();
@@ -764,6 +755,11 @@ public class Jogo extends Tabuleiro implements KeyListener {
             bloco1.setPosicao(janela, Color.decode(bloco1.CorRetorno(4))); //alterei a cor do novo
 
         }
+      }
+           else{
+               System.out.println("perdeu");
+               //derrota();
+      }
 
     }
 
