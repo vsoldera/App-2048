@@ -5,10 +5,20 @@
  */
 package com.mycompany;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -34,7 +44,116 @@ public class Tabuleiro extends javax.swing.JFrame  {
             e.printStackTrace();
         }
         return img;
-}
+    }
+    
+    
+public  void criaExibeTelas(int i, JFrame tabuleiro){
+        JLabel label = null;
+        JFrame frame1 = new JFrame();
+        JFrame frame2 = new JFrame();
+        
+        switch(i){
+            case 1: //derrota
+                tabuleiro.setVisible(false); 
+                frame1.setUndecorated(true);
+                //frame1.setLocationRelativeTo(null);
+                
+                frame1.setSize(456, 196);
+                label = new JLabel(new ImageIcon("derrota.gif"));
+                label.setBounds(0, 0, 456, 196);
+                frame1.add(label);
+                
+                for(int j = 0; j< 1000; j++){
+                    frame1.setLocation(j, j);
+                    frame1.setVisible(true);
+                    new Thread() {
+                    public void run() {
+                    try {
+                         Thread.sleep(200);
+                         frame1.dispose();
+                         tabuleiro.setVisible(true);
+                    } catch (InterruptedException ex) {
+                         Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }.start();
+                }
+                
+                
+                
+            break;
+            case 2: //vitoria
+                tabuleiro.setVisible(false); 
+                frame2.setUndecorated(true);
+                
+                frame2.setVisible(true);
+                frame2.setSize(480, 360);
+                frame2.setLocationRelativeTo(null);
+                label = new JLabel(new ImageIcon("gif.gif"));
+                label.setBounds(0, 0, 456, 196);
+                frame2.add(label);
+                new Thread() {
+                    public void run() {
+                    try {
+                         Thread.sleep(3000);
+                         frame2.dispose();
+                         tabuleiro.setVisible(true);
+                    } catch (InterruptedException ex) {
+                         Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }.start();
+                
+            break;
+            
+            
+        }
+       
+        
+        
+    }
+public void displayMenu(JFrame tabuleiro)
+    {
+        tabuleiro.setVisible(false);
+        JFrame frame = new JFrame("Bem Vindo ao Incrível 2048 - THE GAME!");
+
+        // create our jbutton
+        JButton showDialogButton = new JButton("Novo Jogo!");
+  
+        // add the listener to the jbutton to handle the "pressed" event
+        showDialogButton.addActionListener((ActionEvent e) -> {
+            // display/center the jdialog when the button is pressed
+                tabuleiro.setTitle("2048");
+                tabuleiro.setBackground(Color.blue);
+                tabuleiro.setVisible(true);
+                tabuleiro.setResizable(false);      
+                tabuleiro.getContentPane().setBackground(Color.decode("#baac9f"));
+        
+            
+                frame.dispose();
+        });
+            
+
+            // put the button on the frame
+            frame.getContentPane().setLayout(new FlowLayout());
+            frame.add(showDialogButton);
+
+        // set up the jframe, then display it
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.setPreferredSize(new Dimension(500, 500));
+            frame.pack();
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -674,15 +793,18 @@ public class Tabuleiro extends javax.swing.JFrame  {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(pont, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(22, 22, 22)
-                .addComponent(cima, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pont, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(87, 87, 87))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(cima, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -717,8 +839,8 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addComponent(pos13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pos14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(baixo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addComponent(baixo, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
@@ -764,13 +886,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Tabuleiro().setVisible(true);
-
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

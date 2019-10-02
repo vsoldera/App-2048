@@ -50,10 +50,11 @@ public class Jogo extends Tabuleiro implements KeyListener {
     Bloco[] bloco = new Bloco[16];
     
     Tabuleiro Janela = new Tabuleiro();
-    JLabel c = new JLabel();
+    JLabel c = null;
+    JLabel derrota = null;
     
     
-    static void displayMenu()
+static void displayMenu()
     {
         JFrame frame6 = new JFrame("Menu!");
 
@@ -343,32 +344,6 @@ public class Jogo extends Tabuleiro implements KeyListener {
         
     }
 
-    
-    public void derrota() {
-              Janela.setVisible(false);
-                
-                JFrame frame3 = new JFrame();
-                frame3.setUndecorated(true);
-                frame3.setLocationRelativeTo(null);
-                frame3.setVisible(true);
-                frame3.setSize(456, 196);
-                xis = new JLabel(new ImageIcon("vitoria.gif"));
-                xis.setBounds(0, 0, 456, 196);
-                frame3.add(xis);
-                new Thread() {
-                    public void run() {
-                    try {
-                        Thread.sleep(3000);
-                        frame3.dispose();
-                        Janela.setVisible(true);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }.start();
-            
-    }
-
     public void autoWin() {
         
             bloco[14].setSituacao(1);
@@ -560,32 +535,12 @@ public class Jogo extends Tabuleiro implements KeyListener {
             System.out.println("Botao 'A' Pressionado");
             printaMatriz();
         }
-        if (e.getKeyCode() == KeyEvent.VK_V) derrota();
+        if (e.getKeyCode() == KeyEvent.VK_V) Janela.criaExibeTelas(1, Janela);
         if (e.getKeyCode() == KeyEvent.VK_K) {
             autoWin();
-            JFrame frame = new JFrame();
-            frame.setSize(480, 360);
-            frame.setLayout(null);
-            frame.setLocationRelativeTo(null);
-            frame.setUndecorated(true);
-            c = new JLabel(new ImageIcon(Janela.criaIcones("/img/gif.gif")));
-            c.setBounds(0, 0, 480, 360);
-            frame.add(c);
-            frame.toFront();
-            Janela.setVisible(false);
-            frame.setVisible(true);
-            new Thread() {
-                public void run() {
-                    try {
-                        Thread.sleep(3000);
-                        frame.dispose();
-                        Janela.setVisible(true);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }.start();
-
+            
+            Janela.criaExibeTelas(2, Janela);
+          
             //labelGif = 
             System.out.println("Botao 'K' Pressionado");
 
@@ -758,7 +713,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
       }
            else{
                System.out.println("perdeu");
-               //derrota();
+               Janela.criaExibeTelas(1, Janela);
       }
 
     }
