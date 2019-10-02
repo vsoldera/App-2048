@@ -741,8 +741,8 @@ static void displayMenu()
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
 
                             } else if (bloco[j + Razao].getValor() == bloco[j].getValor() && ctrl != 1) {
-                                try{
-                                conte = 1;
+                                
+                               
                                 bloco[j].setValor(bloco[j].getValor() * 2);
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                                 bloco[j + Razao].setValor(0);
@@ -753,11 +753,7 @@ static void displayMenu()
                                 
                                 y += bloco[j].getValor();
                                 System.out.println("VALOR DE Y: " + y);
-                                }
-                                catch(NumberFormatException e)
-                                {
-                                    System.out.println("Just numbers");
-                                }  
+                               
                                 
                             }
                         }
