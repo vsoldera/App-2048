@@ -1,3 +1,6 @@
+
+
+
 /* 
 #eee4da  == bloco2
 #ede0c8 == bloco4
@@ -8,10 +11,6 @@
 #edcf72 == bloco128
 #edcc61 == bloco256 
 
-
-
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,29 +18,32 @@
  */
 package com.mycompany;
 
-import java.awt.AWTException;
 import java.awt.Color;
-import java.awt.Robot;
-import java.awt.event.InputEvent;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author
  */
 public class Jogo extends Tabuleiro implements KeyListener {
-
+    int conte = 0;
     int setValor;
     int Pontuacao;
+    boolean alreadyExecuted;
     int x;
     int y;
     Bloco[] bloco = new Bloco[16];
@@ -53,13 +55,159 @@ public class Jogo extends Tabuleiro implements KeyListener {
     
     JLabel f = new JLabel();
     
+    JLabel xis = new JLabel();
+    
+    
+    JLabel r = new JLabel();
     ImageIcon d = new ImageIcon("derrota.gif");
+    
+    
+    static void displayMenu()
+    {
+        JFrame frame6 = new JFrame("Menu!");
 
+        // create our jbutton
+        JButton showDialogButton = new JButton("Novo Jogo!");
+  
+        // add the listener to the jbutton to handle the "pressed" event
+        showDialogButton.addActionListener((ActionEvent e) -> {
+            // display/center the jdialog when the button is pressed
+                Jogo jogo = new Jogo();
+                jogo.iniciaJogo();
+                frame6.dispose();
+        });
+            
+
+            // put the button on the frame
+            frame6.getContentPane().setLayout(new FlowLayout());
+            frame6.add(showDialogButton);
+
+        // set up the jframe, then display it
+            frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame6.setPreferredSize(new Dimension(300, 200));
+            frame6.pack();
+            frame6.setLocationRelativeTo(null);
+            frame6.setVisible(true);
+        
+    }
     
 
     public Jogo() {
+          
+            Janela.cima.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                toUp();
+                geraExibeBloco();
+            }
 
+            @Override
+            public void mousePressed(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        });
+            Janela.direita.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                toRight();
+                geraExibeBloco();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        });
+            Janela.esquerda.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                toLeft();
+                geraExibeBloco();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        });
+
+            
+            Janela.baixo.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                toDown();
+                geraExibeBloco();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                
+            }
+        });
     }
+    
+    
+    
 
     public void KeyListener2048() {
 
@@ -72,6 +220,12 @@ public class Jogo extends Tabuleiro implements KeyListener {
         Janela.jButton1.setBackground(Color.decode("#baac9f"));
 
     }
+    
+    
+        
+    
+    
+            
 
     public void iniciaJogo() {
 
@@ -127,45 +281,103 @@ public class Jogo extends Tabuleiro implements KeyListener {
         
             //Ganhar
             if (bloco[0].getValor() == 2048 || bloco[1].getValor() == 2048 || bloco[2].getValor() == 2048 || bloco[3].getValor() == 2048 || bloco[4].getValor() == 2048 || bloco[5].getValor() == 2048 || bloco[6].getValor() == 2048 || bloco[7].getValor() == 2048 || bloco[8].getValor() == 2048 || bloco[9].getValor() == 2048 || bloco[10].getValor() == 2048 || bloco[11].getValor() == 2048 || bloco[12].getValor() == 2048 || bloco[13].getValor() == 2048 || bloco[14].getValor() == 2048 || bloco[15].getValor() == 2048) {
+                
                 System.out.println("Voce Ganhou!");
+                Janela.setVisible(false);
+                displayVitoria();
 
             }
             //Perder
-            if (bloco[0].getSituacao() == 1 && bloco[1].getSituacao() == 1 && bloco[2].getSituacao() == 1 && bloco[3].getSituacao() == 1 && bloco[4].getSituacao() == 1 && bloco[5].getSituacao() == 1 && bloco[6].getSituacao() == 1 && bloco[7].getSituacao() == 1 && bloco[8].getSituacao() == 1 && bloco[9].getSituacao() == 1 && bloco[10].getSituacao() == 1 && bloco[11].getSituacao() == 1 && bloco[12].getSituacao() == 1 && bloco[13].getSituacao() == 1 && bloco[14].getSituacao() == 1 && bloco[15].getSituacao() == 1) {
+            if (conte!= 1 && bloco[0].getSituacao() == 1 && bloco[1].getSituacao() == 1 && bloco[2].getSituacao() == 1 && bloco[3].getSituacao() == 1 && bloco[4].getSituacao() == 1 && bloco[5].getSituacao() == 1 && bloco[6].getSituacao() == 1 && bloco[7].getSituacao() == 1 && bloco[8].getSituacao() == 1 && bloco[9].getSituacao() == 1 && bloco[10].getSituacao() == 1 && bloco[11].getSituacao() == 1 && bloco[12].getSituacao() == 1 && bloco[13].getSituacao() == 1 && bloco[14].getSituacao() == 1 && bloco[15].getSituacao() == 1) {
                 System.out.print("Voce perdeu!");
-                try {
-                    Robot robot = new Robot();
-
-                robot.keyPress(KeyEvent.VK_V);
-                robot.keyRelease(KeyEvent.VK_V);
-
-            } catch (AWTException e) {
-                    e.printStackTrace();
-        }
+                
+                
+                //displayDerrota();
+  
+            }
 
             
 
-        }
+        
 
     }
     
-    public void derrota() {
-            JFrame frame2 = new JFrame();
-            frame2.setSize(456, 196);
-            frame2.setLayout(null);
-            frame2.setVisible(true);
-            frame2.setLocationRelativeTo(null);
-            frame2.setUndecorated(true);
-            f = new JLabel(new ImageIcon("derrota.gif"));
-            f.setBounds(0, 0, 456, 196);
-            frame2.add(f);
-            frame2.toFront();
+    
+      static void displayVitoria()
+      {
+        JFrame frame4 = new JFrame("Vitória");
 
-            new Thread() {
-                public void run() {
+        // create our jbutton
+        JButton showDialogButton = new JButton("Novo Jogo");
+  
+        // add the listener to the jbutton to handle the "pressed" event
+        showDialogButton.addActionListener((ActionEvent e) -> {
+            // display/center the jdialog when the button is pressed
+                Jogo jogo = new Jogo();
+                jogo.iniciaJogo();
+                frame4.dispose();
+        });
+            
+
+            // put the button on the frame
+            frame4.getContentPane().setLayout(new FlowLayout());
+            frame4.add(showDialogButton);
+
+        // set up the jframe, then display it
+            frame4.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame4.setPreferredSize(new Dimension(300, 200));
+            frame4.pack();
+            frame4.setLocationRelativeTo(null);
+            frame4.setVisible(true);
+        
+    }
+    
+      static void displayDerrota()
+      {
+        JFrame frame5 = new JFrame("Derrota");
+
+        // create our jbutton
+        JButton showDialogButton = new JButton("Novo Jogo");
+  
+        // add the listener to the jbutton to handle the "pressed" event
+        showDialogButton.addActionListener((ActionEvent e) -> {
+            // display/center the jdialog when the button is pressed
+                Jogo jogo = new Jogo();
+                jogo.iniciaJogo();
+                frame5.dispose();
+        });
+            
+
+            // put the button on the frame
+            frame5.getContentPane().setLayout(new FlowLayout());
+            frame5.add(showDialogButton);
+
+        // set up the jframe, then display it
+            frame5.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame5.setPreferredSize(new Dimension(300, 200));
+            frame5.pack();
+            frame5.setLocationRelativeTo(null);
+            frame5.setVisible(true);
+        
+    }
+
+    
+    public void derrota() {
+              Janela.setVisible(false);
+                
+                JFrame frame3 = new JFrame();
+                frame3.setUndecorated(true);
+                frame3.setLocationRelativeTo(null);
+                frame3.setVisible(true);
+                frame3.setSize(456, 196);
+                xis = new JLabel(new ImageIcon("vitoria.gif"));
+                xis.setBounds(0, 0, 456, 196);
+                frame3.add(xis);
+                new Thread() {
+                    public void run() {
                     try {
                         Thread.sleep(3000);
-                        frame2.dispose();
+                        frame3.dispose();
                         Janela.setVisible(true);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
@@ -176,8 +388,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
     }
 
     public void autoWin() {
-       
-
+        
             bloco[14].setSituacao(1);
             bloco[15].setSituacao(1);
             bloco[14].setValor(1024);
@@ -556,8 +767,8 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
     }
 
-    public void
-         movBloco(int Inicio, int Final, int Razao, int Direcao) { //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
+    @SuppressWarnings("empty-statement")
+    public void movBloco(int Inicio, int Final, int Razao, int Direcao) { //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
         int ctrl = 0;
 
         switch (Direcao) {
@@ -579,6 +790,8 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
 
                             } else if (bloco[j + Razao].getValor() == bloco[j].getValor() && ctrl != 1) {
+                                try{
+                                conte = 1;
                                 bloco[j].setValor(bloco[j].getValor() * 2);
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                                 bloco[j + Razao].setValor(0);
@@ -589,8 +802,12 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 
                                 y += bloco[j].getValor();
                                 System.out.println("VALOR DE Y: " + y);
+                                }
+                                catch(NumberFormatException e)
+                                {
+                                    System.out.println("Just numbers");
+                                }  
                                 
-
                             }
                         }
 
@@ -616,6 +833,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
 
                             } else if (bloco[j - Razao].getValor() == bloco[j].getValor() && ctrl != 1) {
+                                conte = 1;
                                 bloco[j].setValor(bloco[j].getValor() * 2);
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                                 bloco[j - Razao].setValor(0);
@@ -759,5 +977,8 @@ public class Jogo extends Tabuleiro implements KeyListener {
         Janela.pont.setText(String.valueOf(Pontuacao));
 
     }
+    
+     
+
 
 }

@@ -6,7 +6,6 @@
 package com.mycompany;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
-import java.lang.Math; 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 /**

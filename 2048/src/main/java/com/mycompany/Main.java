@@ -5,12 +5,6 @@
  */
 package com.mycompany;
 
-import java.awt.Color;
-import java.awt.event.KeyEvent;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
 /**
  *
  * @author luizviniciusruoso  
@@ -22,9 +16,7 @@ public class Main extends Jogo{
     public static void main(String[] args) {
         /* tabuleiro speccs*/
           
-       Jogo jogo = new Jogo();
-       
-       jogo.iniciaJogo();
+        displayMenu();
 
    
       

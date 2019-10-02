@@ -5,22 +5,10 @@
  */
 package com.mycompany;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.InputMap;
-import static javax.swing.JComponent.WHEN_FOCUSED;
 import javax.swing.JFrame;
 import javax.swing.Timer;
-import java.awt.*;
-import java.awt.Color;
-import javax.swing.Timer;
-import javax.swing.*;
-import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyAdapter;
 
 /**
  *
