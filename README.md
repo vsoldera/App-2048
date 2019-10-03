@@ -1,5 +1,5 @@
 
-<<<<<<< 3303fb6
+
 #Projeto Java : 2048
 
 Projeto feito para a disciplina de Paradigmas de Programação B.
