@@ -21,15 +21,22 @@ public class Main extends Jogo{
         
     public static void main(String[] args) {
         /* tabuleiro speccs*/
+<<<<<<< Updated upstream
           
        Jogo jogo = new Jogo();
        
        jogo.iniciaJogo();
+=======
+         
+        Jogo jogo = new Jogo();
+        
+        jogo.displayMenu();
+>>>>>>> Stashed changes
 
    
       
     }
-    
+
 
    
  

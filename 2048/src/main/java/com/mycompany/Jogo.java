@@ -19,9 +19,14 @@
  */
 package com.mycompany;
 
+
 import java.awt.AWTException;
+
+import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Robot;
+import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -29,10 +34,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -51,9 +58,60 @@ public class Jogo extends Tabuleiro implements KeyListener {
     JLabel c = new JLabel();
     ImageIcon a = new ImageIcon("gif.gif");
     
+
     JLabel f = new JLabel();
     
     ImageIcon d = new ImageIcon("derrota.gif");
+
+
+    
+public void displayMenu()
+    {
+        JLabel a = null;
+        JFrame frame6 = new JFrame("2048!");
+        JPanel painel = new JPanel();
+
+        // create our jbutton
+        JButton showDialogButton = new JButton("Novo Jogo!");
+  
+        // add the listener to the jbutton to handle the "pressed" event
+        showDialogButton.addActionListener((ActionEvent e) -> {
+            // display/center the jdialog when the button is pressed
+                Jogo jogo = new Jogo();
+                jogo.iniciaJogo();
+                frame6.dispose();
+        });
+            
+           
+           
+        
+            // put the button on the frame
+            painel.setLayout(null);
+            
+            a = new JLabel(new ImageIcon(Janela.criaIcones("/img/teste1.jpg")));
+            frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame6.pack();
+            
+            frame6.setVisible(true);
+            
+            frame6.setSize(500, 500);
+            a.setBounds(0, 0, 500, 500);
+            frame6.setLocationRelativeTo(null);
+            frame6.add(a);
+            frame6.add(painel);
+            
+            //showDialogButton.setPreferredSize(new Dimension(50, 50));
+            showDialogButton.setBackground(Color.BLACK);
+            showDialogButton.setBounds(155,320,200, 50);
+            showDialogButton.setVisible(true);
+            painel.add(showDialogButton);
+            
+            
+        // set up the jframe, then display it
+            
+           // frame6.setPreferredSize(new Dimension(500, 500));
+            
+    }
 
     
 
@@ -62,14 +120,17 @@ public class Jogo extends Tabuleiro implements KeyListener {
     }
 
     public void KeyListener2048() {
-
+        JLabel a = new JLabel();
         Janela.setTitle("2048");
-        Janela.setBackground(Color.blue);
+        
+        Janela.teste.setIcon(new ImageIcon(Janela.criaIcones("/img/tabuleiro.jpg")));
+        Janela.setSize(680, 650);
+        Janela.setLocationRelativeTo(null);
         Janela.setVisible(true);
         Janela.setResizable(false);
         Janela.addKeyListener(this);
-        Janela.getContentPane().setBackground(Color.decode("#baac9f"));
-        Janela.jButton1.setBackground(Color.decode("#baac9f"));
+        Janela.getContentPane().setBackground(Color.decode("#03040e"));
+        Janela.jButton1.setBackground(Color.decode("#03040e"));
 
     }
 
@@ -182,10 +243,94 @@ public class Jogo extends Tabuleiro implements KeyListener {
             bloco[15].setSituacao(1);
             bloco[14].setValor(1024);
             bloco[15].setValor(1024);
+            bloco[14].setPosicao(getJanela(14), Color.decode(bloco[14].CorRetorno(bloco[14].getValor())));
+            bloco[15].setPosicao(getJanela(15), Color.decode(bloco[15].CorRetorno(bloco[15].getValor())));
             
 
         
     }
+
+
+public void vitoria() {
+        Janela.dispose();
+        JLabel a = null;
+        JFrame frame6 = new JFrame("Parabéns!");
+        JPanel painel = new JPanel();
+
+        // create our jbutton
+        JButton showDialogButton = new JButton("Novo Jogo!");
+  
+        // add the listener to the jbutton to handle the "pressed" event
+        showDialogButton.addActionListener((ActionEvent e) -> {
+            // display/center the jdialog when the button is pressed
+                Jogo jogo = new Jogo();
+                jogo.iniciaJogo();
+                frame6.dispose();
+        });
+            
+           
+           
+        
+            // put the button on the frame
+            painel.setLayout(null);
+            
+            a = new JLabel(new ImageIcon(Janela.criaIcones("/img/vitoria.jpg")));
+            frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            
+            
+            frame6.setVisible(true);
+            frame6.setSize(500, 500);
+            a.setBounds(0, 0, 500, 500);
+            frame6.setLocationRelativeTo(null);
+            frame6.add(a);
+            frame6.add(painel);
+            
+            //showDialogButton.setPreferredSize(new Dimension(50, 50));
+            showDialogButton.setBackground(Color.BLACK);
+            showDialogButton.setBounds(155,320,200, 50);
+            painel.add(showDialogButton);
+    }
+    
+ public void derrota() {
+       Janela.dispose();
+        JLabel a = null;
+        JFrame frame6 = new JFrame("GAME OVER!");
+        JPanel painel = new JPanel();
+
+        // create our jbutton
+        JButton showDialogButton = new JButton("Novo Jogo!");
+  
+        // add the listener to the jbutton to handle the "pressed" event
+        showDialogButton.addActionListener((ActionEvent e) -> {
+            // display/center the jdialog when the button is pressed
+                Jogo jogo = new Jogo();
+                jogo.iniciaJogo();
+                frame6.dispose();
+        });
+            
+           
+           
+        
+            // put the button on the frame
+            painel.setLayout(null);
+            
+            a = new JLabel(new ImageIcon(Janela.criaIcones("/img/perdeu.jpg")));
+            frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            
+            
+            frame6.setVisible(true);
+            frame6.setSize(500, 500);
+            a.setBounds(0, 0, 500, 500);
+            frame6.setLocationRelativeTo(null);
+            frame6.add(a);
+            frame6.add(painel);
+            
+            //showDialogButton.setPreferredSize(new Dimension(50, 50));
+            showDialogButton.setBackground(Color.BLACK);
+            showDialogButton.setBounds(155,320,200, 50);
+            painel.add(showDialogButton);
+}
+    
 
     public void getRandomicoBlocoInicial() {
 
@@ -554,10 +699,19 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
         }
 
-    }
+      }
+           else{
+               
+               System.out.println("perdeu");
+               derrota();
+               
 
-    public void
-         movBloco(int Inicio, int Final, int Razao, int Direcao) { //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
+      }
+
+
+    }
+}
+    public void movBloco(int Inicio, int Final, int Razao, int Direcao) { //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
         int ctrl = 0;
 
         switch (Direcao) {
@@ -572,7 +726,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
                             if (bloco[j].getSituacao() == 0) {
 
                                 bloco[j + Razao].setSituacao(0);//desativei o bloco antigo
-                                bloco[j + Razao].setPosicao(getJanela(j + Razao), Color.decode("#CBBFB2")); //alterei a cor do antigo para a padrao
+                                bloco[j + Razao].setPosicao(getJanela(j + Razao), Color.decode("#FFFFFF")); //alterei a cor do antigo para a padrao
                                 bloco[j].setValor(bloco[j + Razao].getValor()); // passo o valor do antigo para o novo
                                 bloco[j + Razao].setValor(0);// zero o antigo
                                 bloco[j].setSituacao(1);//ativei o novo
@@ -583,12 +737,29 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                                 bloco[j + Razao].setValor(0);
                                 bloco[j + Razao].setSituacao(0); //Desativando logicamente
-                                bloco[j + Razao].setPosicao(getJanela(j + Razao), Color.decode("#CBBFB2")); //alterei a cor do antigo para a padrao
+                                bloco[j + Razao].setPosicao(getJanela(j + Razao), Color.decode("#FFFFFF")); //alterei a cor do antigo para a padrao
                                 //System.out.println("ELSE");
                                 ctrl = 1;
                                 
                                 y += bloco[j].getValor();
                                 System.out.println("VALOR DE Y: " + y);
+
+                                //Condicao de Vitoria
+                                if(bloco[j].getValor() == 2048) {
+                                  new Thread() {
+                                    public void run() {
+                                    try {
+                                         Thread.sleep(1000);
+                                         vitoria();
+                                    } catch (InterruptedException ex) {
+                                         Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
+                                        }
+                                    }.start();
+                                    
+                                    
+                                }
+
                                 
 
                             }
@@ -609,7 +780,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
                             if (bloco[j].getSituacao() == 0) {
 
                                 bloco[j - Razao].setSituacao(0);//desativei o bloco antigo
-                                bloco[j - Razao].setPosicao(getJanela(j - Razao), Color.decode("#CBBFB2")); //alterei a cor do antigo para a padrao
+                                bloco[j - Razao].setPosicao(getJanela(j - Razao), Color.decode("#FFFFFF")); //alterei a cor do antigo para a padrao
                                 bloco[j].setValor(bloco[j - Razao].getValor()); // passo o valor do antigo para o novo
                                 bloco[j - Razao].setValor(0);// zero o antigo
                                 bloco[j].setSituacao(1);//ativei o novo
@@ -620,7 +791,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                                 bloco[j - Razao].setValor(0);
                                 bloco[j - Razao].setSituacao(0); //Desativando logicamente
-                                bloco[j - Razao].setPosicao(getJanela(j - Razao), Color.decode("#CBBFB2"));
+                                bloco[j - Razao].setPosicao(getJanela(j - Razao), Color.decode("#FFFFFF"));
                                 //System.out.println("ELSE2");
 
                                 x += bloco[j].getValor();
@@ -628,6 +799,23 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 System.out.println("VALOR DE X: " + x);
 
                                 ctrl = 1;
+
+                                //Condicao de Vitoria
+                                if(bloco[j].getValor() == 2048) {
+                                   new Thread() {
+                                    public void run() {
+                                    try {
+                                         Thread.sleep(1000);
+                                        vitoria(); 
+                                    } catch (InterruptedException ex) {
+                                         Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
+                                        }
+                                    }.start();
+                                   
+                                   
+                                }
+
 
                             }
 

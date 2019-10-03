@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 com\mycompany\Jogo$1.class
 com\mycompany\Tabuleiro.class
 com\mycompany\Bloco.class
@@ -9,3 +10,19 @@ com\mycompany\Main.class
 com\mycompany\Jogo.class
 com\mycompany\Tabuleiro$2.class
 com\mycompany\Jogo$2.class
+=======
+com/mycompany/Tabuleiro$2.class
+com/mycompany/Jogo$3.class
+com/mycompany/Erros.class
+com/mycompany/Jogo$4.class
+com/mycompany/Main.class
+com/mycompany/Jogo.class
+com/mycompany/Jogo$1.class
+com/mycompany/Tabuleiro$3.class
+com/mycompany/Tabuleiro$1.class
+com/mycompany/Jogo$2.class
+com/mycompany/Tabuleiro.class
+com/mycompany/Tabuleiro$4.class
+com/mycompany/Bloco.class
+com/mycompany/Animacao.class
+>>>>>>> Stashed changes

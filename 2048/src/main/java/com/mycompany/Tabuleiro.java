@@ -26,6 +26,95 @@ public class Tabuleiro extends javax.swing.JFrame  {
         setLocationRelativeTo(null);
     }
 
+    //"/img/getright.png"
+    public Image criaIcones( String source){
+        Image img = null;
+        try{
+           img = ImageIO.read(getClass().getResource(source));
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        return img;
+    }
+    
+    
+public  void criaExibeTelas(int i, JFrame tabuleiro){
+        JLabel label = null;
+        JFrame frame1 = new JFrame();
+        JFrame frame2 = new JFrame();
+
+        switch(i){
+            case 1: //derrota
+            tabuleiro.setVisible(false); 
+               
+                frame1.setUndecorated(true);
+                frame1.setAlwaysOnTop( true );
+                frame1.setVisible(true);
+                frame1.setSize(456, 196);
+                frame1.setLocationRelativeTo(null);
+                label = new JLabel(new ImageIcon("derrota.gif"));
+                label.setBounds(0, 0, 456, 196);
+                frame1.add(label);
+                new Thread() {
+                    public void run() {
+                    try {
+                         Thread.sleep(3000);
+                         frame1.dispose();
+                         tabuleiro.setVisible(true);
+                    } catch (InterruptedException ex) {
+                         Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }.start();
+                    
+            break;
+            case 2: //vitoria
+                
+                tabuleiro.setVisible(false); 
+                frame2.setUndecorated(true);
+                frame2.setAlwaysOnTop( true );
+                frame2.setVisible(true);
+                frame2.setSize(480, 360);
+                frame2.setLocationRelativeTo(null);
+                label = new JLabel(new ImageIcon("gif.gif"));
+                label.setBounds(0, 0, 456, 196);
+                frame2.add(label);
+                new Thread() {
+                    public void run() {
+                    try {
+                         Thread.sleep(3000);
+                         frame2.dispose();
+                         tabuleiro.setVisible(true);
+                    } catch (InterruptedException ex) {
+                         Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }.start();
+                    
+            break;
+     
+
+        }
+       
+        
+        
+    }
+
+
+public void derrota() {
+     
+}
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,10 +164,19 @@ public class Tabuleiro extends javax.swing.JFrame  {
         jLabel1 = new javax.swing.JLabel();
         pont = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+<<<<<<< Updated upstream
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+=======
+        baixo = new javax.swing.JLabel();
+        cima = new javax.swing.JLabel();
+        esquerda = new javax.swing.JLabel();
+        pos10 = new javax.swing.JPanel();
+        label10 = new javax.swing.JLabel();
+        teste = new javax.swing.JLabel();
+>>>>>>> Stashed changes
 
         jButton6.setText("Direita");
 
@@ -103,8 +201,11 @@ public class Tabuleiro extends javax.swing.JFrame  {
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(203, 191, 178));
         setForeground(new java.awt.Color(175, 195, 226));
+        getContentPane().setLayout(null);
+        getContentPane().add(direita);
+        direita.setBounds(530, 240, 112, 177);
 
-        pos1.setBackground(new java.awt.Color(203, 191, 178));
+        pos1.setBackground(new java.awt.Color(255, 255, 255));
         pos1.setToolTipText("");
         pos1.setPreferredSize(new java.awt.Dimension(80, 80));
 
@@ -118,7 +219,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
             pos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pos1Layout.setVerticalGroup(
@@ -129,7 +230,10 @@ public class Tabuleiro extends javax.swing.JFrame  {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        pos2.setBackground(new java.awt.Color(203, 191, 178));
+        getContentPane().add(pos1);
+        pos1.setBounds(170, 150, 80, 77);
+
+        pos2.setBackground(new java.awt.Color(255, 255, 255));
         pos2.setPreferredSize(new java.awt.Dimension(80, 80));
         pos2.setRequestFocusEnabled(false);
 
@@ -159,7 +263,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
         );
         pos2Layout.setVerticalGroup(
             pos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 77, Short.MAX_VALUE)
             .addGroup(pos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos2Layout.createSequentialGroup()
                     .addContainerGap(24, Short.MAX_VALUE)
@@ -172,7 +276,10 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(23, Short.MAX_VALUE)))
         );
 
-        pos3.setBackground(new java.awt.Color(203, 191, 178));
+        getContentPane().add(pos2);
+        pos2.setBounds(260, 150, 80, 77);
+
+        pos3.setBackground(new java.awt.Color(255, 255, 255));
         pos3.setPreferredSize(new java.awt.Dimension(80, 80));
 
         label3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -186,7 +293,14 @@ public class Tabuleiro extends javax.swing.JFrame  {
         pos3.setLayout(pos3Layout);
         pos3Layout.setHorizontalGroup(
             pos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< Updated upstream
             .addGap(0, 80, Short.MAX_VALUE)
+=======
+            .addGroup(pos3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label18, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+>>>>>>> Stashed changes
             .addGroup(pos3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pos3Layout.createSequentialGroup()
                     .addGap(0, 36, Short.MAX_VALUE)
@@ -213,7 +327,10 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(23, Short.MAX_VALUE)))
         );
 
-        pos4.setBackground(new java.awt.Color(203, 191, 178));
+        getContentPane().add(pos3);
+        pos3.setBounds(350, 150, 80, 77);
+
+        pos4.setBackground(new java.awt.Color(255, 255, 255));
 
         label4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -230,12 +347,12 @@ public class Tabuleiro extends javax.swing.JFrame  {
             .addGroup(pos4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
             .addGroup(pos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pos4Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(label19, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(12, Short.MAX_VALUE)))
+                    .addContainerGap(16, Short.MAX_VALUE)))
         );
         pos4Layout.setVerticalGroup(
             pos4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +367,10 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(23, Short.MAX_VALUE)))
         );
 
-        pos5.setBackground(new java.awt.Color(203, 191, 178));
+        getContentPane().add(pos4);
+        pos4.setBounds(440, 150, 80, 77);
+
+        pos5.setBackground(new java.awt.Color(255, 255, 255));
 
         label5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -264,7 +384,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
             .addGroup(pos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos5Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label5, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(label5, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pos5Layout.setVerticalGroup(
@@ -277,7 +397,15 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(26, Short.MAX_VALUE)))
         );
 
+<<<<<<< Updated upstream
         pos6.setBackground(new java.awt.Color(203, 191, 178));
+=======
+        getContentPane().add(pos5);
+        pos5.setBounds(170, 240, 80, 80);
+
+        pos6.setBackground(new java.awt.Color(255, 255, 255));
+        pos6.setPreferredSize(new java.awt.Dimension(80, 80));
+>>>>>>> Stashed changes
 
         label6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -287,12 +415,19 @@ public class Tabuleiro extends javax.swing.JFrame  {
         pos6.setLayout(pos6Layout);
         pos6Layout.setHorizontalGroup(
             pos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< Updated upstream
             .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(pos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos6Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(label6, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                     .addContainerGap()))
+=======
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label6, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                .addContainerGap())
+>>>>>>> Stashed changes
         );
         pos6Layout.setVerticalGroup(
             pos6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,7 +439,10 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(26, Short.MAX_VALUE)))
         );
 
-        pos7.setBackground(new java.awt.Color(203, 191, 178));
+        getContentPane().add(pos6);
+        pos6.setBounds(260, 240, 80, 80);
+
+        pos7.setBackground(new java.awt.Color(255, 255, 255));
 
         label7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -318,7 +456,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
             .addGroup(pos7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos7Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label7, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(label7, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pos7Layout.setVerticalGroup(
@@ -331,7 +469,10 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(26, Short.MAX_VALUE)))
         );
 
-        pos8.setBackground(new java.awt.Color(203, 191, 178));
+        getContentPane().add(pos7);
+        pos7.setBounds(350, 240, 80, 80);
+
+        pos8.setBackground(new java.awt.Color(255, 255, 255));
 
         label8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -345,7 +486,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
             .addGroup(pos8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pos8Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label8, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(label8, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pos8Layout.setVerticalGroup(
@@ -358,7 +499,10 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(26, Short.MAX_VALUE)))
         );
 
-        pos9.setBackground(new java.awt.Color(203, 191, 178));
+        getContentPane().add(pos8);
+        pos8.setBounds(440, 240, 80, 80);
+
+        pos9.setBackground(new java.awt.Color(255, 255, 255));
 
         label9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -372,7 +516,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
             .addGroup(pos9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pos9Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label9, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(label9, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pos9Layout.setVerticalGroup(
@@ -385,6 +529,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(26, Short.MAX_VALUE)))
         );
 
+<<<<<<< Updated upstream
         pos10.setBackground(new java.awt.Color(203, 191, 178));
 
         label10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -409,6 +554,12 @@ public class Tabuleiro extends javax.swing.JFrame  {
         );
 
         pos11.setBackground(new java.awt.Color(203, 191, 178));
+=======
+        getContentPane().add(pos9);
+        pos9.setBounds(170, 330, 80, 80);
+
+        pos11.setBackground(new java.awt.Color(255, 255, 255));
+>>>>>>> Stashed changes
 
         label11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -422,7 +573,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
             .addGroup(pos11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos11Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label11, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(label11, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pos11Layout.setVerticalGroup(
@@ -435,7 +586,10 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(26, Short.MAX_VALUE)))
         );
 
-        pos12.setBackground(new java.awt.Color(203, 191, 178));
+        getContentPane().add(pos11);
+        pos11.setBounds(350, 330, 80, 80);
+
+        pos12.setBackground(new java.awt.Color(255, 255, 255));
 
         label12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -449,7 +603,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
             .addGroup(pos12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos12Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label12, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(label12, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pos12Layout.setVerticalGroup(
@@ -462,7 +616,15 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(26, Short.MAX_VALUE)))
         );
 
+<<<<<<< Updated upstream
         pos13.setBackground(new java.awt.Color(203, 191, 178));
+=======
+        getContentPane().add(pos12);
+        pos12.setBounds(440, 330, 80, 80);
+
+        pos13.setBackground(new java.awt.Color(255, 255, 255));
+        pos13.setPreferredSize(new java.awt.Dimension(80, 80));
+>>>>>>> Stashed changes
 
         label13.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -472,6 +634,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
         pos13.setLayout(pos13Layout);
         pos13Layout.setHorizontalGroup(
             pos13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< Updated upstream
             .addGap(0, 80, Short.MAX_VALUE)
             .addGroup(pos13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos13Layout.createSequentialGroup()
@@ -487,9 +650,25 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(25, Short.MAX_VALUE)
                     .addComponent(label13)
                     .addContainerGap(26, Short.MAX_VALUE)))
+=======
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label13, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pos13Layout.setVerticalGroup(
+            pos13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pos13Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
 
-        pos14.setBackground(new java.awt.Color(203, 191, 178));
+        getContentPane().add(pos13);
+        pos13.setBounds(170, 420, 80, 80);
+
+        pos14.setBackground(new java.awt.Color(255, 255, 255));
 
         label14.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -503,7 +682,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
             .addGroup(pos14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos14Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label14, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(label14, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pos14Layout.setVerticalGroup(
@@ -516,7 +695,10 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(26, Short.MAX_VALUE)))
         );
 
-        pos15.setBackground(new java.awt.Color(203, 191, 178));
+        getContentPane().add(pos14);
+        pos14.setBounds(260, 420, 80, 80);
+
+        pos15.setBackground(new java.awt.Color(255, 255, 255));
 
         label15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -530,7 +712,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
             .addGroup(pos15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos15Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(label15, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(label15, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pos15Layout.setVerticalGroup(
@@ -543,7 +725,15 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(26, Short.MAX_VALUE)))
         );
 
+<<<<<<< Updated upstream
         pos16.setBackground(new java.awt.Color(203, 191, 178));
+=======
+        getContentPane().add(pos15);
+        pos15.setBounds(350, 420, 80, 80);
+
+        pos16.setBackground(new java.awt.Color(255, 255, 255));
+        pos16.setPreferredSize(new java.awt.Dimension(80, 80));
+>>>>>>> Stashed changes
 
         label16.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         label16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -557,7 +747,11 @@ public class Tabuleiro extends javax.swing.JFrame  {
             .addGroup(pos16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pos16Layout.createSequentialGroup()
                     .addContainerGap()
+<<<<<<< Updated upstream
                     .addComponent(label16, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+=======
+                    .addComponent(label16, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+>>>>>>> Stashed changes
                     .addContainerGap()))
         );
         pos16Layout.setVerticalGroup(
@@ -570,17 +764,24 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addContainerGap(26, Short.MAX_VALUE)))
         );
 
+        getContentPane().add(pos16);
+        pos16.setBounds(440, 420, 80, 80);
+
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Pontuação:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(80, 30, 130, 39);
 
         pont.setBackground(new java.awt.Color(255, 255, 255));
-        pont.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
+        pont.setFont(new java.awt.Font("Lucida Grande", 0, 30)); // NOI18N
         pont.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(pont);
+        pont.setBounds(210, 30, 90, 38);
 
-        jButton1.setBackground(new java.awt.Color(203, 191, 178));
-        jButton1.setForeground(new java.awt.Color(203, 191, 178));
+        jButton1.setBackground(new java.awt.Color(0, 0, 51));
+        jButton1.setForeground(new java.awt.Color(0, 0, 51));
         jButton1.setText("Novo Jogo");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -595,7 +796,10 @@ public class Tabuleiro extends javax.swing.JFrame  {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(460, 30, 109, 37);
 
+<<<<<<< Updated upstream
         jButton2.setBackground(new java.awt.Color(203, 191, 178));
         jButton2.setForeground(new java.awt.Color(203, 191, 178));
         jButton2.setText("Esquerda");
@@ -629,6 +833,20 @@ public class Tabuleiro extends javax.swing.JFrame  {
                 jButton3ActionPerformed(evt);
             }
         });
+=======
+        baixo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(baixo);
+        baixo.setBounds(260, 510, 172, 79);
+
+        cima.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(cima);
+        cima.setBounds(250, 70, 180, 63);
+        getContentPane().add(esquerda);
+        esquerda.setBounds(60, 240, 89, 174);
+
+        pos10.setBackground(new java.awt.Color(255, 255, 255));
+        pos10.setPreferredSize(new java.awt.Dimension(80, 80));
+>>>>>>> Stashed changes
 
         jButton7.setBackground(new java.awt.Color(203, 191, 178));
         jButton7.setForeground(new java.awt.Color(203, 191, 178));
@@ -647,6 +865,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
             }
         });
 
+<<<<<<< Updated upstream
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -764,6 +983,31 @@ public class Tabuleiro extends javax.swing.JFrame  {
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(14, 14, 14)))
         );
+=======
+        javax.swing.GroupLayout pos10Layout = new javax.swing.GroupLayout(pos10);
+        pos10.setLayout(pos10Layout);
+        pos10Layout.setHorizontalGroup(
+            pos10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pos10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label10, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pos10Layout.setVerticalGroup(
+            pos10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pos10Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(label10)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pos10);
+        pos10.setBounds(260, 330, 80, 80);
+
+        teste.setText("jLabel2");
+        getContentPane().add(teste);
+        teste.setBounds(0, 0, 760, 610);
+>>>>>>> Stashed changes
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -886,6 +1130,7 @@ public class Tabuleiro extends javax.swing.JFrame  {
     public javax.swing.JPanel pos7;
     public javax.swing.JPanel pos8;
     public javax.swing.JPanel pos9;
+    public javax.swing.JLabel teste;
     // End of variables declaration//GEN-END:variables
 
 }
