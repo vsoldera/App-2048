@@ -19,7 +19,7 @@ Mas cuidado! Toda vez que você move blocos, todos movem-se juntos e ainda há a
 ## Tutorial para execução
 
 - Recomenda-se que rode-o por meio do **[Apache NetBeans 11.1](https://netbeans.apache.org/download/index.html).**
-- Após abrir o projeto, execute a classe **Main.java** por meio da tecla de atalho **"F6"**. Se o projeto não rodar, tente limpar e construir o projeto principal por meio do **"Shift" + "F11"**.
+- Após abrir o projeto, execute a classe **Main.java** por meio da tecla de atalho **"F6"**. Se houver erro na execução, tente limpar e construir o projeto principal por meio do **"Shift" + "F11"**.
 
 
 ## Easter Egg
