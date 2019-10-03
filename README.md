@@ -1,9 +1,3 @@
-
-
-#Projeto Java : 2048
-
-Projeto feito para a disciplina de Paradigmas de Programação B.
-=======
 # Jogo 2048
 
 ![2048](https://user-images.githubusercontent.com/38138765/66098467-105f5f00-e579-11e9-9b54-cb8f110560e3.png)
@@ -41,4 +35,4 @@ Se você achou o jogo muito dificil, pode apertar nosso NOOButton : **"K"**.
 [Victor Luiz Fraga Soldera](https://github.com/VictorSoldera)
 
 
->>>>>>> master
+
