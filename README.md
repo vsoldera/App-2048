@@ -12,10 +12,10 @@ Mas cuidado! Toda vez que você move blocos, todos movem-se juntos e ainda há a
 
 ## Uso e Execução
 O jogo foi feito inteiramente por meio do Apache NetBeans 11.1. Recomenda-se que rode-o por esta mesma IDE.
-Para rodar o projeto pelo NetBeans pressione 'F6'" no teclado. Se houver algum erro, tente limpar e roda-lo novamente('Shift' + 'F11').
+Para rodar o projeto pelo NetBeans pressione "F6" no teclado. Se houver algum erro, tente limpar e roda-lo novamente("Shift" + "F11").
 
 ## Easter Egg
-Se você achou o jogo muito dificil, pode apertar nosso NOOButton : 'K';
+Se você achou o jogo muito dificil, pode apertar nosso NOOButton : "K";
 
 ## Contribuidores
 [Luiz Vinicius Dos Santos Ruoso](https://github.com/luizvruoso)
