@@ -4,7 +4,7 @@
 
 Jogo implementado para a disciplina de Paradigmas de Programação B. 
 
-  Baseado em [Racha Cuca.]("https://rachacuca.com.br/raciocinio/2048/")
+  Baseado em [Racha Cuca.](https://rachacuca.com.br/raciocinio/2048/)
 
 ## Objetivo
 O objetivo, como o próprio nome diz, é chegar ao número 2048 por meio da junção de blocos de mesmo valor em uma matriz 4x4.
@@ -16,8 +16,8 @@ Portanto, para rodar o projeto pelo NetBeans(F6). Se houver algum erro, tente li
 
 
 ## Contribuidores
-[Luiz Vinicius Dos Santos Ruoso]("https://github.com/luizvruoso")
+[Luiz Vinicius Dos Santos Ruoso](https://github.com/luizvruoso)
 
-[Victor Luiz Fraga Soldera]("https://github.com/VictorSoldera")
+[Victor Luiz Fraga Soldera](https://github.com/VictorSoldera)
 
 
