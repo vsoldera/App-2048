@@ -5,9 +5,15 @@
  */
 package com.mycompany;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import static jdk.nashorn.internal.objects.NativeRegExp.source;
 /**
  *
  * @author luizviniciusruoso
@@ -20,12 +26,67 @@ public class Bloco extends Animacao{
     JPanel Posicao;
     JLabel campoTexto;
     int Situacao;
+
+   
     
     public Bloco(){
       
         
         return;
     }
+    public String getGif(int valor) {
+       String img = null;
+       
+       
+       switch(valor){
+           case 4:
+              img = "gifquatro.gif";
+             
+            break;
+           case 8:
+              img = "gifoito.gif";
+             
+            break;
+           case 16:
+              img = "gifde.gif";
+             
+            break;
+            case 32:
+              img = "giftres.gif";
+             
+            break;
+            case 64:
+              img = "giftres.gif";
+             
+            break;
+            case 128:
+              img = "giftoito.gif";
+             
+            break;
+            case 256:
+              img = "gifde.gif";
+             
+            break;
+            case 512:
+              img = "giftres.gif";
+             
+            break;
+            case 1024:
+              img = "giftmil2.gif";
+             
+            break;
+             case 2048:
+              img = "giftde.gif";
+             
+            break;
+           
+       }
+       
+       
+       
+        return img;
+       
+   }
 
     public Bloco(String Cor, int Valor, JPanel Posicao, JLabel campoTexto, int Situacao) {
         this.Cor = Cor;

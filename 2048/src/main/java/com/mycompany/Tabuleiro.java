@@ -235,7 +235,7 @@ public void displayMenu(JFrame tabuleiro)
         setForeground(new java.awt.Color(175, 195, 226));
         getContentPane().setLayout(null);
         getContentPane().add(direita);
-        direita.setBounds(530, 230, 112, 177);
+        direita.setBounds(550, 230, 112, 177);
 
         pos1.setBackground(new java.awt.Color(255, 255, 255));
         pos1.setToolTipText("");
@@ -263,7 +263,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos1);
-        pos1.setBounds(170, 140, 80, 80);
+        pos1.setBounds(160, 140, 80, 80);
 
         pos2.setBackground(new java.awt.Color(255, 255, 255));
         pos2.setPreferredSize(new java.awt.Dimension(80, 80));
@@ -309,7 +309,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos2);
-        pos2.setBounds(260, 140, 80, 80);
+        pos2.setBounds(250, 140, 80, 80);
 
         pos3.setBackground(new java.awt.Color(255, 255, 255));
         pos3.setPreferredSize(new java.awt.Dimension(80, 80));
@@ -346,7 +346,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos3);
-        pos3.setBounds(350, 140, 80, 80);
+        pos3.setBounds(340, 140, 80, 80);
 
         pos4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -386,7 +386,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos4);
-        pos4.setBounds(440, 140, 80, 80);
+        pos4.setBounds(430, 140, 80, 80);
 
         pos5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -416,7 +416,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos5);
-        pos5.setBounds(170, 230, 80, 80);
+        pos5.setBounds(160, 230, 80, 80);
 
         pos6.setBackground(new java.awt.Color(255, 255, 255));
         pos6.setPreferredSize(new java.awt.Dimension(80, 80));
@@ -443,7 +443,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos6);
-        pos6.setBounds(260, 230, 80, 80);
+        pos6.setBounds(250, 230, 80, 80);
 
         pos7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -473,7 +473,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos7);
-        pos7.setBounds(350, 230, 80, 80);
+        pos7.setBounds(340, 230, 80, 80);
 
         pos8.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -503,7 +503,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos8);
-        pos8.setBounds(440, 230, 80, 80);
+        pos8.setBounds(430, 230, 80, 80);
 
         pos9.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -533,7 +533,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos9);
-        pos9.setBounds(170, 320, 80, 80);
+        pos9.setBounds(160, 320, 80, 80);
 
         pos11.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -563,7 +563,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos11);
-        pos11.setBounds(350, 320, 80, 80);
+        pos11.setBounds(340, 320, 80, 80);
 
         pos12.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -593,7 +593,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos12);
-        pos12.setBounds(440, 320, 80, 80);
+        pos12.setBounds(430, 320, 80, 80);
 
         pos13.setBackground(new java.awt.Color(255, 255, 255));
         pos13.setPreferredSize(new java.awt.Dimension(80, 80));
@@ -620,7 +620,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos13);
-        pos13.setBounds(170, 410, 80, 80);
+        pos13.setBounds(160, 410, 80, 80);
 
         pos14.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -650,7 +650,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos14);
-        pos14.setBounds(260, 410, 80, 80);
+        pos14.setBounds(250, 410, 80, 80);
 
         pos15.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -680,7 +680,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos15);
-        pos15.setBounds(350, 410, 80, 80);
+        pos15.setBounds(340, 410, 80, 80);
 
         pos16.setBackground(new java.awt.Color(255, 255, 255));
         pos16.setPreferredSize(new java.awt.Dimension(80, 80));
@@ -711,7 +711,7 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos16);
-        pos16.setBounds(440, 410, 80, 80);
+        pos16.setBounds(430, 410, 80, 80);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
@@ -746,13 +746,13 @@ public void displayMenu(JFrame tabuleiro)
 
         baixo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(baixo);
-        baixo.setBounds(250, 510, 172, 79);
+        baixo.setBounds(250, 530, 172, 79);
 
         cima.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(cima);
-        cima.setBounds(250, 60, 180, 63);
+        cima.setBounds(240, 30, 180, 63);
         getContentPane().add(esquerda);
-        esquerda.setBounds(70, 230, 89, 174);
+        esquerda.setBounds(30, 230, 89, 174);
 
         pos10.setBackground(new java.awt.Color(255, 255, 255));
         pos10.setPreferredSize(new java.awt.Dimension(80, 80));
@@ -779,11 +779,11 @@ public void displayMenu(JFrame tabuleiro)
         );
 
         getContentPane().add(pos10);
-        pos10.setBounds(260, 320, 80, 80);
+        pos10.setBounds(250, 320, 80, 80);
 
         fundo.setText("jLabel2");
         getContentPane().add(fundo);
-        fundo.setBounds(0, 0, 760, 630);
+        fundo.setBounds(0, 0, 730, 640);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

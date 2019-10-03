@@ -41,14 +41,15 @@ import javax.swing.WindowConstants;
  * @author
  */
 public class Jogo extends Tabuleiro implements KeyListener {
-    int conte = 0;
+    
+                                int aux = 0;
     int setValor;
     int Pontuacao;
     boolean alreadyExecuted;
     int x;
     int y;
     Bloco[] bloco = new Bloco[16];
-    
+    Bloco blocoaux = new Bloco();
     Tabuleiro Janela = new Tabuleiro();
     JLabel c = null;
     JLabel derrota = null;
@@ -779,9 +780,28 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
 
                             } else if (bloco[j + Razao].getValor() == bloco[j].getValor() && ctrl != 1) {
-                                
-
+                             
+                                aux = bloco[j].getValor() * 2;
                                 bloco[j].setValor(bloco[j].getValor() * 2);
+                                
+                                new Thread() {
+                                        public void run() {
+                                        try {
+                                            String caminho =  blocoaux.getGif(aux);
+                                            Janela.fundo.setIcon(new ImageIcon(caminho));
+                                             Thread.sleep(500);
+                                             Janela.fundo.setIcon(new ImageIcon(Janela.criaIcones("/img/tabuleiro.jpg")));
+                                           } catch (InterruptedException ex) {
+                                             Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
+                                            }
+                                        }.start();
+                                
+                                
+                                
+                                
+                                
+                                
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                                 bloco[j + Razao].setValor(0);
                                 bloco[j + Razao].setSituacao(0); //Desativando logicamente
@@ -807,7 +827,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                     
                                 }
                                 
-                            }
+                            } 
                         }
 
                     }
@@ -832,13 +852,30 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
 
                             } else if (bloco[j - Razao].getValor() == bloco[j].getValor() && ctrl != 1) {
-                                conte = 1;
+                                
                                 bloco[j].setValor(bloco[j].getValor() * 2);
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                                 bloco[j - Razao].setValor(0);
                                 bloco[j - Razao].setSituacao(0); //Desativando logicamente
                                 bloco[j - Razao].setPosicao(getJanela(j - Razao), Color.decode("#FFFFFF"));
                                 //System.out.println("ELSE2");
+                                //efeito novo valor
+                                 aux = bloco[j].getValor() * 2;
+                                new Thread() {
+                                        public void run() {
+                                        try {
+                                            String caminho =  blocoaux.getGif(aux);
+                                            Janela.fundo.setIcon(new ImageIcon(caminho));
+                                             Thread.sleep(500);
+                                             Janela.fundo.setIcon(new ImageIcon(Janela.criaIcones("/img/tabuleiro.jpg")));
+                                           } catch (InterruptedException ex) {
+                                             Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
+                                            }
+                                        }.start();
+                                
+                                
+                                
 
                                 x += bloco[j].getValor();
 
@@ -862,6 +899,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 }
 
                             }
+                           
 
                         }
 

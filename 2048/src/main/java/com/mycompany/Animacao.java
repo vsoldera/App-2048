@@ -5,10 +5,15 @@
  */
 package com.mycompany;
 
+import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -18,28 +23,7 @@ import java.awt.event.ActionEvent;
 //Polimorfismo
 abstract class Animacao extends JFrame implements ActionListener{
     
-    Timer tm = new Timer(125, this);
-   
-    double x = 250, y = 250, vel = 0.2, angle = 90;
-    private int velX = 4;
-    private int velY = 4;
-    public void Animacao(){ 
-        setFocusable(true);
-        
-
-         
-         
-         
-    }
-    
-    
-    
-    public void acaoPerformada(ActionEvent e) {
-        x += (velX * (float) Math.cos(Math.toRadians(angle - 90)));
-        y += (velX * (float) Math.sin(Math.toRadians(angle - 90)));
-      
-    }
-
+   abstract   public String getGif(int valor);
 
     
 
