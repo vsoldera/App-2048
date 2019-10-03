@@ -114,38 +114,38 @@ public String CorRetorno(int Valor){
     
     switch(Valor){
           case 2:
-              Cor = "#eee4da";
+              Cor = "#e747bf";
               break;
           case 4:
-              Cor = "#ede0c8";
+              Cor = "#f0145a";
               break;
           case 8:
-              Cor = "#f2b179";
+              Cor = "#f77114";
               break;
          case 16:
-              Cor = "#f59563";
+              Cor = "#f93b32";
               break;
          case 32:
-             Cor = "#f67c5f";  
+             Cor = "#f1b445";  
              break;
          case 64:
-             Cor = "#f65e3b";
+             Cor = "#04b5e7";
              break;
         
          case 128:
-             Cor = "#edcf72";
+             Cor = "#1c41b9";
              break;
         
          case 256:
-             Cor = "#edcc61";
+             Cor = "#a645fb";
              break;
              
          case 512:
-             Cor = "#edc850";
+             Cor = "#ffc91b";
              break;
          
          case 1024:
-             Cor = "#edc53f";
+             Cor = "#00d3a2";
              break;
              
          case 2048:

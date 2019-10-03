@@ -54,9 +54,10 @@ public class Jogo extends Tabuleiro implements KeyListener {
     JLabel derrota = null;
     
     
-static void displayMenu()
-    {
-        JFrame frame6 = new JFrame("Menu!");
+    public void displayMenu(){
+        JLabel a = null;
+        JFrame frame6 = new JFrame("2048!");
+       
 
         // create our jbutton
         JButton showDialogButton = new JButton("Novo Jogo!");
@@ -69,21 +70,41 @@ static void displayMenu()
                 frame6.dispose();
         });
             
-
+           
+           
+        
             // put the button on the frame
-            frame6.getContentPane().setLayout(new FlowLayout());
-            frame6.add(showDialogButton);
-
-        // set up the jframe, then display it
+            //
+            
+            a = new JLabel(new ImageIcon(this.criaIcones("/img/teste1.jpg")));
             frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            frame6.setPreferredSize(new Dimension(500, 500));
-            frame6.pack();
-            frame6.setLocationRelativeTo(null);
+            //frame6.pack();
+            
             frame6.setVisible(true);
+            
+            frame6.setSize(500, 500);
+            a.setBounds(0, 0, 500, 500);
+            frame6.setLocationRelativeTo(null);
+            frame6.add(a);
+            
+            
+            JPanel painel = new JPanel();
+            painel.setLayout(null);
+            frame6.add(painel);
+            
+            //showDialogButton.setPreferredSize(new Dimension(50, 50));
+            //showDialogButton.setBackground(Color.BLACK);
+            showDialogButton.setVisible(true);
+            showDialogButton.setBounds(155,320,200, 50);
+            
+            painel.add(showDialogButton);
+            
+            
+        // set up the jframe, then display it
+            
+           // frame6.setPreferredSize(new Dimension(500, 500));
         
     }
-    
-
     public Jogo() {
           
             Janela.cima.addMouseListener(new MouseListener() {
@@ -197,28 +218,21 @@ static void displayMenu()
             }
         });
     }
-    
-    
-    
-
     public void KeyListener2048() {
 
+        JLabel a = new JLabel();
         Janela.setTitle("2048");
-        Janela.setBackground(Color.blue);
+        
+        Janela.fundo.setIcon(new ImageIcon(Janela.criaIcones("/img/tabuleiro.jpg")));
+        Janela.setSize(680, 650);
+        Janela.setLocationRelativeTo(null);
         Janela.setVisible(true);
         Janela.setResizable(false);
         Janela.addKeyListener(this);
-        Janela.getContentPane().setBackground(Color.decode("#baac9f"));
-        Janela.jButton1.setBackground(Color.decode("#baac9f"));
+        Janela.getContentPane().setBackground(Color.decode("#03040e"));
+        Janela.jButton1.setBackground(Color.decode("#03040e"));
 
     }
-    
-    
-        
-    
-    
-            
-
     public void iniciaJogo() {
 
         KeyListener2048();
@@ -253,7 +267,6 @@ static void displayMenu()
         getRandomicoBlocoInicial();
 
     }
-
     public void printaMatriz() {
 
         for (int i = 0; i < 4; i++) {
@@ -279,12 +292,6 @@ static void displayMenu()
 
 
     }
-    
-    
-     
-    
-      
-
     public void autoWin() {
         
             bloco[14].setSituacao(1);
@@ -295,57 +302,99 @@ static void displayMenu()
 
         
     }
-
-    
     public void vitoria() {
         Janela.dispose();
-        JFrame frame4 = new JFrame("Vitória");
-        frame4.setAlwaysOnTop( true );
-        frame4.setVisible(false);
-        frame4.setVisible(true);
-        JButton showDialogButton = new JButton("Novo Jogo");
+        JLabel a = null;
+        JFrame frame6 = new JFrame("2048!");
+        
 
-       showDialogButton.addActionListener((ActionEvent e) -> {
-            
+        // create our jbutton
+        JButton showDialogButton = new JButton("Novo Jogo!");
+  
+        // add the listener to the jbutton to handle the "pressed" event
+        showDialogButton.addActionListener((ActionEvent e) -> {
+            // display/center the jdialog when the button is pressed
                 Jogo jogo = new Jogo();
                 jogo.iniciaJogo();
-                frame4.dispose();
+                frame6.dispose();
         });
- 
-        frame4.getContentPane().setLayout(new FlowLayout());
-        frame4.add(showDialogButton);
-
+            
+           
+           
         
-        frame4.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame4.setPreferredSize(new Dimension(300, 200));
-        frame4.pack();
-        frame4.setLocationRelativeTo(null);
-        frame4.setVisible(true);
+            // put the button on the frame
+            
+            
+            a = new JLabel(new ImageIcon(this.criaIcones("/img/vitoria.jpg")));
+            frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame6.pack();
+            
+            frame6.setVisible(true);
+            
+            frame6.setSize(500, 500);
+            a.setBounds(0, 0, 500, 500);
+            frame6.setLocationRelativeTo(null);
+            frame6.add(a);
+            JPanel painel = new JPanel();
+            painel.setLayout(null);
+            frame6.add(painel);
+            
+            //showDialogButton.setPreferredSize(new Dimension(50, 50));
+            showDialogButton.setBackground(Color.BLACK);
+            showDialogButton.setBounds(155,320,200, 50);
+            showDialogButton.setVisible(true);
+            painel.add(showDialogButton);
+            
+            
+        // set up the jframe, then display it
+            
+           // frame6.setPreferredSize(new Dimension(500, 500));
     }
-    
     public void derrota() {
         Janela.dispose();
-        JFrame frame5 = new JFrame("Derrota");
-        frame5.setAlwaysOnTop( true );
-        frame5.setVisible(false);
-        frame5.setVisible(true);
-        JButton showDialogButton = new JButton("Novo Jogo");
+        JLabel a = null;
+        JFrame frame6 = new JFrame("GAME OVER!");
+        JPanel painel = new JPanel();
 
-       showDialogButton.addActionListener((ActionEvent e) -> {
-            
+        // create our jbutton
+        JButton showDialogButton = new JButton("Novo Jogo!");
+  
+        // add the listener to the jbutton to handle the "pressed" event
+        showDialogButton.addActionListener((ActionEvent e) -> {
+            // display/center the jdialog when the button is pressed
                 Jogo jogo = new Jogo();
                 jogo.iniciaJogo();
-                frame5.dispose();
+                frame6.dispose();
         });
- 
-        frame5.getContentPane().setLayout(new FlowLayout());
-        frame5.add(showDialogButton);
-
-        frame5.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame5.setPreferredSize(new Dimension(300, 200));
-        frame5.pack();
-        frame5.setLocationRelativeTo(null);
-        frame5.setVisible(true);
+            
+           
+           
+        
+            // put the button on the frame
+            painel.setLayout(null);
+            
+            a = new JLabel(new ImageIcon(this.criaIcones("/img/perdeu.jpg")));
+            frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame6.pack();
+            
+            frame6.setVisible(true);
+            
+            frame6.setSize(500, 500);
+            a.setBounds(0, 0, 500, 500);
+            frame6.setLocationRelativeTo(null);
+            frame6.add(a);
+            frame6.add(painel);
+            
+            //showDialogButton.setPreferredSize(new Dimension(50, 50));
+            showDialogButton.setBackground(Color.BLACK);
+            showDialogButton.setBounds(155,320,200, 50);
+            showDialogButton.setVisible(true);
+            painel.add(showDialogButton);
+            
+            
+        // set up the jframe, then display it
+            
+           // frame6.setPreferredSize(new Dimension(500, 500));
     }
     public void getRandomicoBlocoInicial() {
 
@@ -480,12 +529,10 @@ static void displayMenu()
         }
 
     }
-
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
-
     @Override
     public void keyPressed(KeyEvent e) {
 
@@ -541,7 +588,6 @@ static void displayMenu()
 
         geraExibeBloco();
     }
-
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
@@ -573,9 +619,6 @@ static void displayMenu()
         }
 
     }
-    
-    
-
     public void geraExibeBloco() {
         int min = 0;
         int max = 15;
@@ -587,9 +630,9 @@ static void displayMenu()
                 NumRandBlocoJogo = (int) ((Math.random() * ((max - min) + 1)) + min);
                 contador++;
                 System.out.println("contador: "+contador);
-                if(contador == 50)
-                    
+                if(contador == 50){
                     break;
+                }
             }
        
         if(contador != 50){// condicao para derrota, isso quer dizer 
@@ -707,17 +750,12 @@ static void displayMenu()
             bloco1.setPosicao(janela, Color.decode(bloco1.CorRetorno(4))); //alterei a cor do novo
 
         }
-      }
-           else{
-               
+      } else{       
                System.out.println("perdeu");
-               
-
+               derrota();
       }
 
     }
-
-    @SuppressWarnings("empty-statement")
     public void movBloco(int Inicio, int Final, int Razao, int Direcao) { //1 subir(maior que) - exemplo: ToUP; 2 descer (menor que)
         int ctrl = 0;
 
@@ -733,7 +771,7 @@ static void displayMenu()
                             if (bloco[j].getSituacao() == 0) {
 
                                 bloco[j + Razao].setSituacao(0);//desativei o bloco antigo
-                                bloco[j + Razao].setPosicao(getJanela(j + Razao), Color.decode("#CBBFB2")); //alterei a cor do antigo para a padrao
+                                bloco[j + Razao].setPosicao(getJanela(j + Razao), Color.decode("#FFFFFF")); //alterei a cor do antigo para a padrao
                                 bloco[j].setValor(bloco[j + Razao].getValor()); // passo o valor do antigo para o novo
                                 bloco[j + Razao].setValor(0);// zero o antigo
                                 bloco[j].setSituacao(1);//ativei o novo
@@ -746,7 +784,7 @@ static void displayMenu()
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                                 bloco[j + Razao].setValor(0);
                                 bloco[j + Razao].setSituacao(0); //Desativando logicamente
-                                bloco[j + Razao].setPosicao(getJanela(j + Razao), Color.decode("#CBBFB2")); //alterei a cor do antigo para a padrao
+                                bloco[j + Razao].setPosicao(getJanela(j + Razao), Color.decode("#FFFFFF")); //alterei a cor do antigo para a padrao
                                 //System.out.println("ELSE");
                                 ctrl = 1;
                                 
@@ -754,8 +792,17 @@ static void displayMenu()
                                 System.out.println("VALOR DE Y: " + y);
                                 //Condicao de Vitoria
                                 if(bloco[j].getValor() == 2048) {
-                                  
-                                    vitoria();
+                                    new Thread() {
+                                        public void run() {
+                                        try {
+                                             Thread.sleep(3000);
+                                             vitoria();
+                                        } catch (InterruptedException ex) {
+                                             Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
+                                            }
+                                        }.start();
+                                    
                                     
                                 }
                                 
@@ -777,7 +824,7 @@ static void displayMenu()
                             if (bloco[j].getSituacao() == 0) {
 
                                 bloco[j - Razao].setSituacao(0);//desativei o bloco antigo
-                                bloco[j - Razao].setPosicao(getJanela(j - Razao), Color.decode("#CBBFB2")); //alterei a cor do antigo para a padrao
+                                bloco[j - Razao].setPosicao(getJanela(j - Razao), Color.decode("#FFFFFF")); //alterei a cor do antigo para a padrao
                                 bloco[j].setValor(bloco[j - Razao].getValor()); // passo o valor do antigo para o novo
                                 bloco[j - Razao].setValor(0);// zero o antigo
                                 bloco[j].setSituacao(1);//ativei o novo
@@ -789,7 +836,7 @@ static void displayMenu()
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                                 bloco[j - Razao].setValor(0);
                                 bloco[j - Razao].setSituacao(0); //Desativando logicamente
-                                bloco[j - Razao].setPosicao(getJanela(j - Razao), Color.decode("#CBBFB2"));
+                                bloco[j - Razao].setPosicao(getJanela(j - Razao), Color.decode("#FFFFFF"));
                                 //System.out.println("ELSE2");
 
                                 x += bloco[j].getValor();
@@ -799,8 +846,17 @@ static void displayMenu()
                                 ctrl = 1;
                                 //Condicao de Vitoria
                                 if(bloco[j].getValor() == 2048) {
-                                  
-                                   vitoria(); 
+                                  new Thread() {
+                                        public void run() {
+                                        try {
+                                             Thread.sleep(3000);
+                                             vitoria();
+                                        } catch (InterruptedException ex) {
+                                             Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
+                                            }
+                                        }.start();
+                                    
                                    
                                 }
 
@@ -819,7 +875,6 @@ static void displayMenu()
         atualizarPontuacao(Pontuacao);
 
     }
-
     public void toLeft() {
         int moveAte = 0;
         int atual = 0, proximo = 0, k = 0;
@@ -830,7 +885,6 @@ static void displayMenu()
         movBloco(15, 12, 1, 1);
 
     }
-
     public void toRight() {
         int moveAte = 0;
         int atual = 0, proximo = 0, k = 0;
@@ -841,7 +895,6 @@ static void displayMenu()
         movBloco(12, 15, 1, 2);
 
     }
-
     public void toDown() {
         int moveAte = 0;
         int i, k = 0;
@@ -853,7 +906,6 @@ static void displayMenu()
         movBloco(3, 15, 4, 2);
 
     }
-
     public void toUp() {
         int moveAte = 0;
         int i, k = 0;
@@ -864,7 +916,6 @@ static void displayMenu()
         movBloco(14, 2, 4, 1);
         movBloco(15, 3, 4, 1);
     }
-
     public JPanel getJanela(int i) {
         JPanel janela = new JPanel();
         switch (i) {
@@ -929,13 +980,9 @@ static void displayMenu()
         return janela;
 
     }
-
     public void atualizarPontuacao(int Pontuacao) {
         Janela.pont.setText(String.valueOf(Pontuacao));
 
     }
-    
-     
-
 
 }

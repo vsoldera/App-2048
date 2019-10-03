@@ -15,8 +15,9 @@ public class Main extends Jogo{
         
     public static void main(String[] args) {
         /* tabuleiro speccs*/
-          
-        displayMenu();
+        Jogo jogo = new Jogo();
+        
+        jogo.displayMenu();
 
    
       
