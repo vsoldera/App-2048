@@ -24,7 +24,7 @@ Mas cuidado! Toda vez que você move blocos, todos movem-se juntos e ainda há a
 ## Implementações
 
 - Pode-se mover os blocos por meio das teclas **"W", "A", "S", "D"** e pelas **setas direcionais** do teclado.
-- As **setas brancas** dentro do jogo, movem os blocos a partir do clique no mouse.
+- As **setas brancas** dentro do jogo, movem os blocos a partir do clique no botão esquerdo do mouse.
 
 ## Easter Egg
 Se você achou o jogo muito dificil, pode apertar nosso NOOButton : **"K"**.
