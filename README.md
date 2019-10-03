@@ -16,7 +16,7 @@ Portanto, para rodar o projeto pelo NetBeans(F6). Se houver algum erro, tente li
 
 
 ## Contribuidores
-[Luiz Vinicius Ruoso]("https://github.com/luizvruoso")
+[Luiz Vinicius Dos Santos Ruoso]("https://github.com/luizvruoso")
 
 [Victor Luiz Fraga Soldera]("https://github.com/VictorSoldera")
 
