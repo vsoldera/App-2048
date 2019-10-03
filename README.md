@@ -12,9 +12,9 @@ Mas cuidado! Toda vez que você move blocos, todos movem-se juntos e ainda há a
 
 ## Tecnologias
 
--Jogo feito inteiramente na linguagem de programação [Java](https://java.com/pt_BR/download/faq/whatis_java.xml). 
+- Jogo feito inteiramente na linguagem de programação [Java](https://java.com/pt_BR/download/faq/whatis_java.xml). 
 
--Feito por meio do [Apache NetBeans 11.1](https://netbeans.apache.org/download/index.html). Recomenda-se que rode-o por esta mesma IDE.
+- Feito por meio do [Apache NetBeans 11.1](https://netbeans.apache.org/download/index.html). Recomenda-se que rode-o por esta mesma IDE.
   Para rodar o projeto pelo NetBeans pressione "F6" no teclado. Se houver algum erro, tente limpar e rodá-lo novamente("Shift" + "F11").
 
 ## Easter Egg
