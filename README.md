@@ -1,4 +1,4 @@
-# 2048
+# Jogo 2048
 
 ![2048](https://user-images.githubusercontent.com/38138765/66098467-105f5f00-e579-11e9-9b54-cb8f110560e3.png)
 
