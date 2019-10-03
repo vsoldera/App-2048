@@ -11,7 +11,8 @@ O  nome diz objetivo, como o próprio, é chegar ao número 2048 por meio da jun
 Mas cuidado! Toda vez que você move blocos, todos movem-se juntos e ainda há a geração de um bloco "randômico" de valor dois(2) ou quatro(4).
 
 ## Uso e Execução
-O jogo foi feito inteiramente por meio do Apache NetBeans 11.1. Recomenda-se que rode-o por esta mesma IDE.
+O jogo foi feito inteiramente por meio do Apache NetBeans 11.1. Recomenda-se que rode-o por esta mesma IDE;
+
 Para rodar o projeto pelo NetBeans pressione "F6" no teclado. Se houver algum erro, tente limpar e roda-lo novamente("Shift" + "F11").
 
 ## Easter Egg
