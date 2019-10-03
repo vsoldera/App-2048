@@ -2,9 +2,9 @@
 
 ![2048](https://user-images.githubusercontent.com/38138765/66098467-105f5f00-e579-11e9-9b54-cb8f110560e3.png)
 
-Jogo implementado para a disciplina de Paradigmas de Programação B. 
+Jogo implementado para a disciplina Paradigmas de Programação B. 
 
-  Baseado em [Racha Cuca.](https://rachacuca.com.br/raciocinio/2048/)
+Baseado em [Racha Cuca.](https://rachacuca.com.br/raciocinio/2048/)
 
 ## Objetivo
 O objetivo, como o próprio nome diz, é chegar ao número 2048 por meio da junção de blocos de mesmo valor em uma matriz 4x4.
