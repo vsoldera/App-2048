@@ -726,7 +726,7 @@ public void displayMenu(JFrame tabuleiro)
         getContentPane().add(pont);
         pont.setBounds(230, 10, 90, 38);
 
-        jButton1.setBackground(new java.awt.Color(203, 191, 178));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Novo Jogo");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

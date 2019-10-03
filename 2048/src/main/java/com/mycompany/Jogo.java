@@ -53,58 +53,41 @@ public class Jogo extends Tabuleiro implements KeyListener {
     JLabel c = null;
     JLabel derrota = null;
     
-    
-    public void displayMenu(){
-        JLabel a = null;
-        JFrame frame6 = new JFrame("2048!");
-       
+    public void iniciaJogo() {
 
-        // create our jbutton
-        JButton showDialogButton = new JButton("Novo Jogo!");
-  
-        // add the listener to the jbutton to handle the "pressed" event
-        showDialogButton.addActionListener((ActionEvent e) -> {
-            // display/center the jdialog when the button is pressed
-                Jogo jogo = new Jogo();
-                jogo.iniciaJogo();
-                frame6.dispose();
-        });
-            
-           
-           
+        KeyListener2048();
+
+        bloco[0] = new Bloco("#afc3e2", 0, Janela.pos1, Janela.label1, 0);
+        bloco[1] = new Bloco("#afc3e2", 0, Janela.pos2, Janela.label2, 0);
+        bloco[2] = new Bloco("#afc3e2", 0, Janela.pos3, Janela.label3, 0);
+        bloco[3] = new Bloco("#afc3e2", 0, Janela.pos4, Janela.label4, 0);
+        bloco[4] = new Bloco("#afc3e2", 0, Janela.pos5, Janela.label5, 0);
+        bloco[5] = new Bloco("#afc3e2", 0, Janela.pos6, Janela.label6, 0);
+        bloco[6] = new Bloco("#afc3e2", 0, Janela.pos7, Janela.label7, 0);
+        bloco[7] = new Bloco("#afc3e2", 0, Janela.pos8, Janela.label8, 0);
+        bloco[8] = new Bloco("#afc3e2", 0, Janela.pos9, Janela.label9, 0);
+        bloco[9] = new Bloco("#afc3e2", 0, Janela.pos10, Janela.label10, 0);
+        bloco[10] = new Bloco("#afc3e2", 0, Janela.pos11, Janela.label11, 0);
+        bloco[11] = new Bloco("#afc3e2", 0, Janela.pos12, Janela.label12, 0);
+        bloco[12] = new Bloco("#afc3e2", 0, Janela.pos13, Janela.label13, 0);
+        bloco[13] = new Bloco("#afc3e2", 0, Janela.pos14, Janela.label14, 0);
+        bloco[14] = new Bloco("#afc3e2", 0, Janela.pos15, Janela.label15, 0);
+        bloco[15] = new Bloco("#afc3e2", 0, Janela.pos16, Janela.label16, 0);
         
-            // put the button on the frame
-            //
             
-            a = new JLabel(new ImageIcon(this.criaIcones("/img/teste1.jpg")));
-            frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            //frame6.pack();
-            
-            frame6.setVisible(true);
-            
-            frame6.setSize(500, 500);
-            a.setBounds(0, 0, 500, 500);
-            frame6.setLocationRelativeTo(null);
-            frame6.add(a);
-            
-            
-            JPanel painel = new JPanel();
-            painel.setLayout(null);
-            frame6.add(painel);
-            
-            //showDialogButton.setPreferredSize(new Dimension(50, 50));
-            //showDialogButton.setBackground(Color.BLACK);
-            showDialogButton.setVisible(true);
-            showDialogButton.setBounds(155,320,200, 50);
-            
-            painel.add(showDialogButton);
-            
-            
-        // set up the jframe, then display it
-            
-           // frame6.setPreferredSize(new Dimension(500, 500));
+         Janela.direita.setIcon(new ImageIcon(Janela.criaIcones("/img/getirghtrue.png")));
+         Janela.esquerda.setIcon(new ImageIcon(Janela.criaIcones("/img/getleft.png")));
+         Janela.baixo.setIcon(new ImageIcon(Janela.criaIcones("/img/getright.png")));
+         Janela.cima.setIcon(new ImageIcon(Janela.criaIcones("/img/getup.png")));
+         
         
+        int NumRandBloco;
+        //Bloco bloco = new Bloco();
+
+        getRandomicoBlocoInicial();
+
     }
+    
     public Jogo() {
           
             Janela.cima.addMouseListener(new MouseListener() {
@@ -229,42 +212,8 @@ public class Jogo extends Tabuleiro implements KeyListener {
         Janela.setVisible(true);
         Janela.setResizable(false);
         Janela.addKeyListener(this);
-        Janela.getContentPane().setBackground(Color.decode("#03040e"));
-        Janela.jButton1.setBackground(Color.decode("#03040e"));
-
-    }
-    public void iniciaJogo() {
-
-        KeyListener2048();
-
-        bloco[0] = new Bloco("#afc3e2", 0, Janela.pos1, Janela.label1, 0);
-        bloco[1] = new Bloco("#afc3e2", 0, Janela.pos2, Janela.label2, 0);
-        bloco[2] = new Bloco("#afc3e2", 0, Janela.pos3, Janela.label3, 0);
-        bloco[3] = new Bloco("#afc3e2", 0, Janela.pos4, Janela.label4, 0);
-        bloco[4] = new Bloco("#afc3e2", 0, Janela.pos5, Janela.label5, 0);
-        bloco[5] = new Bloco("#afc3e2", 0, Janela.pos6, Janela.label6, 0);
-        bloco[6] = new Bloco("#afc3e2", 0, Janela.pos7, Janela.label7, 0);
-        bloco[7] = new Bloco("#afc3e2", 0, Janela.pos8, Janela.label8, 0);
-        bloco[8] = new Bloco("#afc3e2", 0, Janela.pos9, Janela.label9, 0);
-        bloco[9] = new Bloco("#afc3e2", 0, Janela.pos10, Janela.label10, 0);
-        bloco[10] = new Bloco("#afc3e2", 0, Janela.pos11, Janela.label11, 0);
-        bloco[11] = new Bloco("#afc3e2", 0, Janela.pos12, Janela.label12, 0);
-        bloco[12] = new Bloco("#afc3e2", 0, Janela.pos13, Janela.label13, 0);
-        bloco[13] = new Bloco("#afc3e2", 0, Janela.pos14, Janela.label14, 0);
-        bloco[14] = new Bloco("#afc3e2", 0, Janela.pos15, Janela.label15, 0);
-        bloco[15] = new Bloco("#afc3e2", 0, Janela.pos16, Janela.label16, 0);
-        
-            
-         Janela.direita.setIcon(new ImageIcon(Janela.criaIcones("/img/getirghtrue.png")));
-         Janela.esquerda.setIcon(new ImageIcon(Janela.criaIcones("/img/getleft.png")));
-         Janela.baixo.setIcon(new ImageIcon(Janela.criaIcones("/img/getright.png")));
-         Janela.cima.setIcon(new ImageIcon(Janela.criaIcones("/img/getup.png")));
-         
-        
-        int NumRandBloco;
-        //Bloco bloco = new Bloco();
-
-        getRandomicoBlocoInicial();
+        Janela.getContentPane().setBackground(Color.decode("#000000"));
+        Janela.jButton1.setBackground(Color.decode("#000000"));
 
     }
     public void printaMatriz() {
@@ -302,6 +251,58 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
         
     }
+    public void displayMenu(){
+        JLabel a = null;
+        JFrame frame6 = new JFrame("2048!");
+       
+
+        // create our jbutton
+        JButton showDialogButton = new JButton("Novo Jogo!");
+  
+        // add the listener to the jbutton to handle the "pressed" event
+        showDialogButton.addActionListener((ActionEvent e) -> {
+            // display/center the jdialog when the button is pressed
+                Jogo jogo = new Jogo();
+                jogo.iniciaJogo();
+                frame6.dispose();
+        });
+            
+           
+           
+        
+            // put the button on the frame
+            //
+            
+            a = new JLabel(new ImageIcon(this.criaIcones("/img/teste1.jpg")));
+            frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            //frame6.pack();
+            
+            
+            
+            frame6.setSize(500, 500);
+            a.setBounds(0, 0, 500, 500);
+            frame6.setLocationRelativeTo(null);
+            frame6.add(a);
+            
+            
+            JPanel painel = new JPanel();
+            painel.setLayout(null);
+            frame6.add(painel);
+            
+            //showDialogButton.setPreferredSize(new Dimension(50, 50));
+            //showDialogButton.setBackground(Color.BLACK);
+            showDialogButton.setVisible(true);
+            showDialogButton.setBounds(155,320,200, 50);
+            
+            painel.add(showDialogButton);
+            
+            frame6.setVisible(true);
+            
+        // set up the jframe, then display it
+            
+           // frame6.setPreferredSize(new Dimension(500, 500));
+        
+    }
     public void vitoria() {
         Janela.dispose();
         JLabel a = null;
@@ -329,7 +330,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
             frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             frame6.pack();
             
-            frame6.setVisible(true);
+            
             
             frame6.setSize(500, 500);
             a.setBounds(0, 0, 500, 500);
@@ -340,11 +341,11 @@ public class Jogo extends Tabuleiro implements KeyListener {
             frame6.add(painel);
             
             //showDialogButton.setPreferredSize(new Dimension(50, 50));
-            showDialogButton.setBackground(Color.BLACK);
+           // showDialogButton.setBackground(Color.BLACK);
             showDialogButton.setBounds(155,320,200, 50);
             showDialogButton.setVisible(true);
             painel.add(showDialogButton);
-            
+            frame6.setVisible(true);
             
         // set up the jframe, then display it
             
@@ -377,7 +378,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
             frame6.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             frame6.pack();
             
-            frame6.setVisible(true);
+            
             
             frame6.setSize(500, 500);
             a.setBounds(0, 0, 500, 500);
@@ -386,11 +387,11 @@ public class Jogo extends Tabuleiro implements KeyListener {
             frame6.add(painel);
             
             //showDialogButton.setPreferredSize(new Dimension(50, 50));
-            showDialogButton.setBackground(Color.BLACK);
+            //showDialogButton.setBackground(Color.BLACK);
             showDialogButton.setBounds(155,320,200, 50);
             showDialogButton.setVisible(true);
             painel.add(showDialogButton);
-            
+            frame6.setVisible(true);
             
         // set up the jframe, then display it
             
