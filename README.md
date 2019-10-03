@@ -2,7 +2,7 @@
 
 ![2048](https://user-images.githubusercontent.com/38138765/66098467-105f5f00-e579-11e9-9b54-cb8f110560e3.png)
 
-Jogo implementado para a disciplina **Paradigmas de Programação B** com a temática *"espaço sideral"*. 
+Jogo implementado para a disciplina **Paradigmas de Programação B** com a temática de *"espaço sideral"*. 
 
 Baseado no clássico jogo feito por [Gabriele Cirulli](https://github.com/gabrielecirulli).
 
