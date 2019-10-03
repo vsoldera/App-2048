@@ -8,7 +8,7 @@ Baseado no clássico jogo feito por [Gabriele Cirulli](https://github.com/gabrie
 
 ## Objetivo
 O  nome diz objetivo, como o próprio, é chegar ao número **2048** por meio da junção de blocos de mesmo valor em uma matriz 4x4.
-Mas cuidado! Toda vez que você move blocos, todos movem-se juntos e ainda há a geração de um bloco "randômico" de valor dois(2) ou quatro(4).
+Mas cuidado! Toda vez que você move blocos, todos movem-se juntos e ainda há a geração de um bloco *"randômico"* de valor 2(dois) ou 4(quatro).
 
 ## Tecnologias
 
