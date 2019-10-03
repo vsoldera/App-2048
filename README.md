@@ -21,6 +21,10 @@ Mas cuidado! Toda vez que você move blocos, todos movem-se juntos e ainda há a
 - Recomenda-se que rode-o por meio do **[Apache NetBeans 11.1](https://netbeans.apache.org/download/index.html).**
 - Após abrir o projeto, execute a classe **Main.java** por meio da tecla de atalho **"F6"**. Se houver erro na execução, tente limpar e construir o projeto principal por meio do **"Shift" + "F11"**.
 
+## Implementações
+
+- Pode-se mover os blocos por meio das teclas **'W', 'A', 'S', 'D'** e pelas **setas direcionais** do teclado.
+- As **setas brancas** dentro do jogo, movem os blocos a partir do clique no mouse.
 
 ## Easter Egg
 Se você achou o jogo muito dificil, pode apertar nosso NOOButton : **"K"**.
