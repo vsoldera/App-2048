@@ -12,9 +12,9 @@ Mas cuidado! Toda vez que você move blocos, todos movem-se juntos e ainda há a
 
 ## Tecnologias
 
-- Jogo feito inteiramente na linguagem de programação **[Java]**(https://java.com/pt_BR/download/faq/whatis_java.xml). 
+- Jogo feito inteiramente na linguagem de programação **[Java](https://java.com/pt_BR/download/faq/whatis_java.xml).** 
 
-- Feito por meio do **[Apache NetBeans 11.1]**(https://netbeans.apache.org/download/index.html). 
+- Feito por meio do **[Apache NetBeans 11.1](https://netbeans.apache.org/download/index.html).** 
 
 ## Tutorial para execução
 
