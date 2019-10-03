@@ -277,72 +277,13 @@ static void displayMenu()
 
         }
 
-        
-
-            
-
-        
 
     }
     
     
-      static void displayVitoria()
-      {
-        JFrame frame4 = new JFrame("Vitória");
-
-        // create our jbutton
-        JButton showDialogButton = new JButton("Novo Jogo");
-  
-        // add the listener to the jbutton to handle the "pressed" event
-        showDialogButton.addActionListener((ActionEvent e) -> {
-            // display/center the jdialog when the button is pressed
-                Jogo jogo = new Jogo();
-                jogo.iniciaJogo();
-                frame4.dispose();
-        });
-            
-
-            // put the button on the frame
-            frame4.getContentPane().setLayout(new FlowLayout());
-            frame4.add(showDialogButton);
-
-        // set up the jframe, then display it
-            frame4.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            frame4.setPreferredSize(new Dimension(300, 200));
-            frame4.pack();
-            frame4.setLocationRelativeTo(null);
-            frame4.setVisible(true);
-        
-    }
+     
     
-      static void displayDerrota()
-      {
-        JFrame frame5 = new JFrame("Derrota");
-
-        // create our jbutton
-        JButton showDialogButton = new JButton("Novo Jogo");
-  
-        // add the listener to the jbutton to handle the "pressed" event
-        showDialogButton.addActionListener((ActionEvent e) -> {
-            // display/center the jdialog when the button is pressed
-                Jogo jogo = new Jogo();
-                jogo.iniciaJogo();
-                frame5.dispose();
-        });
-            
-
-            // put the button on the frame
-            frame5.getContentPane().setLayout(new FlowLayout());
-            frame5.add(showDialogButton);
-
-        // set up the jframe, then display it
-            frame5.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            frame5.setPreferredSize(new Dimension(300, 200));
-            frame5.pack();
-            frame5.setLocationRelativeTo(null);
-            frame5.setVisible(true);
-        
-    }
+      
 
     public void autoWin() {
         
@@ -355,6 +296,57 @@ static void displayMenu()
         
     }
 
+    
+    public void vitoria() {
+        Janela.dispose();
+        JFrame frame4 = new JFrame("Vitória");
+        frame4.setAlwaysOnTop( true );
+        frame4.setVisible(false);
+        frame4.setVisible(true);
+        JButton showDialogButton = new JButton("Novo Jogo");
+
+       showDialogButton.addActionListener((ActionEvent e) -> {
+            
+                Jogo jogo = new Jogo();
+                jogo.iniciaJogo();
+                frame4.dispose();
+        });
+ 
+        frame4.getContentPane().setLayout(new FlowLayout());
+        frame4.add(showDialogButton);
+
+        
+        frame4.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame4.setPreferredSize(new Dimension(300, 200));
+        frame4.pack();
+        frame4.setLocationRelativeTo(null);
+        frame4.setVisible(true);
+    }
+    
+    public void derrota() {
+        Janela.dispose();
+        JFrame frame5 = new JFrame("Derrota");
+        frame5.setAlwaysOnTop( true );
+        frame5.setVisible(false);
+        frame5.setVisible(true);
+        JButton showDialogButton = new JButton("Novo Jogo");
+
+       showDialogButton.addActionListener((ActionEvent e) -> {
+            
+                Jogo jogo = new Jogo();
+                jogo.iniciaJogo();
+                frame5.dispose();
+        });
+ 
+        frame5.getContentPane().setLayout(new FlowLayout());
+        frame5.add(showDialogButton);
+
+        frame5.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame5.setPreferredSize(new Dimension(300, 200));
+        frame5.pack();
+        frame5.setLocationRelativeTo(null);
+        frame5.setVisible(true);
+    }
     public void getRandomicoBlocoInicial() {
 
         int min = 1;
@@ -540,9 +532,10 @@ static void displayMenu()
             autoWin();
             
             Janela.criaExibeTelas(2, Janela);
-          
+            
             //labelGif = 
             System.out.println("Botao 'K' Pressionado");
+         
 
         }
 
@@ -580,6 +573,8 @@ static void displayMenu()
         }
 
     }
+    
+    
 
     public void geraExibeBloco() {
         int min = 0;
@@ -592,7 +587,9 @@ static void displayMenu()
                 NumRandBlocoJogo = (int) ((Math.random() * ((max - min) + 1)) + min);
                 contador++;
                 System.out.println("contador: "+contador);
-                if(contador == 50) break;
+                if(contador == 50)
+                    
+                    break;
             }
        
         if(contador != 50){// condicao para derrota, isso quer dizer 
@@ -712,8 +709,10 @@ static void displayMenu()
         }
       }
            else{
+               
                System.out.println("perdeu");
-               Janela.criaExibeTelas(1, Janela);
+               
+
       }
 
     }
@@ -742,7 +741,7 @@ static void displayMenu()
 
                             } else if (bloco[j + Razao].getValor() == bloco[j].getValor() && ctrl != 1) {
                                 
-                               
+
                                 bloco[j].setValor(bloco[j].getValor() * 2);
                                 bloco[j].setPosicao(getJanela(j), Color.decode(bloco[j].CorRetorno(bloco[j].getValor()))); //alterei a cor do novo
                                 bloco[j + Razao].setValor(0);
@@ -753,7 +752,12 @@ static void displayMenu()
                                 
                                 y += bloco[j].getValor();
                                 System.out.println("VALOR DE Y: " + y);
-                               
+                                //Condicao de Vitoria
+                                if(bloco[j].getValor() == 2048) {
+                                  
+                                    vitoria();
+                                    
+                                }
                                 
                             }
                         }
@@ -793,6 +797,12 @@ static void displayMenu()
                                 System.out.println("VALOR DE X: " + x);
 
                                 ctrl = 1;
+                                //Condicao de Vitoria
+                                if(bloco[j].getValor() == 2048) {
+                                  
+                                   vitoria(); 
+                                   
+                                }
 
                             }
 
