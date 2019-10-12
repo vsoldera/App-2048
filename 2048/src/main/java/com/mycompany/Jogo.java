@@ -26,6 +26,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -53,7 +56,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
     Tabuleiro Janela = new Tabuleiro();
     JLabel c = null;
     JLabel derrota = null;
-    
+ 
     public void iniciaJogo() {
 
         KeyListener2048();
