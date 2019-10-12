@@ -40,12 +40,12 @@ Se você achou o jogo muito dificil, pode apertar nosso NOOButton : **"K"**.
 
 Atualizações para o controle remoto a partir de um aplicativo mobile
 
-  -> Foi adicionado novas pastas APP e SERVER, ambas dizem o que são - risadas hehe
-      -> Para editar o APP, adentre o mesmo pelo Android Studio e o edite
-      -> Para rodar o server, aí teremos problemas, os senhores deveram instalar o node em suas máquinas (https://nodejs.org/en/download/)
-          -> Depois de instalado, instale o nodemon através do comando em Terminal: npm install -g nodemon
-          -> Após esses passinhos, entre na pasta 'Server' através do Terminal e digite: nodemon server
-          -> Done, executado! Acesse pelo: localhost:3000. Para acessar de outros dispositivos coloque: ip.da.sua.maquina/3000
+  - Foi adicionado novas pastas APP e SERVER, ambas dizem o que são - risadas hehe
+      - Para editar o APP, adentre o mesmo pelo Android Studio e o edite
+      - Para rodar o server, aí teremos problemas, os senhores deveram instalar o node em suas máquinas (https://nodejs.org/en/download/)
+          - Depois de instalado, instale o nodemon através do comando em Terminal: npm install -g nodemon
+          - Após esses passinhos, entre na pasta 'Server' através do Terminal e digite: nodemon server
+          - Done, executado! Acesse pelo: localhost:3000. Para acessar de outros dispositivos coloque: ip.da.sua.maquina/3000
 
 
 
