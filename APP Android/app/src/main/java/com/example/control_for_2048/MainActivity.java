@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        final JsonGenerator gerador = new JsonGenerator();
+
+
         setContentView(R.layout.activity_main);
         if (android.os.Build.VERSION.SDK_INT > 9)
         {
@@ -45,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 // TODO Auto-generated method stub
                 //envio de requisicao para o servidor.
                 try {
-                    Socket soc = new Socket("127.0.0.1", 3000);
+                    Socket soc = new Socket("192.168.0.105", 3000);
                     PrintWriter writer = new PrintWriter(soc.getOutputStream());
-                    writer.write("Teste");
+                    writer.write(gerador.CriaObjeto("cima").toString());
                     writer.flush();
                     writer.close();
                 } catch (UnknownHostException e) {

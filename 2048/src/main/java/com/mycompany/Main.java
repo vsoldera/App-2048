@@ -29,8 +29,9 @@ public class Main extends Jogo{
         
         try {
             ServerSocket Servidor = new ServerSocket(3000);
-
+            
             while(true){
+                //System.out.println(1);
                 Socket C = Servidor.accept();
                 Scanner s = new Scanner(C.getInputStream());
                 System.out.println(s.nextLine());
