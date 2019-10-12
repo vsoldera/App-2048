@@ -248,7 +248,8 @@ public class Jogo extends Tabuleiro implements KeyListener {
             bloco[15].setSituacao(1);
             bloco[14].setValor(1024);
             bloco[15].setValor(1024);
-            
+            bloco[15].setPosicao(getJanela(15), Color.decode(bloco[15].CorRetorno(bloco[15].getValor())));
+            bloco[14].setPosicao(getJanela(14), Color.decode(bloco[14].CorRetorno(bloco[14].getValor())));
 
         
     }
