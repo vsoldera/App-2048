@@ -7,69 +7,51 @@ import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 
-import org.apache.http.params.HttpConnectionParams;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.net.HttpURLConnection;
 import java.net.Socket;
-import java.net.URL;
-import java.net.URLClassLoader;
-import java.net.URLConnection;
 import java.net.UnknownHostException;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    final JsonGenerator gerador = new JsonGenerator();
+    final Server servidor = new Server("192.168.0.105", 3000); // setar com suas confs de server
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final JsonGenerator gerador = new JsonGenerator();
-
-
         setContentView(R.layout.activity_main);
-        if (android.os.Build.VERSION.SDK_INT > 9)
+        if (android.os.Build.VERSION.SDK_INT > 9) // corretor par funfar na rede local e interwebs
         {
             StrictMode.ThreadPolicy policy = new
                     StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-        Button clickButton = findViewById(R.id.button);
-        clickButton.setOnClickListener( new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                //envio de requisicao para o servidor.
-                try {
-                    Socket soc = new Socket("192.168.0.105", 3000);
-                    PrintWriter writer = new PrintWriter(soc.getOutputStream());
-                    writer.write(gerador.CriaObjeto("cima").toString());
-                    writer.flush();
-                    writer.close();
-                } catch (UnknownHostException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-            });
-
-
-
 
 
 
     }
 
 
+    public void onClickDown(View v) {
+        servidor.initServer();
+        servidor.Write(gerador.CriaObjeto("down").toString());
+    }
+
+    public void onClickUp(View v) {
+        servidor.initServer();
+        servidor.Write(gerador.CriaObjeto("up").toString());
+    }
+
+    public void onClickLeft(View v) {
+        servidor.initServer();
+        servidor.Write(gerador.CriaObjeto("left").toString());
+    }
+
+    public void onClickRight(View v) {
+        servidor.initServer();
+        servidor.Write(gerador.CriaObjeto("right").toString());
+    }
 }
