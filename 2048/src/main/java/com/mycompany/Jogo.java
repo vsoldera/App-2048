@@ -26,6 +26,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -53,7 +56,16 @@ public class Jogo extends Tabuleiro implements KeyListener {
     Tabuleiro Janela = new Tabuleiro();
     JLabel c = null;
     JLabel derrota = null;
-    
+    int SituacaoJogo=0;
+
+    public int getSituacaoJogo() {
+        return SituacaoJogo;
+    }
+
+    public void setSituacaoJogo(int SituacaoJogo) {
+        this.SituacaoJogo = SituacaoJogo;
+    }
+ 
     public void iniciaJogo() {
 
         KeyListener2048();
@@ -86,7 +98,8 @@ public class Jogo extends Tabuleiro implements KeyListener {
         //Bloco bloco = new Bloco();
 
         getRandomicoBlocoInicial();
-
+        
+        this.setSituacaoJogo(1);
     }
     
     public Jogo() {
@@ -264,9 +277,10 @@ public class Jogo extends Tabuleiro implements KeyListener {
         // add the listener to the jbutton to handle the "pressed" event
         showDialogButton.addActionListener((ActionEvent e) -> {
             // display/center the jdialog when the button is pressed
-                Jogo jogo = new Jogo();
-                jogo.iniciaJogo();
+                //Jogo jogo = new Jogo();
+                this.iniciaJogo();
                 frame6.dispose();
+                
         });
             
            
@@ -589,7 +603,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
         }
 
-        geraExibeBloco();
+        
     }
     @Override
     public void keyReleased(KeyEvent e) {
@@ -923,6 +937,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
         movBloco(7, 4, 1, 1);
         movBloco(11, 8, 1, 1);
         movBloco(15, 12, 1, 1);
+        geraExibeBloco();
 
     }
     public void toRight() {
@@ -933,7 +948,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
         movBloco(4, 7, 1, 2);
         movBloco(8, 11, 1, 2);
         movBloco(12, 15, 1, 2);
-
+        geraExibeBloco();
     }
     public void toDown() {
         int moveAte = 0;
@@ -944,7 +959,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
         movBloco(1, 13, 4, 2);
         movBloco(2, 14, 4, 2);
         movBloco(3, 15, 4, 2);
-
+        geraExibeBloco();
     }
     public void toUp() {
         int moveAte = 0;
@@ -955,6 +970,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
         movBloco(13, 1, 4, 1);
         movBloco(14, 2, 4, 1);
         movBloco(15, 3, 4, 1);
+        geraExibeBloco();
     }
     public JPanel getJanela(int i) {
         JPanel janela = new JPanel();
