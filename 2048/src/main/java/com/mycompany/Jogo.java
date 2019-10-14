@@ -323,7 +323,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
         Janela.dispose();
         JLabel a = null;
         JFrame frame6 = new JFrame("2048!");
-        
+        this.setSituacaoJogo(0);
 
         // create our jbutton
         JButton showDialogButton = new JButton("Novo Jogo!");
@@ -372,7 +372,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
         JLabel a = null;
         JFrame frame6 = new JFrame("GAME OVER!");
         JPanel painel = new JPanel();
-
+        this.setSituacaoJogo(0);
         // create our jbutton
         JButton showDialogButton = new JButton("Novo Jogo!");
   
