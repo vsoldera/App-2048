@@ -66,4 +66,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <Button
+        android:id = "@+id/btnTensor"
+        android:layout_width="170dp"
+        android:layout_height="53dp"
+        android:onClick="sendMessage"
+        android:text="Tensorflow" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
