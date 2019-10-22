@@ -211,6 +211,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
             }
 
             tracker.trackResults(mappedRecognitions, currTimestamp);
+
+
             trackingOverlay.postInvalidate();
 
             computingDetection = false;

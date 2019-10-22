@@ -39,7 +39,7 @@ public class Servidor extends Jogo{
           String aux1 = null;
          JSONObject jsonObject;
          try {
-            ServerSocket Servidor = new ServerSocket(3000);
+            ServerSocket Servidor = new ServerSocket(80);
             
             while(true){
                //System.out.println(1);

@@ -65,6 +65,7 @@ public interface Classifier {
     }
 
     public String getTitle() {
+      System.out.println(title);
       return title;
     }
 

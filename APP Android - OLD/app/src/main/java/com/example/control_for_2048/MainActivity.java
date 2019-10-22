@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnTensorFlow;
     final JsonGenerator gerador = new JsonGenerator();
-    final Server servidor = new Server("192.168.0.105", 3000); // setar com suas confs de server
+    final Server servidor = new Server("172.16.228.12", 80); // setar com suas confs de server
 
 
     @Override

@@ -21,7 +21,7 @@ public class Main extends Jogo{
     public static void main(String[] args) {
         /* tabuleiro speccs*/
         Jogo jogo = new Jogo();
-        Servidor servidor = new Servidor(3000);
+        Servidor servidor = new Servidor(8080);
                 
         jogo.displayMenu();
         servidor.getMsg(jogo);
