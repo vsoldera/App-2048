@@ -17,8 +17,10 @@
 package org.tensorflow.lite.examples.detection;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
@@ -44,6 +46,7 @@ import android.view.Surface;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -85,9 +88,19 @@ public abstract class CameraActivity extends AppCompatActivity
   private ImageView plusImageView, minusImageView;
   private SwitchCompat apiSwitchCompat;
   private TextView threadsTextView;
-
+  private Button button1;
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
+
+
+    //-------------------------Modificado------------------------------------------------
+
+
+  //---------------------------------------------------------------------------------------
+
+
+
+
     LOGGER.d("onCreate " + this);
     super.onCreate(null);
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -96,6 +109,9 @@ public abstract class CameraActivity extends AppCompatActivity
     Toolbar toolbar = findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
     getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+
 
     if (hasPermission()) {
       setFragment();
@@ -167,6 +183,13 @@ public abstract class CameraActivity extends AppCompatActivity
 
     plusImageView.setOnClickListener(this);
     minusImageView.setOnClickListener(this);
+    button1 = findViewById(R.id.button1);
+    button1.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        openActivity2();
+      }
+    });
   }
 
   protected int[] getRgbBytes() {
@@ -493,6 +516,13 @@ public abstract class CameraActivity extends AppCompatActivity
     setUseNNAPI(isChecked);
     if (isChecked) apiSwitchCompat.setText("NNAPI");
     else apiSwitchCompat.setText("TFLITE");
+  }
+
+//-------------------------Modificado openActivity2-------------------------------------------------
+  public void openActivity2() {
+    Intent intent = new Intent(this, Activity2.class);
+    startActivity(intent);
+
   }
 
   @Override
