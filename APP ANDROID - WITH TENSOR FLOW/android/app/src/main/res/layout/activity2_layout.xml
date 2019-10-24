@@ -67,13 +67,10 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="ReturnHome"
-        android:text="Back"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
+        android:id = "@+id/btnTensor"
+        android:layout_width="170dp"
+        android:layout_height="53dp"
+        android:onClick="sendMessage"
+        android:text="Tensorflow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

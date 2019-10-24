@@ -94,7 +94,7 @@ public abstract class CameraActivity extends AppCompatActivity
 
 
     //-------------------------Modificado------------------------------------------------
-
+      getWindow().addFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
 
   //---------------------------------------------------------------------------------------
 
@@ -174,6 +174,7 @@ public abstract class CameraActivity extends AppCompatActivity
           @Override
           public void onSlide(@NonNull View bottomSheet, float slideOffset) {}
         });
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
 
     frameValueTextView = findViewById(R.id.frame_info);
     cropValueTextView = findViewById(R.id.crop_info);
@@ -190,6 +191,8 @@ public abstract class CameraActivity extends AppCompatActivity
         openActivity2();
       }
     });
+
+
   }
 
   protected int[] getRgbBytes() {
@@ -519,11 +522,7 @@ public abstract class CameraActivity extends AppCompatActivity
   }
 
 //-------------------------Modificado openActivity2-------------------------------------------------
-  public void openActivity2() {
-    Intent intent = new Intent(this, Activity2.class);
-    startActivity(intent);
 
-  }
 
   @Override
   public void onClick(View v) {
@@ -546,6 +545,11 @@ public abstract class CameraActivity extends AppCompatActivity
     }
   }
 
+    public void openActivity2() {
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
+
+    }
   protected void showFrameInfo(String frameInfo) {
     frameValueTextView.setText(frameInfo);
   }

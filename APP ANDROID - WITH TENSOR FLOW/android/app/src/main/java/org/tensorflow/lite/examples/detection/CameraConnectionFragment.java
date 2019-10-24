@@ -51,6 +51,7 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -275,6 +276,7 @@ public class CameraConnectionFragment extends Fragment {
 
   @Override
   public View onCreateView(
+
       final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
     return inflater.inflate(layout, container, false);
   }
@@ -361,6 +363,7 @@ public class CameraConnectionFragment extends Fragment {
 
   /** Opens the camera specified by {@link CameraConnectionFragment#cameraId}. */
   private void openCamera(final int width, final int height) {
+
     setUpCameraOutputs();
     configureTransform(width, height);
     final Activity activity = getActivity();
