@@ -4,14 +4,6 @@
  * and open the template in the editor.
  */
 package com.mycompany;
-import org.json.JSONObject;
-import com.sun.corba.se.spi.activation.Server;
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class Main extends Jogo{
