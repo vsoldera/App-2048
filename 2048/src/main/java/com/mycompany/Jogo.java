@@ -54,9 +54,17 @@ public class Jogo extends Tabuleiro implements KeyListener {
     Bloco[] bloco = new Bloco[16];
     Bloco blocoaux = new Bloco();
     Tabuleiro Janela = new Tabuleiro();
+   
     JLabel c = null;
     JLabel derrota = null;
     int SituacaoJogo=0;
+    int NumRandBloco;
+
+    
+    
+    
+    
+    
 
     public int getSituacaoJogo() {
         return SituacaoJogo;
@@ -67,9 +75,9 @@ public class Jogo extends Tabuleiro implements KeyListener {
     }
  
     public void iniciaJogo() {
-
+        Janela.setJogo(this);
         KeyListener2048();
-
+        
         bloco[0] = new Bloco("#afc3e2", 0, Janela.pos1, Janela.label1, 0);
         bloco[1] = new Bloco("#afc3e2", 0, Janela.pos2, Janela.label2, 0);
         bloco[2] = new Bloco("#afc3e2", 0, Janela.pos3, Janela.label3, 0);
@@ -94,7 +102,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
          Janela.cima.setIcon(new ImageIcon(Janela.criaIcones("/img/getup.png")));
          
         
-        int NumRandBloco;
+       
         //Bloco bloco = new Bloco();
 
         getRandomicoBlocoInicial();
@@ -281,6 +289,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
                 this.iniciaJogo();
                 frame6.dispose();
                 
+                
         });
             
            
@@ -321,6 +330,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
     }
     public void vitoria() {
         Janela.dispose();
+        //Janela.setVisible(false);
         JLabel a = null;
         JFrame frame6 = new JFrame("2048!");
         this.setSituacaoJogo(0);
@@ -331,9 +341,10 @@ public class Jogo extends Tabuleiro implements KeyListener {
         // add the listener to the jbutton to handle the "pressed" event
         showDialogButton.addActionListener((ActionEvent e) -> {
             // display/center the jdialog when the button is pressed
-                Jogo jogo = new Jogo();
-                jogo.iniciaJogo();
+                //Jogo jogo = new Jogo();
+                this.iniciaJogo();
                 frame6.dispose();
+                 this.setSituacaoJogo(1);
         });
             
            
@@ -369,6 +380,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
     }
     public void derrota() {
         Janela.dispose();
+        //Janela.setVisible(false);
         JLabel a = null;
         JFrame frame6 = new JFrame("GAME OVER!");
         JPanel painel = new JPanel();
@@ -379,9 +391,10 @@ public class Jogo extends Tabuleiro implements KeyListener {
         // add the listener to the jbutton to handle the "pressed" event
         showDialogButton.addActionListener((ActionEvent e) -> {
             // display/center the jdialog when the button is pressed
-                Jogo jogo = new Jogo();
-                jogo.iniciaJogo();
+                //Jogo jogo = new Jogo();
+                this.iniciaJogo();
                 frame6.dispose();
+                this.setSituacaoJogo(1);
         });
             
            

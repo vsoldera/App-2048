@@ -53,7 +53,6 @@ public class Servidor extends Jogo{
                 aux1 = (String) jsonObject.get("posicao");
                
                 if(aux1.equals("up")) jogo.toUp();
-                 
                 if(aux1.equals("down")) jogo.toDown();
                 if(aux1.equals("left")) jogo.toLeft();
                 if(aux1.equals("right")) jogo.toRight();
