@@ -54,10 +54,35 @@ public class Jogo extends Tabuleiro implements KeyListener {
     Bloco[] bloco = new Bloco[16];
     Bloco blocoaux = new Bloco();
     Tabuleiro Janela = new Tabuleiro();
+   
     JLabel c = null;
     JLabel derrota = null;
     int SituacaoJogo=0;
+    int NumRandBloco;
+    
+    public void zeraTudo(){
+        this.x = 0;
+        this.y = 0;
+        Janela.pont.setText(String.valueOf(0));
+    }
+    
+    public int getPontuacao(){
+        return this.Pontuacao;
+    }
+    
+    public void setPontuacao(int pont){
+     
+        this.Pontuacao = pont;
+    }
+    
+    
+    
+    public void atualizarPontuacao(int Pontuacao) {
+        
+       this.setPontuacao(Pontuacao);
+        Janela.pont.setText(String.valueOf(getPontuacao()));
 
+    }
     public int getSituacaoJogo() {
         return SituacaoJogo;
     }
@@ -67,9 +92,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
     }
  
     public void iniciaJogo() {
-
-        KeyListener2048();
-
+        Janela.setJogo(this);
         bloco[0] = new Bloco("#afc3e2", 0, Janela.pos1, Janela.label1, 0);
         bloco[1] = new Bloco("#afc3e2", 0, Janela.pos2, Janela.label2, 0);
         bloco[2] = new Bloco("#afc3e2", 0, Janela.pos3, Janela.label3, 0);
@@ -87,14 +110,21 @@ public class Jogo extends Tabuleiro implements KeyListener {
         bloco[14] = new Bloco("#afc3e2", 0, Janela.pos15, Janela.label15, 0);
         bloco[15] = new Bloco("#afc3e2", 0, Janela.pos16, Janela.label16, 0);
         
+        for (int i=0; i<16;i++){
+            bloco[i].setValor(0);
+            bloco[i].setSituacao(0);
+            bloco[i].setPosicao(getJanela(i), Color.decode("#FFFFFF")) ;           
+        }
+        setPontuacao(0);
+        this.zeraTudo();
             
-         Janela.direita.setIcon(new ImageIcon(Janela.criaIcones("/img/getirghtrue.png")));
-         Janela.esquerda.setIcon(new ImageIcon(Janela.criaIcones("/img/getleft.png")));
-         Janela.baixo.setIcon(new ImageIcon(Janela.criaIcones("/img/getright.png")));
-         Janela.cima.setIcon(new ImageIcon(Janela.criaIcones("/img/getup.png")));
+        Janela.direita.setIcon(new ImageIcon(Janela.criaIcones("/img/getirghtrue.png")));
+        Janela.esquerda.setIcon(new ImageIcon(Janela.criaIcones("/img/getleft.png")));
+        Janela.baixo.setIcon(new ImageIcon(Janela.criaIcones("/img/getright.png")));
+        Janela.cima.setIcon(new ImageIcon(Janela.criaIcones("/img/getup.png")));
          
         
-        int NumRandBloco;
+       
         //Bloco bloco = new Bloco();
 
         getRandomicoBlocoInicial();
@@ -108,7 +138,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
             @Override
             public void mouseClicked(MouseEvent e) {
                 toUp();
-                geraExibeBloco();
+                //geraExibeBloco();
             }
 
             @Override
@@ -135,7 +165,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
             @Override
             public void mouseClicked(MouseEvent e) {
                 toRight();
-                geraExibeBloco();
+                //geraExibeBloco();
             }
 
             @Override
@@ -162,7 +192,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
             @Override
             public void mouseClicked(MouseEvent e) {
                 toLeft();
-                geraExibeBloco();
+               // geraExibeBloco();
             }
 
             @Override
@@ -191,7 +221,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
             @Override
             public void mouseClicked(MouseEvent e) {
                 toDown();
-                geraExibeBloco();
+                //geraExibeBloco();
             }
 
             @Override
@@ -278,8 +308,10 @@ public class Jogo extends Tabuleiro implements KeyListener {
         showDialogButton.addActionListener((ActionEvent e) -> {
             // display/center the jdialog when the button is pressed
                 //Jogo jogo = new Jogo();
+                this.KeyListener2048();
                 this.iniciaJogo();
                 frame6.dispose();
+               
                 
         });
             
@@ -321,6 +353,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
     }
     public void vitoria() {
         Janela.dispose();
+        //Janela.setVisible(false);
         JLabel a = null;
         JFrame frame6 = new JFrame("2048!");
         this.setSituacaoJogo(0);
@@ -331,9 +364,12 @@ public class Jogo extends Tabuleiro implements KeyListener {
         // add the listener to the jbutton to handle the "pressed" event
         showDialogButton.addActionListener((ActionEvent e) -> {
             // display/center the jdialog when the button is pressed
-                Jogo jogo = new Jogo();
-                jogo.iniciaJogo();
+                //Jogo jogo = new Jogo();
+              
+                this.iniciaJogo();
+                Janela.setVisible(true);
                 frame6.dispose();
+                //this.setSituacaoJogo(1);
         });
             
            
@@ -369,6 +405,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
     }
     public void derrota() {
         Janela.dispose();
+        //Janela.setVisible(false);
         JLabel a = null;
         JFrame frame6 = new JFrame("GAME OVER!");
         JPanel painel = new JPanel();
@@ -379,9 +416,12 @@ public class Jogo extends Tabuleiro implements KeyListener {
         // add the listener to the jbutton to handle the "pressed" event
         showDialogButton.addActionListener((ActionEvent e) -> {
             // display/center the jdialog when the button is pressed
-                Jogo jogo = new Jogo();
-                jogo.iniciaJogo();
+                //Jogo jogo = new Jogo();
+                this.iniciaJogo();
+                Janela.setVisible(true);
+               
                 frame6.dispose();
+                this.setSituacaoJogo(1);
         });
             
            
@@ -824,7 +864,9 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 //System.out.println("ELSE");
                                 ctrl = 1;
                                 
+                               
                                 y += bloco[j].getValor();
+                              
                                 System.out.println("VALOR DE Y: " + y);
                                 //Condicao de Vitoria
                                 if(bloco[j].getValor() == 2048) {
@@ -893,7 +935,7 @@ public class Jogo extends Tabuleiro implements KeyListener {
                                 
 
                                 x += bloco[j].getValor();
-
+                                
                                 System.out.println("VALOR DE X: " + x);
 
                                 ctrl = 1;
@@ -924,9 +966,9 @@ public class Jogo extends Tabuleiro implements KeyListener {
 
         }
 
-        Pontuacao = x + y;
+        
         System.out.println("PONTUACAO: " + Pontuacao);
-        atualizarPontuacao(Pontuacao);
+        atualizarPontuacao(x+y);
 
     }
     public void toLeft() {
@@ -1036,9 +1078,6 @@ public class Jogo extends Tabuleiro implements KeyListener {
         return janela;
 
     }
-    public void atualizarPontuacao(int Pontuacao) {
-        Janela.pont.setText(String.valueOf(Pontuacao));
-
-    }
+    
 
 }

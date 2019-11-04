@@ -6,7 +6,8 @@ module.exports.index = function (app, req, res) {
 module.exports.postInfo = function(app, req, res){
     // file system module to perform file operations
     const fs = require('fs');
-    var content = req.body.content; // content é a variavel que é enviada no corpo
+    var content = req.body.dado; // content é a variavel que é enviada no corpo
+
     //var jsonData = '{"persons":[{"name":"John1ewew4444","city":"New York"},{"name":"Phil","city":"Ohio"}]}';
     // parse to  json
     var jsonObj = JSON.parse(content);
@@ -47,7 +48,10 @@ const fs = require('fs');
 retorno = {
     "status": "",
     "msg": "",
-    "data":""
+    "data":{
+        "posicao": "",
+        "situacaoUso":""
+    }
 };
 fs.readFile('../server/app/public/history.json', (err, data) => {
     if (err){
@@ -59,10 +63,11 @@ fs.readFile('../server/app/public/history.json', (err, data) => {
     }
     let conteudo = JSON.parse(data);
     retorno.data = conteudo;
-    res.send(retorno);
+    res.send(retorno.data);
 });
 
 
 }
+
 
 
