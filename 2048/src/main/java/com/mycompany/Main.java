@@ -23,7 +23,7 @@ public class Main extends Jogo{
 //        Servidor servidor = new Servidor(8080);
         
         jogo.displayMenu();
-      
+        
         WebClient cliente = new WebClient("http://localhost:3000/postInfo", "http://localhost:3000/getPos", jogo); 
         //servidor.getMsg(jogo);
         try {
