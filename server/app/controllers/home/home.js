@@ -24,7 +24,7 @@ module.exports.postInfo = function(app, req, res){
     fs.writeFile("../server/app/public/history.json", jsonContent, 'utf8', function (err) { // escrever no arquivo
         if (err) {
             
-            retorno.status = "FAIL";
+            retorno.status = "Fail";
             retorno.msg = "Ocorreu um erro ao escrever o JSON Object no arquivo";
             
             
@@ -50,12 +50,14 @@ retorno = {
     "msg": "",
     "data":{
         "posicao": "",
-        "situacaoUso":""
+        "situacaoUso":"",
+        "Origem": ""
     }
 };
 fs.readFile('../server/app/public/history.json', (err, data) => {
     if (err){
         retorno.status = "FAIL";
+        retorno.data.situacaoUso ="fail";
         retorno.msg = "Ocorreu um erro ao ler o JSON Object no arquivo";
     } else{
         retorno.status = "Success";
