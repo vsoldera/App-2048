@@ -17,8 +17,10 @@
 package org.tensorflow.lite.examples.detection;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
@@ -36,6 +38,8 @@ import android.os.HandlerThread;
 import android.os.Trace;
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.textfield.TextInputLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
@@ -44,6 +48,7 @@ import android.view.Surface;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -53,7 +58,9 @@ import java.nio.ByteBuffer;
 import org.tensorflow.lite.examples.detection.env.ImageUtils;
 import org.tensorflow.lite.examples.detection.env.Logger;
 
+
 public abstract class CameraActivity extends AppCompatActivity
+
     implements OnImageAvailableListener,
         Camera.PreviewCallback,
         CompoundButton.OnCheckedChangeListener,
@@ -85,9 +92,21 @@ public abstract class CameraActivity extends AppCompatActivity
   private ImageView plusImageView, minusImageView;
   private SwitchCompat apiSwitchCompat;
   private TextView threadsTextView;
-
+  private Button button1;
+  private Button button2;
+  private TextInputLayout textIP;
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
+
+
+    //-------------------------Modificado------------------------------------------------
+      getWindow().addFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
+
+  //---------------------------------------------------------------------------------------
+
+
+
+
     LOGGER.d("onCreate " + this);
     super.onCreate(null);
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -96,6 +115,9 @@ public abstract class CameraActivity extends AppCompatActivity
     Toolbar toolbar = findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
     getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+
 
     if (hasPermission()) {
       setFragment();
@@ -158,6 +180,7 @@ public abstract class CameraActivity extends AppCompatActivity
           @Override
           public void onSlide(@NonNull View bottomSheet, float slideOffset) {}
         });
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
 
     frameValueTextView = findViewById(R.id.frame_info);
     cropValueTextView = findViewById(R.id.crop_info);
@@ -167,7 +190,27 @@ public abstract class CameraActivity extends AppCompatActivity
 
     plusImageView.setOnClickListener(this);
     minusImageView.setOnClickListener(this);
+    button1 = findViewById(R.id.button1);
+    button1.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        openActivity2();
+      }
+    });
+
+    button2 = findViewById(R.id.button2);
+    button2.setOnClickListener(new View.OnClickListener() {
+      public void onClick(View view) {
+        openActivity3();
+      }
+    });
+
+    textIP = findViewById(R.id.ip_input);
+
+
   }
+
+
 
   protected int[] getRgbBytes() {
     imageConverter.run();
@@ -495,6 +538,9 @@ public abstract class CameraActivity extends AppCompatActivity
     else apiSwitchCompat.setText("TFLITE");
   }
 
+//-------------------------Modificado openActivity2-------------------------------------------------
+
+
   @Override
   public void onClick(View v) {
     if (v.getId() == R.id.plus) {
@@ -516,6 +562,21 @@ public abstract class CameraActivity extends AppCompatActivity
     }
   }
 
+    public void openActivity2() {
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
+
+    }
+
+    public void openActivity3() {
+      Intent intent = new Intent(this, Activity3.class);
+      startActivity(intent);
+    }
+
+    public void confirmInput(View v) {
+
+    
+    }
   protected void showFrameInfo(String frameInfo) {
     frameValueTextView.setText(frameInfo);
   }
