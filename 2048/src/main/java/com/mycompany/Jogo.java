@@ -1,21 +1,4 @@
 
-
-
-/* 
-#eee4da  == bloco2
-#ede0c8 == bloco4
-#f2b179 == bloco8
-#f59563 == bloco16
-#f67c5f == bloco32
-#f65e3b == bloco64
-#edcf72 == bloco128
-#edcc61 == bloco256 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany;
 
 import java.awt.Color;
@@ -74,9 +57,6 @@ public class Jogo extends Tabuleiro implements KeyListener {
      
         this.Pontuacao = pont;
     }
-    
-    
-    
     public void atualizarPontuacao(int Pontuacao) {
         
        this.setPontuacao(Pontuacao);

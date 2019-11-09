@@ -20,7 +20,7 @@ import static jdk.nashorn.internal.objects.NativeRegExp.source;
  */
 
 //Heranca
-public class Bloco extends Animacao{
+public class Bloco{
     String Cor;
     int Valor;
     JPanel Posicao;
@@ -219,11 +219,7 @@ public String CorRetorno(int Valor){
     return Cor;
 }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+  
 
   
 
