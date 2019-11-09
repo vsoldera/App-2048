@@ -1,6 +1,6 @@
 async function showResults(data){
 
-    document.getElementById("tabela").innerHTML += data.persons;
+    document.getElementById("tabela").innerHTML += "<tr> <td></td> <td>"+ data.posicao+"</td>" + "<td>"+data.situacaoUso+"</td></tr>";
 
 }
 
@@ -15,9 +15,9 @@ const getInfos = async() =>{
             //console.log( response.data);
 
             //console.log( response.status);
-            console.log(response.data.data);
+            console.log(response.data);
 
-          showResults(response.data.data);
+          showResults(response.data);
 
 
 
