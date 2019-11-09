@@ -1,24 +1,47 @@
 
 <% include includes/header %>
+<style>
+    .table{
+        margin-top: 50px;
+        text-align: center;
+    }
+    .container-fluid{
+        background-image: url("../img/background.jpg");
+        height: 700px;
+    }
+    .container{
+        padding:50px;
+        background-color: #fff;
+        height: 700px;
+       
+    }
+    #tabela-container{
+        overflow-y: scroll;
+        height: 500px;
+    }
 
-
+    </style>
+<div class="container-fluid">
 <div class="container">
-    <div class="col-lg-12">
-        <table class="table" id="tabela">
+    <div class="col-lg-12"><center><p style="font-size:20px">2048 - Histórico</p></center>
+    
+    </div>
+    <div class="col-lg-12" id="tabela-container">
+        <table class="table" id="tabela" align="center">
             <tr> 
-                <td>Data</td>
                 <td>Comando</td>
-                <td>Situacao</td>
+                <td>Situação</td>
+                <td>Origem</td>
             </tr>
 
             </table>
 
     </div>
 </div>
-
+</div>
 <script> 
-//setInterval(getInfos, 1000);
-//getInfos();
+setInterval(getInfos, 1000);
+getInfos();
 
 </script>
 

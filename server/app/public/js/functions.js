@@ -1,10 +1,23 @@
+var controleExibicaoRepetidaUsed = 0;
+var controleExibicaoRepetidaToUse = 0
+
+function estiloTextoUso(dado){
+    if(dado == "used"){
+        return "<td style='color:#22AF80'> Sucesso! </td>";
+    }
+    if(dado == "toUse"){
+        return "<td style='color:#CED509'> Aguardando... </td>";
+    }
+    if(dado == "fail"){
+        return "<td style='color:#D5091B'> Falha! </td>";
+    }
+}
 async function showResults(data){
 
-    document.getElementById("tabela").innerHTML += "<tr> <td></td> <td>"+ data.posicao+"</td>" + "<td>"+data.situacaoUso+"</td></tr>";
+    document.getElementById("tabela").innerHTML += "<tr> <td>"+ data.posicao+"</td>"+  estiloTextoUso(data.situacaoUso)+"<td>"+data.Origem+"</td></tr>";
+ 
 
 }
-
-
 
 
 const getInfos = async() =>{
@@ -17,7 +30,21 @@ const getInfos = async() =>{
             //console.log( response.status);
             console.log(response.data);
 
-          showResults(response.data);
+           
+            if(response.data.situacaoUso == "used") controleExibicaoRepetidaUsed++;
+            else controleExibicaoRepetidaToUse++;
+
+            if(controleExibicaoRepetidaUsed < 2 && response.data.situacaoUso == "used"){
+                controleExibicaoRepetidaToUse = 0
+                showResults(response.data);
+            }
+            else if(controleExibicaoRepetidaToUse < 2 && response.data.situacaoUso == "toUse"){
+                controleExibicaoRepetidaUsed = 0;
+                showResults(response.data);
+                
+            } 
+
+          
 
 
 
