@@ -38,6 +38,8 @@ import android.os.HandlerThread;
 import android.os.Trace;
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.textfield.TextInputLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
@@ -56,7 +58,9 @@ import java.nio.ByteBuffer;
 import org.tensorflow.lite.examples.detection.env.ImageUtils;
 import org.tensorflow.lite.examples.detection.env.Logger;
 
+
 public abstract class CameraActivity extends AppCompatActivity
+
     implements OnImageAvailableListener,
         Camera.PreviewCallback,
         CompoundButton.OnCheckedChangeListener,
@@ -89,6 +93,8 @@ public abstract class CameraActivity extends AppCompatActivity
   private SwitchCompat apiSwitchCompat;
   private TextView threadsTextView;
   private Button button1;
+  private Button button2;
+  private TextInputLayout textIP;
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
 
@@ -192,8 +198,19 @@ public abstract class CameraActivity extends AppCompatActivity
       }
     });
 
+    button2 = findViewById(R.id.button2);
+    button2.setOnClickListener(new View.OnClickListener() {
+      public void onClick(View view) {
+        openActivity3();
+      }
+    });
+
+    textIP = findViewById(R.id.ip_input);
+
 
   }
+
+
 
   protected int[] getRgbBytes() {
     imageConverter.run();
@@ -549,6 +566,16 @@ public abstract class CameraActivity extends AppCompatActivity
         Intent intent = new Intent(this, Activity2.class);
         startActivity(intent);
 
+    }
+
+    public void openActivity3() {
+      Intent intent = new Intent(this, Activity3.class);
+      startActivity(intent);
+    }
+
+    public void confirmInput(View v) {
+
+    
     }
   protected void showFrameInfo(String frameInfo) {
     frameValueTextView.setText(frameInfo);
