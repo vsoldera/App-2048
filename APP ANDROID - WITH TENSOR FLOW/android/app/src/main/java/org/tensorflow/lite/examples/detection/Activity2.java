@@ -26,16 +26,11 @@ import java.net.UnknownHostException;
 public class Activity2 extends AppCompatActivity {
 
 
-
-
-
     final JsonGenerator gerador = new JsonGenerator();
 
     final Server servidor = new Server(Activity3.mEdit.getText().toString(), 3000);
 
-
     @Override
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +43,9 @@ public class Activity2 extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-
         System.out.println("IP: " + Activity3.mEdit.getText().toString());
+        System.out.println("Host: " + servidor.host);
+        System.out.println("Port: " + servidor.port);
 
     }
 
@@ -63,7 +59,6 @@ public class Activity2 extends AppCompatActivity {
         }
 
     }
-
 
     public void onClickUp(View v) {
 

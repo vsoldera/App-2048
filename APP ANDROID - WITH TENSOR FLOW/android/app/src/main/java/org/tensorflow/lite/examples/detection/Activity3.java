@@ -2,6 +2,7 @@ package org.tensorflow.lite.examples.detection;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Camera;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +16,7 @@ import android.content.SharedPreferences;
 
 public class Activity3 extends AppCompatActivity {
 
-    static  Button   mButton;
+    static  Button  mButton;
     static EditText mEdit;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +37,20 @@ public class Activity3 extends AppCompatActivity {
                         //Funcional
                         System.out.println(mEdit);
                         System.out.println("mEdit");
+                        TensorFlowCall(view);
 
 
                     }
                 });
 
-
-
-
     }
     public void ReturnHome(View v) {
         super.onBackPressed();
+    }
+
+    public void TensorFlowCall(View view) {
+        Intent intent = new Intent(Activity3.this, DetectorActivity.class);
+        startActivity(intent);
     }
 
 
