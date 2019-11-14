@@ -28,11 +28,14 @@ public class Activity2 extends AppCompatActivity {
 
     final JsonGenerator gerador = new JsonGenerator();
 
-    final Server servidor = new Server(Activity3.mEdit.getText().toString(), 3000);
+    //final Server servidor = new Server(Activity3.mEdit.getText().toString(), 3000);
+
+    Server servidor = new Server();
 
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
@@ -44,8 +47,8 @@ public class Activity2 extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
         System.out.println("IP: " + Activity3.mEdit.getText().toString());
-        System.out.println("Host: " + servidor.host);
-        System.out.println("Port: " + servidor.port);
+        //System.out.println("Host: " + servidor.host);
+        //System.out.println("Port: " + servidor.port);
 
     }
 
