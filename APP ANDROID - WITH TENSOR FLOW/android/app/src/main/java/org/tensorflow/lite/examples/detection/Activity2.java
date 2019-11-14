@@ -19,18 +19,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
-
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Activity2 extends AppCompatActivity {
 
 
     final JsonGenerator gerador = new JsonGenerator();
-
+    Server servidor = new Server();
     //final Server servidor = new Server(Activity3.mEdit.getText().toString(), 3000);
 
-    Server servidor = new Server();
 
     @Override
 
@@ -50,13 +49,25 @@ public class Activity2 extends AppCompatActivity {
         //System.out.println("Host: " + servidor.host);
         //System.out.println("Port: " + servidor.port);
 
+
+
+
+        //servidor.getMsg(jogo);
+
+        try {
+            servidor.controleGeral();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void onClickDown(View v) {
 
         try {
-            servidor.initServer();
-            servidor.Write(gerador.CriaObjeto("down").toString());
+            System.out.println("Down");
+            //servidor.Write(gerador.CriaObjeto("down").toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,8 +77,8 @@ public class Activity2 extends AppCompatActivity {
     public void onClickUp(View v) {
 
         try {
-            servidor.initServer();
-            servidor.Write(gerador.CriaObjeto("up").toString());
+            System.out.println("Up");
+            //servidor.Write(gerador.CriaObjeto("up").toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -76,8 +87,8 @@ public class Activity2 extends AppCompatActivity {
     public void onClickLeft(View v) {
 
         try {
-            servidor.initServer();
-            servidor.Write(gerador.CriaObjeto("left").toString());
+            System.out.println("Left");
+            //servidor.Write(gerador.CriaObjeto("left").toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,8 +97,8 @@ public class Activity2 extends AppCompatActivity {
     public void onClickRight(View v) {
 
         try {
-            servidor.initServer();
-            servidor.Write(gerador.CriaObjeto("right").toString());
+            System.out.println("Right");
+            //servidor.Write(gerador.CriaObjeto("right").toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

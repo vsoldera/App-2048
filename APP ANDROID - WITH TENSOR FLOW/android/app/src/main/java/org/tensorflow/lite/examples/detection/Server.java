@@ -8,9 +8,12 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.io.DataOutputStream;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.PrintWriter;
+
+import static java.util.logging.Level.*;
 
 
 public class Server {
@@ -20,13 +23,26 @@ public class Server {
     String situacaoUso;
     JSONObject jsonObject;
 
+    public void controleGeral() throws InterruptedException{
+        while(true){
 
+                TimeUnit.SECONDS.sleep(1);
+            try {
+                this.GetInfo();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
+    }
 
     public void PostInfo(JSONObject dado) throws IOException, JSONException {
 
         String url = "http://localhost:3000/postInfo";
 
-        URL UrlObj = new URL(this.urlPost);
+        URL UrlObj = new URL("http://localhost:3000/postInfo");
 
         HttpURLConnection connection = (HttpURLConnection) UrlObj.openConnection();
         connection.setRequestMethod("POST");
@@ -65,8 +81,8 @@ public class Server {
     }
 
     public void GetInfo() throws IOException {
-        String url = "localhost:3000/getInfo";
-        URL urlObj = new URL(this.urlGet);
+        String url = "http://localhost:3000/getInfo";
+        URL urlObj = new URL("http://172.16.230.26:3000/getPos");
         HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
 
         connection.setRequestMethod("GET");
@@ -93,7 +109,7 @@ public class Server {
         }
     }
 
-    public void Write(String msg){
+   /*public void Write(String msg){
 
         try {
             PrintWriter writer = new PrintWriter(soc.getOutputStream());
@@ -105,7 +121,7 @@ public class Server {
         }
 
 
-    }
+    }*/
 
     public void sendUpdatePost(String posicao) throws JSONException {
         JSONObject j = new JSONObject() ;
@@ -116,7 +132,7 @@ public class Server {
         try {
             this.PostInfo(j);
         } catch (IOException ex) {
-            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Server.class.getName()).log(SEVERE, null, ex);
         }
 
     }

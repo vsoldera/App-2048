@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Camera;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.content.Intent;
@@ -22,7 +23,12 @@ public class Activity3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
-
+        if (android.os.Build.VERSION.SDK_INT > 9) // corretor par funfar na rede local e interwebs
+        {
+            StrictMode.ThreadPolicy policy = new
+                    StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
         //Cast, apesar de ele dizer que nao precisa, eh necessario e logicamente correto;
         mButton = (Button)findViewById(R.id.setIP);
