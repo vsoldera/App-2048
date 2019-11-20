@@ -25,8 +25,14 @@ import javax.swing.WindowConstants;
  * @author luizviniciusruoso
  */
 public class Tabuleiro extends javax.swing.JFrame  {
-
-
+    Jogo jogo;
+    public void setJogo(Jogo j){
+        this.jogo = j;
+    }
+    public Jogo getJogo(){
+        return this.jogo;
+    }
+   
     /**
      * Creates new form Tabuleiro
      */
@@ -789,11 +795,8 @@ public void displayMenu(JFrame tabuleiro)
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Jogo jogo = new Jogo();
-        jogo.iniciaJogo();
-        
-        //Fecha janela anterior
-        dispose();
+       this.jogo.iniciaJogo();
+     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked

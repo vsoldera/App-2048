@@ -4,14 +4,12 @@
  * and open the template in the editor.
  */
 package com.mycompany;
-import org.json.JSONObject;
-import com.sun.corba.se.spi.activation.Server;
+
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.Scanner;
+import java.net.ProtocolException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONObject;
 
 
 public class Main extends Jogo{
@@ -21,13 +19,20 @@ public class Main extends Jogo{
     public static void main(String[] args) {
         /* tabuleiro speccs*/
         Jogo jogo = new Jogo();
-        Servidor servidor = new Servidor(3000);
-                
+            
+//        Servidor servidor = new Servidor(8080);
+        
         jogo.displayMenu();
-        servidor.getMsg(jogo);
+        
+        WebClient cliente = new WebClient("http://localhost:3000/postInfo", "http://localhost:3000/getPos", jogo); 
+        //servidor.getMsg(jogo);
+        try {
+            cliente.controleGeral();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
-      
     }
     
 }
