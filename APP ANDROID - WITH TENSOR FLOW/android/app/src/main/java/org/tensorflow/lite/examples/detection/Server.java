@@ -40,9 +40,9 @@ public class Server {
     //Ja existe a funcao post info e get info, eh mandar um JSON pra funcao postInfo
     public void PostInfo(JSONObject dado) throws IOException, JSONException {
 
-        String url = "http://localhost:3000/postInfo";
+        String url = "http://192.168.0.19:3000/postInfo";
 
-        URL UrlObj = new URL("http://localhost:3000/postInfo");
+        URL UrlObj = new URL("http://192.168.0.19:3000/postInfo");
 
         HttpURLConnection connection = (HttpURLConnection) UrlObj.openConnection();
         connection.setRequestMethod("POST");
@@ -64,7 +64,7 @@ public class Server {
 
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader inputReader = new BufferedReader(
-                    new InputStreamReader(connection.getInputStream()));
+            new InputStreamReader(connection.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
 
