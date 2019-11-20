@@ -23,26 +23,49 @@ public class Server {
     String situacaoUso;
     JSONObject jsonObject;
 
-    public void controleGeral() throws InterruptedException{
-        while(true){
 
-                TimeUnit.SECONDS.sleep(1);
-            try {
-                this.GetInfo();
-            } catch (IOException e) {
-                e.printStackTrace();
+    public String getUrlPost() {
+        return urlPost;
+    }
+
+    public void setUrlPost(String urlPost) {
+        this.urlPost = urlPost;
+    }
+
+    public String getUrlGet() {
+        return urlGet;
+    }
+
+    public void setUrlGet(String urlGet) {
+        this.urlGet = urlGet;
+    }
+
+    /* public void controleGeral() throws InterruptedException{
+            while(true){
+
+                    TimeUnit.SECONDS.sleep(1);
+                try {
+                    this.GetInfo();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
 
+
+        }*/
+    //Ja existe a funcao post info e get info, eh mandar um JSON pra funcao postInfo
+    public void PostInfo(JSONObject dado) throws IOException, JSONException {
+        try {
+            TimeUnit.SECONDS.sleep((long) 0.2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
 
-    }
-    //Ja existe a funcao post info e get info, eh mandar um JSON pra funcao postInfo
-    public void PostInfo(JSONObject dado) throws IOException, JSONException {
+        String url = getUrlPost()+"/postInfo";
 
-        String url = "http://192.168.0.19:3000/postInfo";
-
-        URL UrlObj = new URL("http://192.168.0.19:3000/postInfo");
+        URL UrlObj = new URL(url);
 
         HttpURLConnection connection = (HttpURLConnection) UrlObj.openConnection();
         connection.setRequestMethod("POST");
@@ -73,16 +96,16 @@ public class Server {
             }
             inputReader.close();
             System.out.println(response.toString());
-            aux = response.toString();
+           /* aux = response.toString();
             jsonObject = new JSONObject(aux);
             situacaoUso = (String) jsonObject.get("situacaoUso");
-            posicao = (String) jsonObject.get("posicao");
+            posicao = (String) jsonObject.get("posicao");*/
         }
     }
 
     public void GetInfo() throws IOException {
-        String url = "http://192.168.0.19:3000/getPos";
-        URL urlObj = new URL("http://192.168.0.19:3000/getPos");
+        String url = getUrlGet()+"/getPos";
+        URL urlObj = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
 
         connection.setRequestMethod("GET");
@@ -123,13 +146,14 @@ public class Server {
 
     }
     */
- */
+
 
     public void sendUpdatePost(String posicao) throws JSONException {
         JSONObject j = new JSONObject() ;
 
-        j.put("situacaoUso", "used");
+        j.put("situacaoUso", "toUse");
         j.put("posicao", posicao);
+        j.put("Origem", "Controle");
 
         try {
             this.PostInfo(j);

@@ -34,6 +34,10 @@ public class Activity2 extends AppCompatActivity {
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
+        String preFixo, posFixo;
+
+        preFixo = "http://";
+        posFixo = ":3000";
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
@@ -46,6 +50,14 @@ public class Activity2 extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
         System.out.println("IP: " + Activity3.mEdit.getText().toString());
+
+        /* XARXIXA NAO MUDA FDP*/
+
+        servidor.setUrlGet(preFixo+Activity3.mEdit.getText().toString()+posFixo);
+        servidor.setUrlPost(preFixo+Activity3.mEdit.getText().toString()+posFixo);
+
+
+
         //System.out.println("Host: " + servidor.host);
         //System.out.println("Port: " + servidor.port);
 
@@ -54,11 +66,6 @@ public class Activity2 extends AppCompatActivity {
 
         //servidor.getMsg(jogo);
 
-        try {
-            servidor.controleGeral();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
 
     }
@@ -67,6 +74,7 @@ public class Activity2 extends AppCompatActivity {
 
         try {
             System.out.println("Down");
+            servidor.sendUpdatePost("Down");
             //servidor.Write(gerador.CriaObjeto("down").toString());
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,6 +86,7 @@ public class Activity2 extends AppCompatActivity {
 
         try {
             System.out.println("Up");
+            servidor.sendUpdatePost("Up");
             //servidor.Write(gerador.CriaObjeto("up").toString());
         } catch (Exception e) {
             e.printStackTrace();
@@ -88,6 +97,7 @@ public class Activity2 extends AppCompatActivity {
 
         try {
             System.out.println("Left");
+            servidor.sendUpdatePost("Left");
             //servidor.Write(gerador.CriaObjeto("left").toString());
         } catch (Exception e) {
             e.printStackTrace();
@@ -98,6 +108,7 @@ public class Activity2 extends AppCompatActivity {
 
         try {
             System.out.println("Right");
+            servidor.sendUpdatePost("Right");
             //servidor.Write(gerador.CriaObjeto("right").toString());
         } catch (Exception e) {
             e.printStackTrace();
