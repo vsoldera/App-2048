@@ -154,7 +154,7 @@ public class WebClient extends Jogo {
                 
                 if(this.jogo.getSituacaoJogo() == 1 && situacaoUso.equals("toUse")){
                     
-                    System.out.println("cheguei");
+                   // System.out.println("cheguei");
                 if(posicao.equals("Up")) this.jogo.toUp();
                 if(posicao.equals("Down")) this.jogo.toDown();
                 if(posicao.equals("Left")) this.jogo.toLeft();

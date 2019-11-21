@@ -162,28 +162,46 @@ public class Server {
         }
 
     }
-    public void sendUpdatePostIA(String posicao) throws JSONException {
+    public void sendUpdatePostIA(String objeto) throws JSONException {
         JSONObject j = new JSONObject() ;
+        int ctrl=0;
 
-
-        if(posicao.equals("mouse")){
-            j.put("situacaoUso", "toUse");
-            j.put("posicao", "cima");
-            j.put("Origem", "Controle");
-        }else{
-        j.put("situacaoUso", "toUse");
-        j.put("posicao", "noop");
-        j.put("Origem", "Controle");}
-
-        try {
-            this.PostInfo(j);
-        } catch (IOException ex) {
-            Logger.getLogger(Server.class.getName()).log(SEVERE, null, ex);
+        if(objeto.equals("mouse") ){
+            ctrl =1;
+            j.put("posicao", "Up");
         }
+        if(objeto.equals("person")) {
+                j.put("posicao", "Down");
+            ctrl =1;
+        }
+        if(objeto.equals("backpack")) {
+            ctrl =1;
+           j.put("posicao", "Left");
+        }
+        if(objeto.equals("cell phone")){
+            ctrl =1;
+            j.put("posicao", "Right");
+        }
+      if(ctrl ==1) {
 
+
+          j.put("situacaoUso", "toUse");
+          j.put("Origem", "Controle");
+
+
+          try {
+              this.PostInfo(j);
+          } catch (IOException ex) {
+              Logger.getLogger(Server.class.getName()).log(SEVERE, null, ex);
+          }
+      }else {
+          System.out.println("nenhum match");
+          ctrl=0;
+      }
+      }
     }
 
-}
+
 
 
 

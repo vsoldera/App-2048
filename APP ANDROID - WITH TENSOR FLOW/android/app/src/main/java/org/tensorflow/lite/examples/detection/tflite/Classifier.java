@@ -45,6 +45,11 @@ public interface Classifier {
      * A unique identifier for what has been recognized. Specific to the class, not the instance of
      * the object.
      */
+
+    Server servidor;
+
+
+
     private final String id;
 
     /** Display name for the recognition. */
@@ -64,21 +69,21 @@ public interface Classifier {
       this.title = title;
       this.confidence = confidence;
       this.location = location;
+
+      System.out.println("passou aqui");
+
       String preFixo = "http://";
       String posFixo = ":3000";
+      servidor = new Server();
 
-      Server servidor = new Server();
       servidor.setUrlGet(preFixo+ Activity3.mEdit.getText().toString()+posFixo);
       servidor.setUrlPost(preFixo+Activity3.mEdit.getText().toString()+posFixo);
 
-
       System.out.println(this.getTitle());
       try {
-        TimeUnit.SECONDS.sleep((long) 2);
+        //TimeUnit.SECONDS.sleep((long) 2);
         servidor.sendUpdatePostIA(this.getTitle());
       } catch (JSONException e) {
-        e.printStackTrace();
-      } catch (InterruptedException e) {
         e.printStackTrace();
       }
     }
