@@ -18,7 +18,7 @@ import android.content.SharedPreferences;
 public class Activity3 extends AppCompatActivity {
 
     static  Button  mButton;
-    static EditText mEdit;
+    public static EditText mEdit;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

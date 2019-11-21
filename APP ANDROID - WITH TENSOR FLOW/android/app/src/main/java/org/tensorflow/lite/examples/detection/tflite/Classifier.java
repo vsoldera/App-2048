@@ -17,7 +17,13 @@ package org.tensorflow.lite.examples.detection.tflite;
 
 import android.graphics.Bitmap;
 import android.graphics.RectF;
+
+import org.json.JSONException;
+import org.tensorflow.lite.examples.detection.Activity3;
+import org.tensorflow.lite.examples.detection.Server;
+
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /** Generic interface for interacting with different recognition engines. */
 public interface Classifier {
@@ -58,6 +64,23 @@ public interface Classifier {
       this.title = title;
       this.confidence = confidence;
       this.location = location;
+      String preFixo = "http://";
+      String posFixo = ":3000";
+
+      Server servidor = new Server();
+      servidor.setUrlGet(preFixo+ Activity3.mEdit.getText().toString()+posFixo);
+      servidor.setUrlPost(preFixo+Activity3.mEdit.getText().toString()+posFixo);
+
+
+      System.out.println(this.getTitle());
+      try {
+        TimeUnit.SECONDS.sleep((long) 2);
+        servidor.sendUpdatePostIA(this.getTitle());
+      } catch (JSONException e) {
+        e.printStackTrace();
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
     }
 
     public String getId() {

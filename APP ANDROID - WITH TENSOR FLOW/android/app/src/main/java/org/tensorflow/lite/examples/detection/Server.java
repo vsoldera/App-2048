@@ -162,6 +162,26 @@ public class Server {
         }
 
     }
+    public void sendUpdatePostIA(String posicao) throws JSONException {
+        JSONObject j = new JSONObject() ;
+
+
+        if(posicao.equals("mouse")){
+            j.put("situacaoUso", "toUse");
+            j.put("posicao", "cima");
+            j.put("Origem", "Controle");
+        }else{
+        j.put("situacaoUso", "toUse");
+        j.put("posicao", "noop");
+        j.put("Origem", "Controle");}
+
+        try {
+            this.PostInfo(j);
+        } catch (IOException ex) {
+            Logger.getLogger(Server.class.getName()).log(SEVERE, null, ex);
+        }
+
+    }
 
 }
 
