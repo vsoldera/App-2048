@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import org.json.JSONObject;
 
 
-public class Main extends Jogo{
+public class Main{
     /* funcao para inciar o jogo e deixar ele tôp*/
      
         

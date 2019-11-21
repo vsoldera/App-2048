@@ -2,7 +2,9 @@ package org.tensorflow.lite.examples.detection;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Camera;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.content.Intent;
@@ -15,13 +17,18 @@ import android.content.SharedPreferences;
 
 public class Activity3 extends AppCompatActivity {
 
-    static  Button   mButton;
-    static EditText mEdit;
+    static  Button  mButton;
+    public static EditText mEdit;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
-
+        if (android.os.Build.VERSION.SDK_INT > 9) // corretor par funfar na rede local e interwebs
+        {
+            StrictMode.ThreadPolicy policy = new
+                    StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
         //Cast, apesar de ele dizer que nao precisa, eh necessario e logicamente correto;
         mButton = (Button)findViewById(R.id.setIP);
@@ -36,17 +43,20 @@ public class Activity3 extends AppCompatActivity {
                         //Funcional
                         System.out.println(mEdit);
                         System.out.println("mEdit");
+                        TensorFlowCall(view);
 
 
                     }
                 });
 
-
-
-
     }
     public void ReturnHome(View v) {
         super.onBackPressed();
+    }
+
+    public void TensorFlowCall(View view) {
+        Intent intent = new Intent(Activity3.this, DetectorActivity.class);
+        startActivity(intent);
     }
 
 
