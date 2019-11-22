@@ -1,26 +1,11 @@
 package org.tensorflow.lite.examples.detection;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.util.Log;
-import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
-import android.content.Context;
-import android.widget.Button;
-import android.widget.EditText;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class Activity2 extends AppCompatActivity {
@@ -53,8 +38,8 @@ public class Activity2 extends AppCompatActivity {
 
         /* XARXIXA NAO MUDA FDP*/
 
-        servidor.setUrlGet(preFixo+Activity3.mEdit.getText().toString()+posFixo);
-        servidor.setUrlPost(preFixo+Activity3.mEdit.getText().toString()+posFixo);
+        servidor.setUrlGet(preFixo + Activity3.mEdit.getText().toString() + posFixo);
+        servidor.setUrlPost(preFixo + Activity3.mEdit.getText().toString() + posFixo);
 
 
 
