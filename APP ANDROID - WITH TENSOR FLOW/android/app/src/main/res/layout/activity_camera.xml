@@ -33,7 +33,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/black"
-        android:orientation="vertical"/>
+        android:orientation="vertical">
+
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="org.tensorflow.demo.CameraActivity">
+
+        </FrameLayout>
+
+    </RelativeLayout>
 
     <include
         android:id="@+id/bottom_sheet_layout"
@@ -51,7 +62,7 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Acell"
+        android:text="Accel"
         app:layout_anchor="@+id/relativeLayout2"
         app:layout_anchorGravity="top|right"></Button>
 
@@ -62,14 +73,4 @@
         android:background="@color/semi_transparent"
         app:layout_anchor="@+id/button2"
         app:layout_anchorGravity="center" />
-
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_anchor="@+id/relativeLayout2"
-        app:layout_anchorGravity="center"
-        tools:context="org.tensorflow.demo.CameraActivity">
-
-    </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

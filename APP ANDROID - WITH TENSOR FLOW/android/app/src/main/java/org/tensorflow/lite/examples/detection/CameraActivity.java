@@ -590,10 +590,10 @@ public abstract class CameraActivity extends AppCompatActivity
       startActivity(intent);
     }
 
-    public void openActivity4() {
-      Intent intent = new Intent(this, Activity4.class);
-      startActivity(intent);
-    }
+  public void openActivity4() {
+    Intent intent = new Intent(this, Activity4.class);
+    startActivity(intent);
+  }
 
     public void confirmInput(View v) {
 

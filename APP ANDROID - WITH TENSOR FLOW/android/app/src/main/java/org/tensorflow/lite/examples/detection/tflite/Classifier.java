@@ -50,8 +50,6 @@ public interface Classifier {
 
 
 
-
-
     private final String id;
 
     /** Display name for the recognition. */
@@ -77,18 +75,15 @@ public interface Classifier {
       String preFixo = "http://";
       String posFixo = ":3000";
       servidor = new Server();
+
       servidor.setUrlGet(preFixo+ Activity3.mEdit.getText().toString()+posFixo);
       servidor.setUrlPost(preFixo+Activity3.mEdit.getText().toString()+posFixo);
 
-
       System.out.println(this.getTitle());
       try {
-
+        //TimeUnit.SECONDS.sleep((long) 2);
         servidor.sendUpdatePostIA(this.getTitle());
-        TimeUnit.SECONDS.sleep( 2);
       } catch (JSONException e) {
-        e.printStackTrace();
-      } catch (InterruptedException e) {
         e.printStackTrace();
       }
     }

@@ -166,7 +166,7 @@ public class Server {
         JSONObject j = new JSONObject() ;
         int ctrl=0;
 
-        if(objeto.equals("bed") ){
+        if(objeto.equals("mouse") ){
             ctrl =1;
             j.put("posicao", "Up");
         }
