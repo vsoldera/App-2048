@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name='Control-for-2048'
