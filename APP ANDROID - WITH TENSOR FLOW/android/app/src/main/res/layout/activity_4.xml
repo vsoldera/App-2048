@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity4">
+
+    <TextView
+        android:id="@+id/zText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="462dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yText" />
+
+    <TextView
+        android:id="@+id/xText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="81dp"
+        android:layout_marginBottom="39dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/yText"
+        app:layout_constraintEnd_toEndOf="@+id/yText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/yText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/yText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="33dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/zText"
+        app:layout_constraintEnd_toEndOf="@+id/zText"
+        app:layout_constraintTop_toBottomOf="@+id/xText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
