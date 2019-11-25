@@ -58,6 +58,14 @@
         app:layout_anchor="@+id/relativeLayout2"
         app:layout_anchorGravity="top|center"></Button>
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accel"
+        app:layout_anchor="@+id/relativeLayout2"
+        app:layout_anchorGravity="top|right"></Button>
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
