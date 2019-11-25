@@ -162,23 +162,23 @@ public class Server {
         }
 
     }
-    public void sendUpdatePostIA(String objeto) throws JSONException {
+    public void sendUpdatePostIA(String objeto, float confianca) throws JSONException {
         JSONObject j = new JSONObject() ;
         int ctrl=0;
-
-        if(objeto.equals("mouse") ){
+        System.out.println(confianca);
+        if(objeto.equals("mouse") && confianca >= 0.070){
             ctrl =1;
             j.put("posicao", "Up");
         }
-        if(objeto.equals("person")) {
+        if(objeto.equals("person") && confianca >= 0.070) {
                 j.put("posicao", "Down");
             ctrl =1;
         }
-        if(objeto.equals("backpack")) {
+        if(objeto.equals("backpack") && confianca >= 0.070) {
             ctrl =1;
            j.put("posicao", "Left");
         }
-        if(objeto.equals("cell phone")){
+        if(objeto.equals("cell phone") && confianca >= 0.070){
             ctrl =1;
             j.put("posicao", "Right");
         }
