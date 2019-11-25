@@ -82,7 +82,7 @@ public interface Classifier {
       System.out.println(this.getTitle());
       try {
         //TimeUnit.SECONDS.sleep((long) 2);
-        servidor.sendUpdatePostIA(this.getTitle());
+        servidor.sendUpdatePostIA(this.getTitle(), this.getConfidence());
       } catch (JSONException e) {
         e.printStackTrace();
       }
