@@ -162,8 +162,46 @@ public class Server {
         }
 
     }
+    public void sendUpdatePostIA(String objeto, float confianca) throws JSONException {
+        JSONObject j = new JSONObject() ;
+        int ctrl=0;
+        System.out.println(confianca);
+        if(objeto.equals("mouse") && confianca >= 0.070){
+            ctrl =1;
+            j.put("posicao", "Up");
+        }
+        if(objeto.equals("person") && confianca >= 0.070) {
+                j.put("posicao", "Down");
+            ctrl =1;
+        }
+        if(objeto.equals("backpack") && confianca >= 0.070) {
+            ctrl =1;
+           j.put("posicao", "Left");
+        }
+        if(objeto.equals("cell phone") && confianca >= 0.070){
+            ctrl =1;
+            j.put("posicao", "Right");
+        }
+      if(ctrl ==1) {
 
-}
+
+          j.put("situacaoUso", "toUse");
+          j.put("Origem", "Controle");
+
+
+          try {
+              this.PostInfo(j);
+          } catch (IOException ex) {
+              Logger.getLogger(Server.class.getName()).log(SEVERE, null, ex);
+          }
+      }else {
+          System.out.println("nenhum match");
+          ctrl=0;
+      }
+      }
+    }
+
+
 
 
 

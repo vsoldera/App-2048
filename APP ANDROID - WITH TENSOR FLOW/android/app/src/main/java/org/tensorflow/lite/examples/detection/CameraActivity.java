@@ -95,6 +95,7 @@ public abstract class CameraActivity extends AppCompatActivity
   private TextView threadsTextView;
   private Button button1;
   private Button button2;
+  private Button button4;
   private TextInputLayout textIP;
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
@@ -104,6 +105,8 @@ public abstract class CameraActivity extends AppCompatActivity
       getWindow().addFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
 
   //---------------------------------------------------------------------------------------
+
+
 
 
 
@@ -209,6 +212,13 @@ public abstract class CameraActivity extends AppCompatActivity
     button2.setOnClickListener(new View.OnClickListener() {
       public void onClick(View view) {
         openActivity3();
+      }
+    });
+
+    button4 = findViewById(R.id.button4);
+    button4.setOnClickListener(new View.OnClickListener() {
+      public void onClick(View view) {
+        openActivity4();
       }
     });
 
@@ -579,6 +589,11 @@ public abstract class CameraActivity extends AppCompatActivity
       Intent intent = new Intent(this, Activity3.class);
       startActivity(intent);
     }
+
+  public void openActivity4() {
+    Intent intent = new Intent(this, Activity4.class);
+    startActivity(intent);
+  }
 
     public void confirmInput(View v) {
 

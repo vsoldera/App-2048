@@ -153,10 +153,12 @@ public class WebClient extends Jogo {
                     
                 
                 if(this.jogo.getSituacaoJogo() == 1 && situacaoUso.equals("toUse")){
-                if(posicao.equals("up")) this.jogo.toUp();
-                if(posicao.equals("down")) this.jogo.toDown();
-                if(posicao.equals("left")) this.jogo.toLeft();
-                if(posicao.equals("right")) this.jogo.toRight();
+                    
+                   // System.out.println("cheguei");
+                if(posicao.equals("Up")) this.jogo.toUp();
+                if(posicao.equals("Down")) this.jogo.toDown();
+                if(posicao.equals("Left")) this.jogo.toLeft();
+                if(posicao.equals("Right")) this.jogo.toRight();
                 this.sendUpdatePost(posicao);
                 }else System.out.println("not ready");
             
@@ -167,8 +169,10 @@ public class WebClient extends Jogo {
         public void sendUpdatePost(String posicao){
             JSONObject j = new JSONObject() ;
             
-             j.put("situacaoUso", "used");
+
+            j.put("situacaoUso", "used");
              j.put("posicao", posicao);
+             j.put("Origem", "2048");
                               
             try {
                 this.postInfo(j);

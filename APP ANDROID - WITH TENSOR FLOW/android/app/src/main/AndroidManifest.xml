@@ -4,6 +4,7 @@
     package="org.tensorflow.lite.examples.detection">
 
     <uses-sdk />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -18,9 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".DetectorActivity"></activity>
-        <activity android:name=".Activity2"></activity>
-
+        <activity android:name=".Activity4"></activity>
+        <activity android:name=".DetectorActivity" />
+        <activity android:name=".Activity2" />
         <activity
             android:name=".Activity3"
             android:label="@string/activity_name_detection"

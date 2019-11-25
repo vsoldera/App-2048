@@ -149,6 +149,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   @Override
   protected void processImage() {
+
     ++timestamp;
     final long currTimestamp = timestamp;
     trackingOverlay.postInvalidate();

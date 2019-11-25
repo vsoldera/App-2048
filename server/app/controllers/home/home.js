@@ -1,3 +1,5 @@
+var ctrlLeitura = 0;
+
 
 module.exports.index = function (app, req, res) {
     res.render('home/home');
@@ -20,7 +22,7 @@ module.exports.postInfo = function(app, req, res){
         "msg": ""
     };
     
-
+if(ctrlLeitura == 0){
     fs.writeFile("../server/app/public/history.json", jsonContent, 'utf8', function (err) { // escrever no arquivo
         if (err) {
             
@@ -31,12 +33,19 @@ module.exports.postInfo = function(app, req, res){
         }else {
             retorno.status = "Success";
             retorno.msg = "O aquivo JSON foi salvo!";
+            ctrlLeitura = 1;
 
         }
 
         res.send(retorno);
 
     });
+}else{
+    retorno.status = "Fail";
+    retorno.msg = "Não preparado ainda";
+    res.send(retorno);
+
+}
 
 
  
@@ -54,22 +63,33 @@ retorno = {
         "Origem": ""
     }
 };
-fs.readFile('../server/app/public/history.json', (err, data) => {
-    if (err){
+
+if(ctrlLeitura == 1){
+
+    fs.readFile('../server/app/public/history.json', (err, data) => {
+        if (err){
+            retorno.status = "FAIL";
+            retorno.data.situacaoUso ="fail";
+            retorno.msg = "Ocorreu um erro ao ler o JSON Object no arquivo";
+        } else{
+            retorno.status = "Success";
+            retorno.msg = "Arquivo lido com sucesso!";
+            ctrlLeitura = 0;
+        }
+        let conteudo = JSON.parse(data);
+        retorno.data = conteudo;
+        res.send(retorno.data);
+    });
+
+
+}else{
+
         retorno.status = "FAIL";
         retorno.data.situacaoUso ="fail";
-        retorno.msg = "Ocorreu um erro ao ler o JSON Object no arquivo";
-    } else{
-        retorno.status = "Success";
-        retorno.msg = "Arquivo lido com sucesso!";
-    }
-    let conteudo = JSON.parse(data);
-    retorno.data = conteudo;
-    res.send(retorno.data);
-});
-
-
+        retorno.msg = "Não preparado ainda";
+        res.send(retorno.data);
 }
 
+}
 
 
