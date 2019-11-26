@@ -23,6 +23,7 @@ module.exports.postInfo = function(app, req, res){
     };
     
 if(ctrlLeitura == 0){
+    try{
     fs.writeFile("../server/app/public/history.json", jsonContent, 'utf8', function (err) { // escrever no arquivo
         if (err) {
             
@@ -40,12 +41,21 @@ if(ctrlLeitura == 0){
         res.send(retorno);
 
     });
-}else{
+}catch(e) {
+                
     retorno.status = "Fail";
-    retorno.msg = "Não preparado ainda";
+    retorno.msg = "Ocorreu um erro ao escrever o JSON Object no arquivo";   
     res.send(retorno);
 
 }
+}
+else{
+    retorno.status = "Fail";
+    retorno.msg = "Nao foi possivel ler o arquivo! ";
+    res.send(retorno);
+
+}
+
 
 
  
@@ -65,7 +75,7 @@ retorno = {
 };
 
 if(ctrlLeitura == 1){
-
+    try{
     fs.readFile('../server/app/public/history.json', (err, data) => {
         if (err){
             retorno.status = "FAIL";
@@ -79,7 +89,17 @@ if(ctrlLeitura == 1){
         let conteudo = JSON.parse(data);
         retorno.data = conteudo;
         res.send(retorno.data);
-    });
+    
+        });
+    }
+    catch(e){
+
+        retorno.status = "FAIL";
+            retorno.data.situacaoUso ="fail";
+            retorno.msg = "Nao foi possivel ler o arquivo! ";
+            res.send(retorno);
+
+    }   
 
 
 }else{
