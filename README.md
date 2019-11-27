@@ -54,9 +54,9 @@ Atualizações para proporcionar novas formas de jogar e validação de IP:
   
   - Detecção de imagens (Se for um mouse, vai para cima; Se for uma pessoa, vai para baixo; Se for uma mochila, vai para a esquerda; Se for um celular, vai para a esquerda);
   
-  - Adicionado controle por acelerômetro(Movimente seu celular com vontade para as respectivas direções que deseja levar os blocos);
+  - Adicionado controle por acelerômetro (Movimente seu celular com vontade para as respectivas direções que deseja levar os blocos);
   
-  - Adiciona controle por comandos de voz(Exemplo: Aperte o microfone no canto inferior direito e diga "Going Up" e os blocos irão para cima);
+  - Adiciona controle por comandos de voz (Exemplo: Aperte o microfone no canto inferior direito e diga "Going Up" e os blocos irão para cima);
   
   - Adicionado validação de IP, se o mesmo der "Error 401" (Conexão Recusada), o app avisará e não conectará a atividade principal;
   
