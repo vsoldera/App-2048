@@ -36,7 +36,7 @@ Se você achou o jogo muito dificil, pode apertar nosso NOOButton : **"K"**.
 
 
 
-## UPDATE
+## UPDATE 1
 
 Atualizações para o controle remoto a partir de um aplicativo mobile
 
@@ -44,8 +44,18 @@ Atualizações para o controle remoto a partir de um aplicativo mobile
       - Para editar o APP, adentre o mesmo pelo Android Studio e o edite
       - Para rodar o server, aí teremos problemas, os senhores deveram instalar o node em suas máquinas (https://nodejs.org/en/download/)
           - Depois de instalado, instale o nodemon através do comando em Terminal: npm install -g nodemon
-          - Após esses passinhos, entre na pasta 'Server' através do Terminal e digite: nodemon server
+          - Após esses passinhos, entre na pasta 'Server' através do Terminal e digite: nodemon app
           - Done, executado! Acesse pelo: localhost:3000. Para acessar de outros dispositivos coloque: ip.da.sua.maquina/3000
+## Update 2 
+
+Atualizações para proporcionar novas formas de jogar: 
+  -Adicionado controle via direcionais;
+  -Detecção de imagens (Se for um mouse, vai para cima; Se for uma pessoa, vai para baixo; Se for uma mochila, vai para a esquerda; Se for um celular, vai para a esquerda);
+  -Adicionado controle por acelerômetro(Movimente seu celular com vontade para as respectivas direções que deseja levar os blocos);
+  -Adiciona controle por comandos de voz(Exemplo: Aperte o microfone no canto inferior direito e diga "Going Up" e os blocos irão para cima);
+  -Adicionado validação de IP, se o mesmo der "Error 401" (Conexão Recusada), o app avisará e não conectará a atividade principal;
+  
+
 
 
 
