@@ -74,4 +74,12 @@
         android:background="@color/semi_transparent"
         app:layout_anchor="@+id/button2"
         app:layout_anchorGravity="center" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rec"
+        app:layout_anchor="@+id/bottom_sheet_layout"
+        app:layout_anchorGravity="bottom|center" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

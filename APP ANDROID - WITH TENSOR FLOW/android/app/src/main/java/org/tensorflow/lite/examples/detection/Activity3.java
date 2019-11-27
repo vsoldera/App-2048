@@ -9,17 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
-import java.util.Timer;
-import java.util.regex.Pattern;
-
-
 public class Activity3 extends AppCompatActivity {
 
     public static  Button  mButton;
@@ -40,12 +31,8 @@ public class Activity3 extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
-
         preFixo = "http://";
         posFixo = ":3000";
-
-
-
 
         //Cast, apesar de ele dizer que nao precisa, eh necessario e logicamente correto;
         mErro = (TextView) findViewById(R.id.erroText);
@@ -56,9 +43,6 @@ public class Activity3 extends AppCompatActivity {
 
     }
 
-
-
-
     public void ReturnHome(View v) {
         super.onBackPressed();
     }
@@ -67,12 +51,6 @@ public class Activity3 extends AppCompatActivity {
         Intent intent = new Intent(Activity3.this, DetectorActivity.class);
         startActivity(intent);
     }
-
-
-
-public void zera(){
-
-}
 
     public void validar (View view) {
             int validation ;
@@ -88,8 +66,6 @@ public void zera(){
 
             servidor.setUrlGet(preFixo+ Activity3.mEdit.getText().toString()+posFixo);
             servidor.setUrlPost(preFixo+Activity3.mEdit.getText().toString()+posFixo);
-
-
 
 
             if (TextUtils.isEmpty(mEdit.getText())) {
@@ -112,14 +88,9 @@ public void zera(){
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
+
                 }
-
-
             }
-
-
-
-
         }
     public static void setTimeout(Runnable runnable, int delay){
         new Thread(() -> {

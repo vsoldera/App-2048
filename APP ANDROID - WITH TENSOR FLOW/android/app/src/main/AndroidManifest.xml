@@ -7,26 +7,35 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:allowBackup="false"
-        android:screenOrientation="portrait"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activity4"  />
-
-        <activity android:name=".DetectorActivity" android:screenOrientation="portrait" />
-        <activity android:name=".Activity2" android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity5"
+            android:label="@string/title_activity_5"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Activity4"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".DetectorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity2"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activity3"
-            android:label="@string/activity_name_detection"
+            android:label="Controller"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

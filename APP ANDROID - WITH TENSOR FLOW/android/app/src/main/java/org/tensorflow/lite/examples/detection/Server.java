@@ -37,20 +37,6 @@ public class Server {
         this.urlGet = urlGet;
     }
 
-    /* public void controleGeral() throws InterruptedException{
-            while(true){
-
-                    TimeUnit.SECONDS.sleep(1);
-                try {
-                    this.GetInfo();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-
-        }*/
     //Ja existe a funcao post info e get info, eh mandar um JSON pra funcao postInfo
     public void PostInfo(JSONObject dado) throws IOException, JSONException {
         try {
@@ -93,10 +79,7 @@ public class Server {
             }
             inputReader.close();
             System.out.println(response.toString());
-           /* aux = response.toString();
-            jsonObject = new JSONObject(aux);
-            situacaoUso = (String) jsonObject.get("situacaoUso");
-            posicao = (String) jsonObject.get("posicao");*/
+
         }
     }
 
@@ -176,23 +159,6 @@ public class Server {
     }
 
 
-/*
-   public void Write(String msg){
-
-        try {
-            PrintWriter writer = new PrintWriter(soc.getOutputStream());
-            writer.write(msg);
-            writer.flush();
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-    */
-
-
     public void sendUpdatePost(String posicao) throws JSONException {
         JSONObject j = new JSONObject() ;
 
@@ -207,6 +173,7 @@ public class Server {
         }
 
     }
+
     public void sendUpdatePostIA(String objeto, float confianca) throws JSONException {
         JSONObject j = new JSONObject() ;
         int ctrl=0;

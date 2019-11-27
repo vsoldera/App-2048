@@ -94,6 +94,7 @@ public abstract class CameraActivity extends AppCompatActivity
   private Button button1;
   private Button button2;
   private Button button4;
+  private Button button5;
   private TextInputLayout textIP;
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
@@ -217,6 +218,13 @@ public abstract class CameraActivity extends AppCompatActivity
     button4.setOnClickListener(new View.OnClickListener() {
       public void onClick(View view) {
         openActivity4();
+      }
+    });
+
+    button5 = findViewById(R.id.button5);
+    button5.setOnClickListener(new View.OnClickListener() {
+      public void onClick(View view) {
+        openActivity5();
       }
     });
 
@@ -592,6 +600,13 @@ public abstract class CameraActivity extends AppCompatActivity
     Intent intent = new Intent(this, Activity4.class);
     startActivity(intent);
   }
+
+  public void openActivity5() {
+    Intent intent = new Intent(this, Activity5.class);
+    startActivity(intent);
+  }
+
+
 
     public void confirmInput(View v) {
 
