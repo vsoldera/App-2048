@@ -16,7 +16,7 @@ import static java.util.logging.Level.SEVERE;
 public class Server {
     String urlPost;
     String urlGet;
-    String posicao,aux;
+    String posicao, aux;
     String situacaoUso;
     JSONObject jsonObject;
 
@@ -60,7 +60,7 @@ public class Server {
         }
 
 
-        String url = getUrlPost()+"/postInfo";
+        String url = getUrlPost() + "/postInfo";
 
         URL UrlObj = new URL(url);
 
@@ -71,7 +71,7 @@ public class Server {
 
         DataOutputStream outputStream = new DataOutputStream(connection.getOutputStream());
 
-        String urlPostParameters = "dado="+dado;
+        String urlPostParameters = "dado=" + dado;
         outputStream.writeBytes(urlPostParameters);
 
         outputStream.flush();
@@ -84,7 +84,7 @@ public class Server {
 
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader inputReader = new BufferedReader(
-            new InputStreamReader(connection.getInputStream()));
+                    new InputStreamReader(connection.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
 
@@ -101,7 +101,7 @@ public class Server {
     }
 
     public void GetInfo() throws IOException {
-        String url = getUrlGet()+"/getPos";
+        String url = getUrlGet() + "/getPos";
         URL urlObj = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
 
@@ -128,6 +128,54 @@ public class Server {
             System.out.println(response.toString());
         }
     }
+
+    public int getValidationServer() throws IOException {
+        String url = getUrlGet() + "/confExistence";
+        URL urlObj = new URL(url);
+        JSONObject j = new JSONObject();//making global to the function
+        HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
+
+        connection.setRequestMethod("GET");
+        connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+
+        System.out.println("Send 'HTTP GET' request to : " + this.urlGet);
+
+        Integer responseCode = null;
+        connection.setConnectTimeout(3000);
+
+            try {
+                responseCode = connection.getResponseCode();
+
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    BufferedReader inputReader = new BufferedReader(
+                            new InputStreamReader(connection.getInputStream()));
+                    String inputLine;
+                    StringBuffer response = new StringBuffer();
+
+                    while ((inputLine = inputReader.readLine()) != null) {
+                        response.append(inputLine);
+                    }
+
+                    inputReader.close();
+                    System.out.println(response.toString());
+                    try {
+                        j.put("retorno", response.toString());
+                        return 1;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (IOException i) {
+                i.printStackTrace();
+                return -1;
+
+            }
+        return -1;
+
+
+    }
+
+
 /*
    public void Write(String msg){
 
