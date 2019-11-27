@@ -3,40 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".Activity3">
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id = "@+id/ip_input"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ip_input"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:errorEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/typeIP"
+            android:layout_width="391dp"
+            android:layout_height="108dp"
+            android:hint="Type your IP"
+
+            android:inputType="textNoSuggestions">
+
+        </EditText>
+
+        <Button
+            android:id="@+id/setIP"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:errorEnabled = "true">
+            android:layout_height="wrap_content"
+            android:onClick="TensorFlowCall"
+            android:text="@string/confirm"
 
-            <EditText
-                android:id="@+id/typeIP"
-                android:layout_width="391dp"
-                android:layout_height="108dp"
-                android:hint="Type your IP"
+            ></Button>
 
-                android:inputType="textNoSuggestions" >
-
-            </EditText>
-
-            <Button
-                android:id = "@+id/setIP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/confirm"
-                android:onClick="TensorFlowCall"
-
-                ></Button>
-        </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

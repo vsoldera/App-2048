@@ -3,17 +3,14 @@ package org.tensorflow.lite.examples.detection;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.io.DataOutputStream;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.io.PrintWriter;
-
-import static java.util.logging.Level.*;
+import static java.util.logging.Level.SEVERE;
 
 
 public class Server {

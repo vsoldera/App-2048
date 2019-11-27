@@ -1,9 +1,6 @@
 package org.tensorflow.lite.examples.detection;
 
-
-
 import android.hardware.Sensor;
-
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
@@ -11,9 +8,7 @@ import android.os.StrictMode;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import org.json.JSONException;
 
 
