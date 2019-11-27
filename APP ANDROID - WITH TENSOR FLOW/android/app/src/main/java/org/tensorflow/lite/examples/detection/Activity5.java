@@ -181,9 +181,13 @@ public class Activity5 extends AppCompatActivity {
             speak(("Going RIGHT."));
             servidor.sendUpdatePost("Right");
         }
+        if(command.indexOf("xastre") != -1) {
+            speak(("XASTRE"));
+        }
         else {
             speak(("Sorry. I couldnt understand you."));
         }
+
 
     }
 
