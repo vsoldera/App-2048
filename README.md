@@ -48,17 +48,17 @@ Atualizações para o controle remoto a partir de um aplicativo mobile
           - Done, executado! Acesse pelo: localhost:3000. Para acessar de outros dispositivos coloque: ip.da.sua.maquina/3000
 ## Update 2 
 
-Atualizações para proporcionar novas formas de jogar: 
+Atualizações para proporcionar novas formas de jogar e validação de IP: 
 
-  -Adicionado controle via direcionais;
+  - Adicionado controle via direcionais;
   
-  -Detecção de imagens (Se for um mouse, vai para cima; Se for uma pessoa, vai para baixo; Se for uma mochila, vai para a esquerda; Se for um celular, vai para a esquerda);
+  - Detecção de imagens (Se for um mouse, vai para cima; Se for uma pessoa, vai para baixo; Se for uma mochila, vai para a esquerda; Se for um celular, vai para a esquerda);
   
-  -Adicionado controle por acelerômetro(Movimente seu celular com vontade para as respectivas direções que deseja levar os blocos);
+  - Adicionado controle por acelerômetro(Movimente seu celular com vontade para as respectivas direções que deseja levar os blocos);
   
-  -Adiciona controle por comandos de voz(Exemplo: Aperte o microfone no canto inferior direito e diga "Going Up" e os blocos irão para cima);
+  - Adiciona controle por comandos de voz(Exemplo: Aperte o microfone no canto inferior direito e diga "Going Up" e os blocos irão para cima);
   
-  -Adicionado validação de IP, se o mesmo der "Error 401" (Conexão Recusada), o app avisará e não conectará a atividade principal;
+  - Adicionado validação de IP, se o mesmo der "Error 401" (Conexão Recusada), o app avisará e não conectará a atividade principal;
   
 
 
