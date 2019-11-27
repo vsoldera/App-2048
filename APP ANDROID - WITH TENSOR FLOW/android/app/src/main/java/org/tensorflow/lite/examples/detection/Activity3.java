@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Camera;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.content.Intent;
@@ -43,7 +44,16 @@ public class Activity3 extends AppCompatActivity {
                         //Funcional
                         System.out.println(mEdit);
                         System.out.println("mEdit");
-                        TensorFlowCall(view);
+
+                        if( TextUtils.isEmpty(mEdit.getText())) {
+                            mEdit.setHint("Please, enter your IP! ");
+                            mEdit.setError("Required! ");
+                        }else {
+                            TensorFlowCall(view);
+                        }
+
+
+
 
 
                     }

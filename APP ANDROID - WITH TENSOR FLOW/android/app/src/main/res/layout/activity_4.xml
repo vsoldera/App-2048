@@ -4,41 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Activity4">
 
     <TextView
         android:id="@+id/zText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="462dp"
+        android:layout_marginTop="32dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/yText"
         app:layout_constraintTop_toBottomOf="@+id/yText" />
 
     <TextView
         android:id="@+id/xText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
-        android:layout_marginBottom="39dp"
+        android:layout_marginStart="151dp"
+        android:layout_marginBottom="32dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/yText"
-        app:layout_constraintEnd_toEndOf="@+id/yText"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/yText"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/yText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginTop="176dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/zText"
-        app:layout_constraintEnd_toEndOf="@+id/zText"
-        app:layout_constraintTop_toBottomOf="@+id/xText" />
+        app:layout_constraintStart_toStartOf="@+id/xText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/axis_device"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
