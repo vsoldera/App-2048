@@ -60,7 +60,7 @@ import org.tensorflow.lite.examples.detection.env.Logger;
 
 public abstract class CameraActivity extends AppCompatActivity
 
-    implements OnImageAvailableListener,
+     implements OnImageAvailableListener,
         Camera.PreviewCallback,
         CompoundButton.OnCheckedChangeListener,
         View.OnClickListener {
@@ -232,8 +232,6 @@ public abstract class CameraActivity extends AppCompatActivity
 
 
   }
-
-
 
   protected int[] getRgbBytes() {
     imageConverter.run();
@@ -585,16 +583,15 @@ public abstract class CameraActivity extends AppCompatActivity
     }
   }
 
-    public void openActivity2() {
-        Intent intent = new Intent(this, Activity2.class);
-        startActivity(intent);
+  public void openActivity2() {
+    Intent intent = new Intent(this, Activity2.class);
+    startActivity(intent);
+  }
 
-    }
-
-    public void openActivity3() {
-      Intent intent = new Intent(this, Activity3.class);
-      startActivity(intent);
-    }
+  public void openActivity3() {
+    Intent intent = new Intent(this, Activity3.class);
+    startActivity(intent);
+  }
 
   public void openActivity4() {
     Intent intent = new Intent(this, Activity4.class);
@@ -606,12 +603,6 @@ public abstract class CameraActivity extends AppCompatActivity
     startActivity(intent);
   }
 
-
-
-    public void confirmInput(View v) {
-
-    
-    }
   protected void showFrameInfo(String frameInfo) {
     frameValueTextView.setText(frameInfo);
   }

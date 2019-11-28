@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import static java.util.logging.Level.SEVERE;
 
 
-public class Server {
+public class    Server {
     String urlPost;
     String urlGet;
     String posicao, aux;

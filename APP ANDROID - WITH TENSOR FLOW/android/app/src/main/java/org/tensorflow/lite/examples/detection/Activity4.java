@@ -5,6 +5,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.StrictMode;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.os.Bundle;
@@ -66,7 +67,7 @@ public class Activity4 extends AppCompatActivity implements SensorEventListener 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        } else if (event.values[1] >10) {
+        } else if (event.values[1] > 10) {
             try {
                 servidor2.sendUpdatePost("Up");
             } catch (JSONException e) {
@@ -111,6 +112,10 @@ public class Activity4 extends AppCompatActivity implements SensorEventListener 
     protected void onResume(){
         super.onResume();
         SM.registerListener(this, mySensor, SensorManager.SENSOR_DELAY_UI);
+    }
+
+    public void ReturnHome(View v) {
+        super.onBackPressed();
     }
 
 }

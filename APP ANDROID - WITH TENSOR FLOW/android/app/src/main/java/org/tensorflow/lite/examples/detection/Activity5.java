@@ -165,32 +165,31 @@ public class Activity5 extends AppCompatActivity {
             speak(("Going UP."));
             servidor.sendUpdatePost("Up");
         }
-        else
-        if (command.indexOf("down") != -1) {
+        else if (command.indexOf("down") != -1) {
             speak(("Going DOWN."));
             servidor.sendUpdatePost("Down");
         }
-        else
-        if (command.indexOf("left") != -1) {
+        else if (command.indexOf("left") != -1) {
             speak(("Going LEFT."));
             servidor.sendUpdatePost("Left");
         }
-        else
-
-        if (command.indexOf("right") != -1) {
+        else if (command.indexOf("right") != -1) {
             speak(("Going RIGHT."));
             servidor.sendUpdatePost("Right");
         }
         else {
-            speak(("Sorry. I couldnt understand you."));
+            speak(("Please, try again!"));
         }
-
 
     }
 
     protected void onPause() {
         super.onPause();
         myTTS.shutdown();
+    }
+
+    public void ReturnHome(View v) {
+        super.onBackPressed();
     }
 
 }
