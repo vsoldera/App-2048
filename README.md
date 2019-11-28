@@ -31,7 +31,9 @@ Se você achou o jogo muito dificil, pode apertar nosso NOOButton : **"K"**.
 
 ## Contribuidores
 [Luiz Vinicius Dos Santos Ruoso](https://github.com/luizvruoso)
+
 [Rafael Perroni](https://github.com/rafa-perroni00)
+
 [Victor Luiz Fraga Soldera](https://github.com/VictorSoldera)
 
 
