@@ -58,7 +58,7 @@ Atualizações para proporcionar novas formas de jogar e validação de IP:
   
   - Adicionado controle por acelerômetro (Movimente seu celular com vontade para as respectivas direções que deseja levar os blocos);
   
-  - Adiciona controle por comandos de voz (Exemplo: Aperte o microfone no canto inferior direito e diga "Going Up" e os blocos irão para cima);
+  - Adiciona controle por comandos de voz (Exemplo: Aperte o microfone no centro da tela, após o barulho diga "Going Up" e os blocos irão para cima);
   
   - Adicionado validação de IP, se o mesmo der "Error 401" (Conexão Recusada), o app avisará e não conectará a atividade principal;
   
