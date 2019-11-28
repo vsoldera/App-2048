@@ -54,7 +54,7 @@ Atualizações para proporcionar novas formas de jogar e validação de IP:
 
   - Adicionado controle via direcionais;
   
-  - Detecção de imagens (Se for um mouse, vai para cima; Se for uma pessoa, vai para baixo; Se for uma mochila, vai para a esquerda; Se for um celular, vai para a esquerda);
+  - Detecção de imagens (Se for um laptop, vai para cima; Se for uma pessoa, vai para baixo; Se for uma mochila, vai para a esquerda; Se for um celular, vai para a direita);
   
   - Adicionado controle por acelerômetro (Movimente seu celular com vontade para as respectivas direções que deseja levar os blocos);
   
