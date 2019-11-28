@@ -24,10 +24,9 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:text="Arrows"
-    ></Button>
+        android:text="Arrows"></Button>
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
@@ -53,7 +52,7 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="149dp"
         android:layout_height="wrap_content"
         android:text="Configure IP"
         app:layout_anchor="@+id/relativeLayout2"
@@ -61,7 +60,7 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:text="Accel"
         app:layout_anchor="@+id/relativeLayout2"
