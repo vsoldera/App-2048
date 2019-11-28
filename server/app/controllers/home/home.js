@@ -21,58 +21,53 @@ module.exports.postInfo = function (app, req, res) {
         "status": "",
         "msg": ""
     };
+    console.log("post request ");
 
-    if (ctrlLeitura == 0) {
-        try {
-            fs.writeFile("../server/app/public/history.json", jsonContent, 'utf8', function (err) { // escrever no arquivo
-                if (err) {
+    try {
+        fs.writeFile("../server/app/public/history.json", jsonContent, 'utf8', function (err) { // escrever no arquivo
+            if (err) {
 
-                    retorno.status = "Fail";
-                    retorno.msg = "There was an error trying to write the JSON file! ";
-
-
-                } else {
-                    retorno.status = "Success";
-                    retorno.msg = "The JSON file was saved! ";
-                    ctrlLeitura = 1;
-
-                }
-
-            });
-            fs.writeFile("../server/app/public/historyWeb.json", jsonContent, 'utf8', function (err) { // escrever no arquivo
-                if (err) {
-
-                    retorno.status = "Fail";
-                    retorno.msg = "There was an error trying to write the JSON file! ";
+                retorno.status = "Fail";
+                retorno.msg = "There was an error trying to write the JSON file! ";
 
 
-                } else {
-                    retorno.status = "Success";
-                    retorno.msg = "The JSON file was saved! ";
-                }
+            } else {
+                retorno.status = "Success";
+                retorno.msg = "The JSON file was saved! ";
+                ctrlLeitura = 1;
+
+            }
+
+        });
+        fs.writeFile("../server/app/public/historyWeb.json", jsonContent, 'utf8', function (err) { // escrever no arquivo
+            if (err) {
+
+                retorno.status = "Fail";
+                retorno.msg = "There was an error trying to write the JSON file! ";
 
 
-
-            });
-
-            res.send(retorno);
+            } else {
+                retorno.status = "Success";
+                retorno.msg = "The JSON file was saved! ";
+            }
 
 
 
+        });
 
-        } catch (e) {
+        res.send(retorno);
 
-            retorno.status = "Fail";
-            retorno.msg = "There was an error trying to write the JSON file! ";
-            res.send(retorno);
 
-        }
-    } else {
+
+
+    } catch (e) {
+
         retorno.status = "Fail";
-        retorno.msg = "Not possible to read the file!  ";
+        retorno.msg = "There was an error trying to write the JSON file! ";
         res.send(retorno);
 
     }
+
 
 
 
@@ -92,42 +87,36 @@ module.exports.getPos = function (app, req, res) {
         }
     };
 
-    if (ctrlLeitura == 1) {
-        try {
-            fs.readFile('../server/app/public/history.json', (err, data) => {
-                if (err) {
-                    retorno.status = "Fail";
-                    retorno.data.situacaoUso = "Fail";
-                    retorno.msg = "There was an error trying to read the JSON! ";
-                } else {
-                    retorno.status = "Success";
-                    retorno.msg = "Sucess! The file was read! ";
-                    ctrlLeitura = 0;
-                }
-                let conteudo = JSON.parse(data);
-                retorno.data = conteudo;
-                res.send(retorno.data);
+    console.log("get request ");
+    try {
+        fs.readFile('../server/app/public/history.json', (err, data) => {
+            if (err) {
+                retorno.status = "Fail";
+                retorno.data.situacaoUso = "Fail";
+                retorno.msg = "There was an error trying to read the JSON! ";
+            } else {
+                retorno.status = "Success";
+                retorno.msg = "Sucess! The file was read! ";
+                ctrlLeitura = 0;
+            }
+            let conteudo = JSON.parse(data);
+            retorno.data = conteudo;
+            res.send(retorno.data);
 
-            });
-        } catch (e) {
-
-            retorno.status = "Fail";
-            retorno.data.situacaoUso = "Fail";
-            retorno.msg = "Not possible to read the file!  ";
-            res.send(retorno);
-
-        }
-
-
-    } else {
+        });
+    } catch (e) {
 
         retorno.status = "Fail";
         retorno.data.situacaoUso = "Fail";
-        retorno.msg = "Not prepared yet! ";
-        res.send(retorno.data);
+        retorno.msg = "Not possible to read the file!  ";
+        res.send(retorno);
+
     }
 
+
 }
+
+
 
 module.exports.confExistence = function (app, req, res) {
     retorno = {

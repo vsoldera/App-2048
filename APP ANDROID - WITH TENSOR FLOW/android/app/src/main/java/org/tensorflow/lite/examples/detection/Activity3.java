@@ -56,7 +56,7 @@ public class Activity3 extends AppCompatActivity {
             int validation ;
 
             mButton.setText("Loading....");
-            mButton.setBackgroundColor(0xFFFF0000);
+            mButton.setBackgroundColor(0xFF009700);
 
 
             Log.v("EditText", mEdit.getText().toString());
@@ -79,7 +79,7 @@ public class Activity3 extends AppCompatActivity {
                     if(validation == -1) {
                         mErro.setText("Please, enter a valid IP! Connection Refused! ");
 
-                        mButton.setText("Confirm");
+                        mButton.setText("Retry");
                         mButton.setBackgroundColor(0xFFCCCCCC);
 
 
