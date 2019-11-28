@@ -178,7 +178,7 @@ public class    Server {
         JSONObject j = new JSONObject() ;
         int ctrl=0;
         System.out.println(confianca);
-        if(objeto.equals("mouse") && confianca >= 0.070){
+        if(objeto.equals("laptop") && confianca >= 0.070){
             ctrl =1;
             j.put("posicao", "Up");
         }
