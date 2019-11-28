@@ -1,19 +1,15 @@
 package org.tensorflow.lite.examples.detection;
 
-
-
 import android.hardware.Sensor;
-
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.StrictMode;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import org.json.JSONException;
 
 
@@ -51,9 +47,6 @@ public class Activity4 extends AppCompatActivity implements SensorEventListener 
         mySensor = SM.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         SM.registerListener(this, mySensor, SensorManager.SENSOR_DELAY_NORMAL);
 
-
-
-
     }
 
     @Override
@@ -65,37 +58,7 @@ public class Activity4 extends AppCompatActivity implements SensorEventListener 
         System.out.println("X: " + event.values[0]);
         System.out.println("Y: " + event.values[1]);
         System.out.println("Z: " + event.values[2]);
-        /*try {
 
-
-        if (event.values[0] > event.values[1] && event.values[0] > event.values[2]) {
-            try {
-                servidor2.sendUpdatePost("Left");
-
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        } else if (event.values[1] > event.values[2] && event.values[1] > event.values[0]) {
-            try {
-                servidor2.sendUpdatePost("Up");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        } else if (event.values[2] > event.values[0] && event.values[2] > event.values[1]) {
-            try {
-                servidor2.sendUpdatePost("Right");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                servidor2.sendUpdatePost("Down");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-*/
         if (event.values[0] > 9) {
             try {
                 servidor2.sendUpdatePost("Left");
@@ -104,7 +67,7 @@ public class Activity4 extends AppCompatActivity implements SensorEventListener 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        } else if (event.values[1] >10) {
+        } else if (event.values[1] > 10) {
             try {
                 servidor2.sendUpdatePost("Up");
             } catch (JSONException e) {
@@ -149,6 +112,10 @@ public class Activity4 extends AppCompatActivity implements SensorEventListener 
     protected void onResume(){
         super.onResume();
         SM.registerListener(this, mySensor, SensorManager.SENSOR_DELAY_UI);
+    }
+
+    public void ReturnHome(View v) {
+        super.onBackPressed();
     }
 
 }
