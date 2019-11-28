@@ -3,23 +3,20 @@ package org.tensorflow.lite.examples.detection;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.io.DataOutputStream;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.io.PrintWriter;
-
-import static java.util.logging.Level.*;
+import static java.util.logging.Level.SEVERE;
 
 
-public class Server {
+public class    Server {
     String urlPost;
     String urlGet;
-    String posicao,aux;
+    String posicao, aux;
     String situacaoUso;
     JSONObject jsonObject;
 
@@ -40,20 +37,6 @@ public class Server {
         this.urlGet = urlGet;
     }
 
-    /* public void controleGeral() throws InterruptedException{
-            while(true){
-
-                    TimeUnit.SECONDS.sleep(1);
-                try {
-                    this.GetInfo();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-
-        }*/
     //Ja existe a funcao post info e get info, eh mandar um JSON pra funcao postInfo
     public void PostInfo(JSONObject dado) throws IOException, JSONException {
         try {
@@ -63,7 +46,7 @@ public class Server {
         }
 
 
-        String url = getUrlPost()+"/postInfo";
+        String url = getUrlPost() + "/postInfo";
 
         URL UrlObj = new URL(url);
 
@@ -74,7 +57,7 @@ public class Server {
 
         DataOutputStream outputStream = new DataOutputStream(connection.getOutputStream());
 
-        String urlPostParameters = "dado="+dado;
+        String urlPostParameters = "dado=" + dado;
         outputStream.writeBytes(urlPostParameters);
 
         outputStream.flush();
@@ -87,7 +70,7 @@ public class Server {
 
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader inputReader = new BufferedReader(
-            new InputStreamReader(connection.getInputStream()));
+                    new InputStreamReader(connection.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
 
@@ -96,15 +79,12 @@ public class Server {
             }
             inputReader.close();
             System.out.println(response.toString());
-           /* aux = response.toString();
-            jsonObject = new JSONObject(aux);
-            situacaoUso = (String) jsonObject.get("situacaoUso");
-            posicao = (String) jsonObject.get("posicao");*/
+
         }
     }
 
     public void GetInfo() throws IOException {
-        String url = getUrlGet()+"/getPos";
+        String url = getUrlGet() + "/getPos";
         URL urlObj = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
 
@@ -131,21 +111,52 @@ public class Server {
             System.out.println(response.toString());
         }
     }
-/*
-   public void Write(String msg){
 
-        try {
-            PrintWriter writer = new PrintWriter(soc.getOutputStream());
-            writer.write(msg);
-            writer.flush();
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public int getValidationServer() throws IOException {
+        String url = getUrlGet() + "/confExistence";
+        URL urlObj = new URL(url);
+        JSONObject j = new JSONObject();//making global to the function
+        HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
+
+        connection.setRequestMethod("GET");
+        connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+
+        System.out.println("Send 'HTTP GET' request to : " + this.urlGet);
+
+        Integer responseCode = null;
+        connection.setConnectTimeout(3000);
+
+            try {
+                responseCode = connection.getResponseCode();
+
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    BufferedReader inputReader = new BufferedReader(
+                            new InputStreamReader(connection.getInputStream()));
+                    String inputLine;
+                    StringBuffer response = new StringBuffer();
+
+                    while ((inputLine = inputReader.readLine()) != null) {
+                        response.append(inputLine);
+                    }
+
+                    inputReader.close();
+                    System.out.println(response.toString());
+                    try {
+                        j.put("retorno", response.toString());
+                        return 1;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (IOException i) {
+                i.printStackTrace();
+                return -1;
+
+            }
+        return -1;
 
 
     }
-    */
 
 
     public void sendUpdatePost(String posicao) throws JSONException {
@@ -162,6 +173,7 @@ public class Server {
         }
 
     }
+
     public void sendUpdatePostIA(String objeto, float confianca) throws JSONException {
         JSONObject j = new JSONObject() ;
         int ctrl=0;

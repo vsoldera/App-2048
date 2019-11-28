@@ -5,7 +5,7 @@ module.exports.index = function (app, req, res) {
     res.render('home/home');
 }
 
-module.exports.postInfo = function(app, req, res){
+module.exports.postInfo = function (app, req, res) {
     // file system module to perform file operations
     const fs = require('fs');
     var content = req.body.dado; // content é a variavel que é enviada no corpo
@@ -21,75 +21,162 @@ module.exports.postInfo = function(app, req, res){
         "status": "",
         "msg": ""
     };
-    
-if(ctrlLeitura == 0){
-    fs.writeFile("../server/app/public/history.json", jsonContent, 'utf8', function (err) { // escrever no arquivo
-        if (err) {
-            
+
+    if (ctrlLeitura == 0) {
+        try {
+            fs.writeFile("../server/app/public/history.json", jsonContent, 'utf8', function (err) { // escrever no arquivo
+                if (err) {
+
+                    retorno.status = "Fail";
+                    retorno.msg = "There was an error trying to write the JSON file! ";
+
+
+                } else {
+                    retorno.status = "Success";
+                    retorno.msg = "The JSON file was saved! ";
+                    ctrlLeitura = 1;
+
+                }
+
+            });
+            fs.writeFile("../server/app/public/historyWeb.json", jsonContent, 'utf8', function (err) { // escrever no arquivo
+                if (err) {
+
+                    retorno.status = "Fail";
+                    retorno.msg = "There was an error trying to write the JSON file! ";
+
+
+                } else {
+                    retorno.status = "Success";
+                    retorno.msg = "The JSON file was saved! ";
+                }
+
+
+
+            });
+
+            res.send(retorno);
+
+
+
+
+        } catch (e) {
+
             retorno.status = "Fail";
-            retorno.msg = "Ocorreu um erro ao escrever o JSON Object no arquivo";
-            
-            
-        }else {
-            retorno.status = "Success";
-            retorno.msg = "O aquivo JSON foi salvo!";
-            ctrlLeitura = 1;
+            retorno.msg = "There was an error trying to write the JSON file! ";
+            res.send(retorno);
+
+        }
+    } else {
+        retorno.status = "Fail";
+        retorno.msg = "Not possible to read the file!  ";
+        res.send(retorno);
+
+    }
+
+
+
+
+
+}
+module.exports.getPos = function (app, req, res) {
+
+    const fs = require('fs');
+    retorno = {
+        "status": "",
+        "msg": "",
+        "data": {
+            "posicao": "",
+            "situacaoUso": "",
+            "Origem": ""
+        }
+    };
+
+    if (ctrlLeitura == 1) {
+        try {
+            fs.readFile('../server/app/public/history.json', (err, data) => {
+                if (err) {
+                    retorno.status = "Fail";
+                    retorno.data.situacaoUso = "Fail";
+                    retorno.msg = "There was an error trying to read the JSON! ";
+                } else {
+                    retorno.status = "Success";
+                    retorno.msg = "Sucess! The file was read! ";
+                    ctrlLeitura = 0;
+                }
+                let conteudo = JSON.parse(data);
+                retorno.data = conteudo;
+                res.send(retorno.data);
+
+            });
+        } catch (e) {
+
+            retorno.status = "Fail";
+            retorno.data.situacaoUso = "Fail";
+            retorno.msg = "Not possible to read the file!  ";
+            res.send(retorno);
 
         }
 
-        res.send(retorno);
 
-    });
-}else{
-    retorno.status = "Fail";
-    retorno.msg = "Não preparado ainda";
+    } else {
+
+        retorno.status = "Fail";
+        retorno.data.situacaoUso = "Fail";
+        retorno.msg = "Not prepared yet! ";
+        res.send(retorno.data);
+    }
+
+}
+
+module.exports.confExistence = function (app, req, res) {
+    retorno = {
+        "status": "",
+        "msg": ""
+    };
+    retorno.status = "Sucess!";
+    retorno.msg = "Server found! ";
     res.send(retorno);
 
 }
 
+module.exports.getHistory = function (app, req, res) {
 
- 
-
-}
-module.exports.getPos = function(app, req, res){
-
-const fs = require('fs');
-retorno = {
-    "status": "",
-    "msg": "",
-    "data":{
-        "posicao": "",
-        "situacaoUso":"",
-        "Origem": ""
-    }
-};
-
-if(ctrlLeitura == 1){
-
-    fs.readFile('../server/app/public/history.json', (err, data) => {
-        if (err){
-            retorno.status = "FAIL";
-            retorno.data.situacaoUso ="fail";
-            retorno.msg = "Ocorreu um erro ao ler o JSON Object no arquivo";
-        } else{
-            retorno.status = "Success";
-            retorno.msg = "Arquivo lido com sucesso!";
-            ctrlLeitura = 0;
+    const fs = require('fs');
+    retorno = {
+        "status": "",
+        "msg": "",
+        "data": {
+            "posicao": "",
+            "situacaoUso": "",
+            "Origem": ""
         }
-        let conteudo = JSON.parse(data);
-        retorno.data = conteudo;
-        res.send(retorno.data);
-    });
+    };
+
+    try {
+        fs.readFile('../server/app/public/historyWeb.json', (err, data) => {
+            if (err) {
+                retorno.status = "Fail";
+                retorno.data.situacaoUso = "Fail";
+                retorno.msg = "There was an error trying to read the JSON! ";
+            } else {
+                retorno.status = "Success";
+                retorno.msg = "Sucess! The file was read! ";
+                ctrlLeitura = 0;
+            }
+            let conteudo = JSON.parse(data);
+            retorno.data = conteudo;
+            res.send(retorno.data);
+
+        });
+    } catch (e) {
+
+        retorno.status = "Fail";
+        retorno.data.situacaoUso = "Fail";
+        retorno.msg = "Not possible to read the file!  ";
+        res.send(retorno);
+
+    }
 
 
-}else{
-
-        retorno.status = "FAIL";
-        retorno.data.situacaoUso ="fail";
-        retorno.msg = "Não preparado ainda";
-        res.send(retorno.data);
 }
-
-}
-
-

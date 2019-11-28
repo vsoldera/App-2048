@@ -16,6 +16,7 @@ package org.tensorflow.lite.examples.detection;
  * limitations under the License.
  */
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
@@ -36,6 +37,7 @@ import org.tensorflow.lite.examples.detection.customview.AutoFitTextureView;
 import org.tensorflow.lite.examples.detection.env.ImageUtils;
 import org.tensorflow.lite.examples.detection.env.Logger;
 
+@SuppressLint("ValidFragment")
 public class LegacyCameraConnectionFragment extends Fragment {
   private static final Logger LOGGER = new Logger();
   /** Conversion from screen rotation to JPEG orientation. */

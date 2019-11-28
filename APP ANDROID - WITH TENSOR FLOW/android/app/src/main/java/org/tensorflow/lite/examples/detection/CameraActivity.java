@@ -17,7 +17,6 @@
 package org.tensorflow.lite.examples.detection;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -40,7 +39,6 @@ import android.os.Trace;
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.textfield.TextInputLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
@@ -62,7 +60,7 @@ import org.tensorflow.lite.examples.detection.env.Logger;
 
 public abstract class CameraActivity extends AppCompatActivity
 
-    implements OnImageAvailableListener,
+     implements OnImageAvailableListener,
         Camera.PreviewCallback,
         CompoundButton.OnCheckedChangeListener,
         View.OnClickListener {
@@ -96,6 +94,7 @@ public abstract class CameraActivity extends AppCompatActivity
   private Button button1;
   private Button button2;
   private Button button4;
+  private Button button5;
   private TextInputLayout textIP;
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
@@ -222,12 +221,17 @@ public abstract class CameraActivity extends AppCompatActivity
       }
     });
 
+    button5 = findViewById(R.id.button5);
+    button5.setOnClickListener(new View.OnClickListener() {
+      public void onClick(View view) {
+        openActivity5();
+      }
+    });
+
     textIP = findViewById(R.id.ip_input);
 
 
   }
-
-
 
   protected int[] getRgbBytes() {
     imageConverter.run();
@@ -579,26 +583,26 @@ public abstract class CameraActivity extends AppCompatActivity
     }
   }
 
-    public void openActivity2() {
-        Intent intent = new Intent(this, Activity2.class);
-        startActivity(intent);
+  public void openActivity2() {
+    Intent intent = new Intent(this, Activity2.class);
+    startActivity(intent);
+  }
 
-    }
-
-    public void openActivity3() {
-      Intent intent = new Intent(this, Activity3.class);
-      startActivity(intent);
-    }
+  public void openActivity3() {
+    Intent intent = new Intent(this, Activity3.class);
+    startActivity(intent);
+  }
 
   public void openActivity4() {
     Intent intent = new Intent(this, Activity4.class);
     startActivity(intent);
   }
 
-    public void confirmInput(View v) {
+  public void openActivity5() {
+    Intent intent = new Intent(this, Activity5.class);
+    startActivity(intent);
+  }
 
-    
-    }
   protected void showFrameInfo(String frameInfo) {
     frameValueTextView.setText(frameInfo);
   }
