@@ -36,7 +36,7 @@ Se você achou o jogo muito dificil, pode apertar nosso NOOButton : **"K"**.
 
 
 
-## UPDATE 1
+## Update 1
 
 Atualizações para o controle remoto a partir de um aplicativo mobile
 
